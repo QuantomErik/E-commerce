@@ -1,0 +1,173 @@
+/* .carousel-item {
+    transition: opacity 0.7s ease-in-out;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .carousel-container {
+    position: relative;
+  }
+  
+  .hidden {
+    opacity: 0;
+  }
+  
+  .block {
+    opacity: 1;
+  } */
+
+ /*  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+   */
+  
+   /* .carousel-container {
+    
+    max-width: 80%; 
+    margin: 0 auto; 
+    position: relative; 
+  }
+  
+  .carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+ */
+
+/*  .carousel-container {
+    max-width: 100%; 
+    margin: 0 auto; 
+    position: relative; 
+  }
+  
+  .carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-item img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+  } */
+
+  .carousel-container {
+    max-width: 1620px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-item img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover; 
+  }
+  
+  /* Set a specific height for the carousel container */
+  .carousel-container .relative {
+    height: 600px; /* Increase the height of the container */
+  }
+  
+  @media (max-width: 1025px) {
+    .carousel-container .relative {
+      height: 400px;
+    }
+
+    .carousel-item img {
+        width: 100%; 
+        height: 400px;
+        object-fit: cover; 
+      }
+
+  }
+
+
+  @media (max-width: 1350px) {
+    .carousel-container .relative {
+      height: 500px;
+    }
+
+    .carousel-item img {
+        width: 100%; 
+        height: auto;
+        object-fit: cover; 
+      }
+
+  }
+
+
+  @media (max-width: 1315px) {
+    .carousel-container .relative {
+      border-radius: 0; /* Remove border radius for screens 1315px wide or smaller */
+    }
+  }
+  
+
+  @media (max-width: 768px) {
+    .carousel-container .relative {
+      height: 400px;
+    }
+
+    /* .carousel-item img {
+        width: 100%; 
+        height: auto;
+        object-fit: cover; 
+      } */
+
+      .carousel-item img {
+        width: 100%; 
+        height: 100%;
+        object-fit: cover; 
+      }
+      
+
+  }
+  
+
+
+  @media (max-width: 425px) {
+    .carousel-container .relative {
+      height: 300px;
+    }
+
+    .carousel-item img {
+        width: 100%; 
+        height: 100%;
+        object-fit: cover; 
+      }
+      
+
+      /* .carousel-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        position: relative;
+          } */
+
+  }
+  
+  
+  
+  

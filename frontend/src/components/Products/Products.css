@@ -1,0 +1,82 @@
+.products-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+   /*  padding: 1rem; */
+  /*  padding-left: 40px;
+   padding-right: 40px; */
+    
+    
+    /* margin-left: 40px; */
+  }
+  
+  .products-container::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+  }
+  
+  .product-card {
+    flex: 0 0 25%; /* Make each card take up 25% of the container width */
+    max-width: 25%; /* Ensure cards don't exceed this width */
+    box-sizing: border-box; /* Include padding and border in the width */
+    /* padding-left: 1rem;
+    padding-right: 1rem; */
+  }
+  
+  .products-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   /* margin-right: 40px;
+    margin-left: 40px; */
+  }
+  
+  .scroll-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    /* margin-top: 1rem; */
+  }
+  
+  .scroll-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ /*  .drawer {
+    transition: transform 1s ease-in-out;
+  } */
+  
+
+
+
+
+  @media (max-width: 1300px) {
+    .product-card {
+      flex: 0 0 33.33%; /* Adjust the flex-basis value for smaller screens */
+      max-width: 33.33%; /* Ensure cards don't exceed this width */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .product-card {
+      flex: 0 0 50%; /* Adjust the flex-basis value for smaller screens */
+      max-width: 50%; /* Ensure cards don't exceed this width */
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .product-card {
+      flex: 0 0 100%; /* Adjust the flex-basis value for smaller screens */
+      max-width: 100%; /* Ensure cards don't exceed this width */
+    }
+  }

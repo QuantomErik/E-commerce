@@ -1,0 +1,49 @@
+.card-container {
+    padding: 1px;
+    /* You can add other styles here */
+  }
+  
+  .card-price {
+    font-size: 1.5rem; /* Default size */
+  }
+  
+  .add-to-cart-button {
+    font-size: 1rem; /* Default size */
+    padding: 0.5rem 1rem; /* Default padding */
+  }
+  
+  .card-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Media queries for responsive adjustments */
+  @media (max-width: 580px) {
+    .card-price {
+      font-size: 1.2rem; /* Smaller size */
+    }
+  
+    .add-to-cart-button {
+      font-size: 0.8rem; /* Smaller size */
+      padding: 0.25rem 0.75rem; /* Smaller padding */
+    }
+  }
+  
+  @media (max-width: 250px) {
+    .card-details {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .card-price {
+      font-size: 1.5rem; /* Smaller size */
+      margin-bottom: 0.5rem; /* Space between price and button */
+    }
+  
+    .add-to-cart-button {
+      min-width: 100%;
+    }
+  }
+  

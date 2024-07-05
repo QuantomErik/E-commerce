@@ -1,0 +1,21 @@
+/* Add this CSS to your main CSS file or create a new one if needed */
+
+.transition-transform {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .bg-white {
+    background-color: white;
+  }
+  
+  .w-96 {
+    width: 24rem; /* Adjust this value as needed for the desired width */
+  }
+  
+  .duration-500 {
+    transition-duration: 500ms; /* Adjust this value for the desired transition time */
+  }
+  
+  /* .cart {
+    border-color: black;
+  } */

@@ -1,0 +1,51 @@
+/* Navbar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-color: #e2e8f0; /* Tailwind gray-200 */
+    padding-left: 10px; /* Reduces padding on the left */
+    
+    }
+
+/* .navbar-dark {
+    background-color: #1a202c;
+}
+ */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+
+}
+
+.logo img {
+    height: 2rem;
+}
+
+.logo span {
+    font-size: 1.25rem;
+    font-weight: 600; 
+    white-space: nowrap;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-links a {
+    padding: 10px 15px; /* Gives some space around the links */
+    text-decoration: none; /* Optional: Removes underline */
+    color: gray; /* Optional: Sets text color */
+    font-weight: 500; /* Optional: Sets font weight */
+}
+
+.test {
+    justify-content: center;
+}
