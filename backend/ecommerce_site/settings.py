@@ -10,6 +10,8 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STRIPE_SECRET_KEY = 'sk_test_51PZJITL1uQnSO6RdJJzR9DTvrBdWHJL514usZLOGLBPWJdtt8t9ZQ0GkoyGUCWLCgUaN62EHuxRAjFRfhaA2UIcX00Xzx7WFgI'
+
 
 
 SECRET_KEY = 'django-insecure-d@9#@*!ca2artazga(*^7ezrhp8ly+3msc$=$xfm+kg#^m)z!^'
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     "api",
     "rest_framework",
     "corsheaders",
+    "csp",
 ]
 
 MIDDLEWARE = [
@@ -57,7 +60,18 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    'django.middleware.common.CommonMiddleware',
+    "csp.middleware.CSPMiddleware",
 ]
+
+# Content Security Policy settings
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", "https://js.stripe.com", "https://q.stripe.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
+CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
+CSP_SCRIPT_SRC = ("'self'", "https://js.stripe.com", "https://q.stripe.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
+
+
 
 ROOT_URLCONF = 'ecommerce_site.urls'
 
@@ -65,6 +79,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,7 +163,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -166,3 +181,17 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+
+
+# settings.py
+""" KLARNA_USERNAME = 'a6ad8fd8-8291-42c6-85e2-6d4a73cbfd85'
+KLARNA_PASSWORD = 'klarna_test_api_YTBtb09Ec1Rlbkh3c1Z0PzBpQ1g5cUFUIzYhWUdSV2ssYTZhZDhmZDgtODI5MS00MmM2LTg1ZTItNmQ0YTczY2JmZDg1LDEsbmtUUTlJMlgwSkFZR1E3WVhIOURQdzJWQ2E0eGJTTHVMMXl4NHQyNUgyVT0' """
+
+
+
+# Ensure this matches the output directory in Vite's build config
+""" STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend_build')
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') """
