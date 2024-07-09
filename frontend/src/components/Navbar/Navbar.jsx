@@ -42,9 +42,9 @@ const Navbar = () => {
             <li>
               <Link to="/services" className="block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Services</Link>
             </li>
-            <li>
+           {/*  <li>
               <Link to="/pricing" className="block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Pricing</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/contact" className="block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Contact</Link>
             </li>
@@ -59,7 +59,7 @@ const Navbar = () => {
 
 
  {/* Icons on the far right */}
- <div className="flex items-center space-x-5">
+        <div className="mr-10 flex items-center space-x-5">
           <Link to="/login" className="text-gray-900 hover:text-blue-700">
             <FontAwesomeIcon icon={faUser} size="lg" />
           </Link>

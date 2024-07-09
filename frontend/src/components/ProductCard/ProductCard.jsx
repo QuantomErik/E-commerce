@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+
 /* const ProductCard = ({ product }) => { */
 
 const ProductCard = ({ product }) => {
@@ -13,7 +14,8 @@ const ProductCard = ({ product }) => {
 
 
   return (
-    <div className="card-container w-full bg-white border-gray-200 rounded-lg shadow">
+    <div className="card-container w-full bg-white border-gray-200 rounded-lg shadow mb-10">
+      
       <a href="#">
         <img className="card rounded-t-lg w-full h-64 object-cover" src={product.image} alt={product.name} />
       </a>

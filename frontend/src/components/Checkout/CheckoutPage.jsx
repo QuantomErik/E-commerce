@@ -1,44 +1,66 @@
-// src/components/Checkout/CheckoutPage.jsx
 import React, { useContext } from 'react';
 import { CartContext } from '../Cart/CartContext';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import PaymentForm from './PaymentForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import './Checkout.css';
+
+const stripePromise = loadStripe('pk_test_51PZJITL1uQnSO6RdmlYKBQxfEc4KgkP7as0Ae5sTA9q5ggSPH4PJr8hW1BLyvlKNrYPFLi2Kab10nM1wOr1VB38a003uN4bhf3');
 
 const CheckoutPage = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, updateQuantity, removeFromCart } = useContext(CartContext);
 
-  // Function to calculate subtotal
   const calculateSubtotal = () => {
-    return cart.reduce((total, product) => total + Number(product.price), 0).toFixed(2);
+    return cart.reduce((total, product) => total + (Number(product.price) * product.quantity), 0).toFixed(2);
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Checkout</h1>
-      {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <>
-          <ul>
-            {cart.map((product) => (
-              <li key={product.id} className="flex items-center justify-between my-2">
-                <img src={product.image} alt={product.name} className="w-12 h-12 object-cover mr-2" />
-                <div className="flex-grow">
-                  {product.name} - ${product.price}
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-4">
-            <p className="text-lg font-semibold">Subtotal: ${calculateSubtotal()}</p>
-            {/* Add more checkout fields and payment integration here */}
-            <button
-              className="mt-2 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              onClick={() => {/* Add your payment logic here */}}
-            >
-              Place Order
-            </button>
-          </div>
-        </>
-      )}
+    <div className="min-h-screen flex">
+      <div className="cart-items bg-gray-200">
+        <h1 className="text-2xl font-bold mb-4 mt-4">Your Cart</h1>
+        {cart.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          <>
+            <ul className="divide-y divide-gray-300">
+              {cart.map((product) => (
+                <li key={product.id} className="flex items-center py-4">
+                  <img src={product.image} alt={product.name} className="w-16 h-16 object-cover mr-4 rounded-lg" />
+                  <div className="flex-grow">
+                    <p className="product-name text-lg font-semibold">{product.name}</p>
+                    <p className="text-gray-600">${product.price}</p>
+                  </div>
+                  <div className="flex items-center ml-4">
+                    <div className="gauge border border-gray-300 rounded p-1 flex items-center">
+                      <button onClick={() => updateQuantity(product.id, product.quantity - 1)} className="text-gray-500 mr-2 ml-1">
+                        <FontAwesomeIcon icon={faMinus} />
+                      </button>
+                      <span className="px-2">{product.quantity}</span>
+                      <button onClick={() => updateQuantity(product.id, product.quantity + 1)} className="text-gray-500 ml-2 mr-1">
+                        <FontAwesomeIcon icon={faPlus} />
+                      </button>
+                    </div>
+                    <button onClick={() => removeFromCart(product.id)} className="text-gray-500 ml-4 trash-icon">
+                      <FontAwesomeIcon icon={faTrash} />
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4">
+              <p className="text-xl font-semibold">Subtotal: ${calculateSubtotal()}</p>
+            </div>
+          </>
+        )}
+      </div>
+      <div className="payment-information bg-white p-8">
+        <h2 className="text-2xl font-bold mb-4">Payment Information</h2>
+        <Elements stripe={stripePromise}>
+          <PaymentForm amount={calculateSubtotal()} cartItems={cart} />
+        </Elements>
+      </div>
     </div>
   );
 };

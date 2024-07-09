@@ -30,6 +30,12 @@
       padding: 0.25rem 0.75rem; /* Smaller padding */
     }
   }
+
+  
+/* .card-placeholder {
+  background-color: #f0f0f0;
+}
+ */
   
   @media (max-width: 250px) {
     .card-details {

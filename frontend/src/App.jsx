@@ -11,6 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { CartProvider } from "./components/Cart/CartContext"
 import CartPage from './components/Cart/CartPage';
+import SuccessPage from "./components/Success/SuccessPage"
 
 
 library.add(faShoppingCart, faUser);
@@ -44,6 +45,7 @@ function App() {
         <Route path="/register" element={<RegisterAndLogout />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/success" element={<SuccessPage />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>
