@@ -1,0 +1,21 @@
+.scroll-to-top-button {
+    width: 100%;
+    padding: 1rem;
+    /* background-color: #505675; */
+    background-color: #4f5368;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /* position: fixed; */
+    bottom: 60px; /* Adjust as needed to sit above the footer */
+    left: 0;
+    text-align: center;
+    font-size: 0.8em;
+    z-index: 1000; /* Ensure it's above other elements */
+    font-weight: bold;
+  }
+  
+  .scroll-to-top-button:hover {
+    background-color: #676f7a;
+  }
+  

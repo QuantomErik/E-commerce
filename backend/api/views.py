@@ -28,6 +28,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     ordering_fields = ['price', 'created_at']
     filterset_fields = ['category', 'price']
 
+    def get_serializer_context(self):
+        return {'request': self.request}
+
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer

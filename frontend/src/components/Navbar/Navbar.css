@@ -10,6 +10,8 @@
     
     }
 
+
+
 /* .navbar-dark {
     background-color: #1a202c;
 }
@@ -43,14 +45,28 @@
 .nav-links a {
     padding: 10px 15px; /* Gives some space around the links */
     text-decoration: none; /* Optional: Removes underline */
-    color: gray; /* Optional: Sets text color */
-    font-weight: 500; /* Optional: Sets font weight */
+    color: gray;
+    font-weight: 500;
 }
 
 .test {
     justify-content: center;
+    /* background-color: rgb(124, 38, 38); */
 }
 
 /* .navbar-icon {
     margin-right: 10px;
 } */
+
+.nav-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* .navbar-icon {
+    margin-left: 600px;
+} */
+
+.nav {
+    /* background-color: #373949; */
+}

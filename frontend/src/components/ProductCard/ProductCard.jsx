@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
     <div className="card-container w-full bg-white border-gray-200 rounded-lg shadow mb-10">
       
       <a href="#">
-        <img className="card rounded-t-lg w-full h-64 object-cover" src={product.image} alt={product.name} />
+        <img className="card rounded-t-lg w-full h-64 object-cover" src={product.image_url} alt={product.name} />
       </a>
 
       <div className="px-5 pb-5">

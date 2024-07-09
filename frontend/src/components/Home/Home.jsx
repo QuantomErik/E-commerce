@@ -15,7 +15,7 @@ function Home() {
       </div> */}
       <Carousell />
       <Products />  {/* This line includes the Products component on the home page */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

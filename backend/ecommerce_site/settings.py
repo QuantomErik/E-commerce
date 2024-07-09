@@ -1,26 +1,27 @@
-
-
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
 import os
 
+# Load environment variables
 load_dotenv()
 
-
+# Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-STRIPE_SECRET_KEY = 'sk_test_51PZJITL1uQnSO6RdJJzR9DTvrBdWHJL514usZLOGLBPWJdtt8t9ZQ0GkoyGUCWLCgUaN62EHuxRAjFRfhaA2UIcX00Xzx7WFgI'
+# Stripe secret key
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'sk_test_51PZJITL1uQnSO6RdJJzR9DTvrBdWHJL514usZLOGLBPWJdtt8t9ZQ0GkoyGUCWLCgUaN62EHuxRAjFRfhaA2UIcX00Xzx7WFgI')
 
+# Django secret key
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-d@9#@*!ca2artazga(*^7ezrhp8ly+3msc$=$xfm+kg#^m)z!^')
 
-
-SECRET_KEY = 'django-insecure-d@9#@*!ca2artazga(*^7ezrhp8ly+3msc$=$xfm+kg#^m)z!^'
-
-
+# Debug mode
 DEBUG = True
 
+# Allowed hosts
 ALLOWED_HOSTS = ["*"]
 
+# REST Framework settings
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
@@ -30,14 +31,13 @@ REST_FRAMEWORK = {
     ],
 }
 
+# JWT settings
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=300),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
 }
 
-
-# Application definition
-
+# Installed applications
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -50,8 +50,10 @@ INSTALLED_APPS = [
     "corsheaders",
     "csp",
     "django_filters",
+    "storages",
 ]
 
+# Middleware settings
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -70,17 +72,15 @@ CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'", "https://js.stripe.com", "https://q.stripe.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
 CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
-CSP_SCRIPT_SRC = ("'self'", "https://js.stripe.com", "https://q.stripe.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
 
-
-
+# URL configuration
 ROOT_URLCONF = 'ecommerce_site.urls'
 
+# Template settings
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -93,46 +93,22 @@ TEMPLATES = [
     },
 ]
 
+# WSGI application
 WSGI_APPLICATION = 'ecommerce_site.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-""" DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'qLtMTNTpBIchTJMpJNZPOTfaptIPsNTJ',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '45718',
-    }
-} """
-
+# Database configuration
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'initial_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Chelseapizda-1',
-        'HOST': 'database-1.c5260gei80wz.eu-north-1.rds.amazonaws.com',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'initial_db'),
+        'USER': os.getenv('DB_USER', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'Chelseapizda-1'),
+        'HOST': os.getenv('DB_HOST', 'database-1.c5260gei80wz.eu-north-1.rds.amazonaws.com'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
-
-
 
 # Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -148,51 +124,39 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
+# Localization settings
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
+# Static files settings
 STATIC_URL = '/static/'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-""" AUTH_USER_MODEL = 'accounts.CustomUser' """
+# AWS S3 settings
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', 'AKIA6ODU66UK37Q4P5VP')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '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')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', 'quantombucket')
+AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME', 'eu-north-1')  # Use the short code for the region
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
 
-# settings.py
+# Media files (Uploads) settings
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-
-
-# settings.py
-""" KLARNA_USERNAME = 'a6ad8fd8-8291-42c6-85e2-6d4a73cbfd85'
-KLARNA_PASSWORD = 'klarna_test_api_YTBtb09Ec1Rlbkh3c1Z0PzBpQ1g5cUFUIzYhWUdSV2ssYTZhZDhmZDgtODI5MS00MmM2LTg1ZTItNmQ0YTczY2JmZDg1LDEsbmtUUTlJMlgwSkFZR1E3WVhIOURQdzJWQ2E0eGJTTHVMMXl4NHQyNUgyVT0' """
-
-
-
-# Ensure this matches the output directory in Vite's build config
-""" STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend_build')
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') """
+# Ensure environment variables are loaded
+print(f'AWS_ACCESS_KEY_ID: {AWS_ACCESS_KEY_ID}')
+print(f'AWS_SECRET_ACCESS_KEY: {AWS_SECRET_ACCESS_KEY}')
+print(f'AWS_STORAGE_BUCKET_NAME: {AWS_STORAGE_BUCKET_NAME}')
+print(f'AWS_S3_REGION_NAME: {AWS_S3_REGION_NAME}')
+print(f'AWS_S3_CUSTOM_DOMAIN: {AWS_S3_CUSTOM_DOMAIN}')

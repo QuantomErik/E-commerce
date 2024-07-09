@@ -12,6 +12,8 @@ import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { CartProvider } from "./components/Cart/CartContext"
 import CartPage from './components/Cart/CartPage';
 import SuccessPage from "./components/Success/SuccessPage"
+import Footer from "./components/Footer/Footer"
+import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton"
 
 
 library.add(faShoppingCart, faUser);
@@ -39,7 +41,7 @@ function App() {
         
         {/* <Route path="/"element={<ProtectedRoute><Home /></ProtectedRoute>}/> */}
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Products />} />
+        {/* <Route path="/" element={<Products />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/register" element={<RegisterAndLogout />} />
@@ -48,6 +50,8 @@ function App() {
         <Route path="/success" element={<SuccessPage />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
+      <ScrollToTopButton />
+      <Footer />
     </BrowserRouter>
     </CartProvider>
   )
