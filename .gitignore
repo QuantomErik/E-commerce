@@ -1,1 +1,113 @@
-node_modules
+# Logs
+*.log
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+*.pid
+
+# Django/Python
+*.py[cod]
+*.pot
+__pycache__/
+db.sqlite3
+local_settings.py
+db.sqlite3-journal
+
+# Environments
+.env
+env/
+env.bak/
+myenv/
+venv/
+venv.bak/
+ENV/
+
+# IDEs and Editors
+.vscode/
+.idea/
+.spyderproject
+.spyproject
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Static and Media files
+staticfiles/
+media/
+
+# Node.js
+node_modules/
+dist/
+dist-ssr/
+public/
+
+# Build directories
+build/
+site/
+*.egg-info/
+*.egg
+coverage/
+htmlcov/
+.coverage
+.coverage.*
+.cache
+.tox/
+.nox/
+pip-log.txt
+pip-delete-this-directory.txt
+coverage.xml
+nosetests.xml
+*.cover
+*.py,cover
+.hypothesis/
+celerybeat-schedule
+celerybeat.pid
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Translations
+*.mo
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# SageMath parsed files
+*.sage.py
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# System-specific files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
