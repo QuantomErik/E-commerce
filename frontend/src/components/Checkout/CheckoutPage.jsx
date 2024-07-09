@@ -27,7 +27,7 @@ const CheckoutPage = () => {
             <ul className="divide-y divide-gray-300">
               {cart.map((product) => (
                 <li key={product.id} className="flex items-center py-4">
-                  <img src={product.image} alt={product.name} className="w-16 h-16 object-cover mr-4 rounded-lg" />
+                  <img src={product.image_url} alt={product.name} className="w-16 h-16 object-cover mr-4 rounded-lg" />
                   <div className="flex-grow">
                     <p className="product-name text-lg font-semibold">{product.name}</p>
                     <p className="text-gray-600">${product.price}</p>

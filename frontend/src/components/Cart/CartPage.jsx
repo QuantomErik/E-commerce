@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+/* import React, { useContext } from 'react';
 import { CartContext } from './CartContext';
 
 const CartPage = () => {
@@ -23,4 +23,4 @@ const CartPage = () => {
   );
 };
 
-export default CartPage;
+export default CartPage; */

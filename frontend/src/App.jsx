@@ -10,7 +10,7 @@ import CheckoutPage from "./components/Checkout/CheckoutPage";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { CartProvider } from "./components/Cart/CartContext"
-import CartPage from './components/Cart/CartPage';
+/* import CartPage from './components/Cart/CartPage'; */
 import SuccessPage from "./components/Success/SuccessPage"
 import Footer from "./components/Footer/Footer"
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton"
@@ -45,7 +45,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/register" element={<RegisterAndLogout />} />
-        <Route path="/cart" element={<CartPage />} />
+        {/* <Route path="/cart" element={<CartPage />} /> */}
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/success" element={<SuccessPage />} />
         <Route path="*" element={<NotFound />}></Route>

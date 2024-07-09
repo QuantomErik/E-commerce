@@ -111,3 +111,6 @@ Desktop.ini
 *.njsproj
 *.sln
 *.sw?
+frontend_build/
+# Static files
+staticfiles/

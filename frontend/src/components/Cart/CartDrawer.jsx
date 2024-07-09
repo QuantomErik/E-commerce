@@ -73,7 +73,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
             <ul>
               {cart.map((product) => (
                 <li key={product.id} className="flex items-center justify-between my-2">
-                  <img src={product.image} alt={product.name} className="w-12 h-12 object-cover mr-2" />
+                  <img src={product.image_url} alt={product.name} className="w-12 h-12 object-cover mr-2" />
                   <div className="flex-grow">
                     {product.name} - ${product.price}
                   </div>
