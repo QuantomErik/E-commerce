@@ -35,19 +35,19 @@ function Carousell() {
       <div id="gallery" className="relative w-full" data-carousel="slide">
         <div className="relative overflow-hidden rounded-lg">
           <div className="hidden duration-700 ease-in-out carousel-item" data-carousel-item>
-            <img src="/images/sun.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 1" />
+            <img src="/ecommerce/images/sun.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 1" />
           </div>
           <div className="hidden duration-700 ease-in-out carousel-item" data-carousel-item="active">
-            <img src="/images/2.webp" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 2" />
+            <img src="/ecommerce/images/2.webp" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 2" />
           </div>
           <div className="hidden duration-700 ease-in-out carousel-item" data-carousel-item>
-            <img src="/images/purple-planet.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 3" />
+            <img src="/ecommerce/images/purple-planet.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 3" />
           </div>
           <div className="hidden duration-700 ease-in-out carousel-item" data-carousel-item>
-            <img src="images/purple-stars2jpg.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 4" />
+            <img src="/ecommerce/images/purple-stars2jpg.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 4" />
           </div>
           <div className="hidden duration-700 ease-in-out carousel-item" data-carousel-item>
-            <img src="/images/1.webp" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 5" />
+            <img src="/ecommerce/images/1.webp" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 5" />
           </div>
         </div>
         <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>

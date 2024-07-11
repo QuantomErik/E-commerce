@@ -18,6 +18,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-d@9#@*!ca2artazga(*^7ezrhp
 # Debug mode
 DEBUG = True
 
+
+
 # Allowed hosts
 ALLOWED_HOSTS = ["*"]
 
@@ -65,13 +67,41 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     "csp.middleware.CSPMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
 # Content Security Policy settings
-CSP_DEFAULT_SRC = ("'self'",)
+""" CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'", "https://js.stripe.com", "https://q.stripe.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
-CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
+CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com", "https://gc.kis.v2.scr.kaspersky-labs.com") """
+
+
+# Content Security Policy settings
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = (
+    "'self'",
+    "https://js.stripe.com",
+    "https://q.stripe.com",
+    "https://gc.kis.v2.scr.kaspersky-labs.com"
+)
+CSP_STYLE_SRC = (
+    "'self'",
+    "'unsafe-inline'",
+    "https://fonts.googleapis.com",
+    "https://gc.kis.v2.scr.kaspersky-labs.com"
+)
+CSP_FONT_SRC = (
+    "'self'",
+    "https://fonts.gstatic.com",
+    "https://gc.kis.v2.scr.kaspersky-labs.com"
+)
+
+if DEBUG:
+    CSP_SCRIPT_SRC += ("'unsafe-eval'", "'unsafe-inline'",)
+    CSP_STYLE_SRC += ("'unsafe-inline'",)
+
+
 
 # URL configuration
 ROOT_URLCONF = 'ecommerce_site.urls'
@@ -131,7 +161,12 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files settings
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
+STATIC_URL = '/ecommerce/static/'
+""" STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    
+] """
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -150,9 +185,13 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 
+# Whitenoise configuration for serving static files in production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Media files (Uploads) settings
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/products/'
 
 # Ensure environment variables are loaded
 print(f'AWS_ACCESS_KEY_ID: {AWS_ACCESS_KEY_ID}')
@@ -160,3 +199,9 @@ print(f'AWS_SECRET_ACCESS_KEY: {AWS_SECRET_ACCESS_KEY}')
 print(f'AWS_STORAGE_BUCKET_NAME: {AWS_STORAGE_BUCKET_NAME}')
 print(f'AWS_S3_REGION_NAME: {AWS_S3_REGION_NAME}')
 print(f'AWS_S3_CUSTOM_DOMAIN: {AWS_S3_CUSTOM_DOMAIN}')
+
+
+# Ensure FORCE_SCRIPT_NAME is set to handle subdirectory
+# FORCE_SCRIPT_NAME = '/ecommerce'
+STATIC_URL = '/ecommerce/static/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/products/'

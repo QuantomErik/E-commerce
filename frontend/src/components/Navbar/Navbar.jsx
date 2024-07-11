@@ -1,22 +1,38 @@
-import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css'
+import React, { useState, useContext, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../Cart/CartContext';
+import { AuthContext } from '../Auth/AuthContext';
 import CartDrawer from '../Cart/CartDrawer';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { cart } = useContext(CartContext);
+  const { isAuthenticated, logout } = useContext(AuthContext);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleUserIconClick = () => {
+    if (isAuthenticated) {
+      setIsDropdownOpen(!isDropdownOpen);
+    } else {
+      navigate('/login');
+    }
+  };
+
+  useEffect(() => {
+    // Close dropdown on successful login
+    if (isAuthenticated) {
+      setIsDropdownOpen(false);
+    }
+  }, [isAuthenticated]);
 
   return (
     <nav className="bg-white border-gray-200">
       <div className="nav flex flex-wrap items-center justify-between mx-auto p-4">
-       
-        
-        {/* Menu toggle button for mobile view */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           type="button"
@@ -30,7 +46,6 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Centered menu items */}
         <div className={`flex-grow ${isOpen ? 'block' : 'hidden'} md:block w-full md:w-auto`} id="mobile-menu">
           <ul className="test flex flex-col items-center mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
@@ -42,34 +57,35 @@ const Navbar = () => {
             <li>
               <Link to="/todaysdeals" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Todays Deals</Link>
             </li>
-           {/*  <li>
-              <Link to="/pricing" className="block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Pricing</Link>
-            </li> */}
             <li>
               <Link to="/giftcards" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Gift Cards</Link>
             </li>
             <li>
               <Link to="/giftideas" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Gift Ideas</Link>
             </li>
-            <li>
-              <Link to="/login" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Login</Link>
-            </li>
-            <li>
-              <Link to="/register" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Register</Link>
-            </li>
+            
           </ul>
-
-
-
-          
         </div>
 
-
- {/* Icons on the far right */}
         <div className="navbar-icon flex items-center space-x-5">
-          <Link to="/login" className="text-gray-900 hover:text-blue-700">
-            <FontAwesomeIcon icon={faUser} size="lg" />
-          </Link>
+          <div className="relative">
+            <button 
+              onClick={handleUserIconClick} 
+              className="text-gray-900 hover:text-blue-700"
+            >
+              <FontAwesomeIcon icon={faUser} size="lg" />
+            </button>
+            {isDropdownOpen && isAuthenticated && (
+              <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg" style={{ zIndex: 1000 }}>
+                <button
+                  onClick={logout}
+                  className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
           <button 
             onClick={() => setIsDrawerOpen(true)} 
             className="text-gray-900 hover:text-blue-700 relative"
@@ -86,9 +102,6 @@ const Navbar = () => {
 
       <CartDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
     </nav>
-
-
-
   );
 };
 

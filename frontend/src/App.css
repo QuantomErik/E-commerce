@@ -1,3 +1,22 @@
+/* Add this to your App's main CSS file or create a new one */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#root, .app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+
+
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -41,9 +60,9 @@
   color: #888;
 }
  */
- #link-pay {
+/*  #link-pay {
   display: none;
-}
+} */
 
 
 /* html, body #root {
@@ -52,14 +71,14 @@
  
 } */
 
-@media (max-width: 1500px) {
+/* @media (max-width: 1500px) {
   html, body #root {
-    /* padding-left: 30px;
-    padding-right: 30px; */
-    /* margin: 5px; */
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 5px;
   }
 }
-
+ */
 
 @media (max-width: 1300px) {
   html, body #root {
