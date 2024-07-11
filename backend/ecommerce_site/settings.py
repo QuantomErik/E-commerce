@@ -68,6 +68,11 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
+
+CORS_ALLOWED_ORIGINS = [
+    "https://erikyang.se",
+]
+
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = (
     "'self'",
