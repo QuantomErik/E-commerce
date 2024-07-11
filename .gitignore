@@ -114,3 +114,6 @@ Desktop.ini
 frontend_build/
 # Static files
 staticfiles/
+/frontend/public/images
+/backend/media/products
+
