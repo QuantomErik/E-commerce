@@ -25,9 +25,8 @@ const Products = () => {
             category: selectedCategory,
           },
         });
+        console.log('Fetch Products Response:', response);
         const allProducts = response.data;
-        /* setFirstRowProducts(allProducts.slice(0, 9));
-        setSecondRowProducts(allProducts.slice(9, 14)); */
         setFirstRowProducts(allProducts.filter(product => product.category.name === "Planets"));
         setSecondRowProducts(allProducts.filter(product => product.category.name === "Moons"));
         setThirdRowProducts(allProducts.filter(product => product.category.name === "Constellations"));
@@ -35,17 +34,18 @@ const Products = () => {
       } catch (err) {
         setError('Failed to fetch products');
         setLoading(false);
-        console.error(err);
+        console.error('Fetch Products Error:', err);
       }
     };
 
     const fetchCategories = async () => {
       try {
         const response = await api.get('/api/categories/');
+        console.log('Fetch Categories Response:', response);
         setCategories(response.data);
       } catch (err) {
         setError('Failed to fetch categories');
-        console.error(err);
+        console.error('Fetch Categories Error:', err);
       }
     };
 
@@ -94,7 +94,7 @@ const Products = () => {
         </select>
       </div>
       
-      {/* <h1>Planets</h1> */}
+      {/* Planets */}
       <div className="products-wrapper">
         <button className="scroll-button left" onClick={() => scrollLeft(containerRef1)}>
           &lt;
@@ -111,8 +111,7 @@ const Products = () => {
         </button>
       </div>
 
-
-      {/* <h1>Moons</h1> */}
+      {/* Moons */}
       <div className="products-wrapper">
         <button className="scroll-button left" onClick={() => scrollLeft(containerRef2)}>
           &lt;
@@ -129,7 +128,7 @@ const Products = () => {
         </button>
       </div>
 
-
+      {/* Constellations */}
       <div className="products-wrapper">
         <button className="scroll-button left" onClick={() => scrollLeft(containerRef3)}>
           &lt;
@@ -145,9 +144,6 @@ const Products = () => {
           &gt;
         </button>
       </div>
-
-
-
     </div>
   );
 };

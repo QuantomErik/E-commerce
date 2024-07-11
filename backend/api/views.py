@@ -9,6 +9,14 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import stripe
 import json
+import logging
+
+logger = logging.getLogger(__name__)
+
+def some_view(request):
+    logger.info(f"Received request from {request.META['REMOTE_ADDR']}")
+    # rest of the view code
+
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 

@@ -18,8 +18,6 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-d@9#@*!ca2artazga(*^7ezrhp
 # Debug mode
 DEBUG = True
 
-
-
 # Allowed hosts
 ALLOWED_HOSTS = ["*"]
 
@@ -71,23 +69,18 @@ MIDDLEWARE = [
 ]
 
 # Content Security Policy settings
-""" CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = ("'self'", "https://js.stripe.com", "https://q.stripe.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
-CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://gc.kis.v2.scr.kaspersky-labs.com")
-CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com", "https://gc.kis.v2.scr.kaspersky-labs.com") """
-
-
-# Content Security Policy settings
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = (
     "'self'",
     "https://js.stripe.com",
     "https://q.stripe.com",
-    "https://gc.kis.v2.scr.kaspersky-labs.com"
+    "https://gc.kis.v2.scr.kaspersky-labs.com",
+    "'unsafe-inline'",  # Allow inline scripts
+    "'unsafe-eval'"     # Allow eval scripts
 )
 CSP_STYLE_SRC = (
     "'self'",
-    "'unsafe-inline'",
+    "'unsafe-inline'",  # Allow inline styles
     "https://fonts.googleapis.com",
     "https://gc.kis.v2.scr.kaspersky-labs.com"
 )
@@ -96,12 +89,22 @@ CSP_FONT_SRC = (
     "https://fonts.gstatic.com",
     "https://gc.kis.v2.scr.kaspersky-labs.com"
 )
+CSP_IMG_SRC = (
+    "'self'",
+    "data:",  # Allow inline images (base64 encoded)
+    "https://gc.kis.v2.scr.kaspersky-labs.com",
+    "https://*.stripe.com"
+)
+CSP_CONNECT_SRC = (
+    "'self'",
+    "https://*.stripe.com",
+    "https://gc.kis.v2.scr.kaspersky-labs.com"
+)
+CSP_REPORT_URI = "https://q.stripe.com/csp-report"
 
 if DEBUG:
     CSP_SCRIPT_SRC += ("'unsafe-eval'", "'unsafe-inline'",)
     CSP_STYLE_SRC += ("'unsafe-inline'",)
-
-
 
 # URL configuration
 ROOT_URLCONF = 'ecommerce_site.urls'
