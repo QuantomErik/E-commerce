@@ -26,7 +26,10 @@ const Products = () => {
           },
         });
         console.log('Fetch Products Response:', response);
-        const allProducts = response.data;
+        const allProducts = response.data.map(product => ({
+          ...product,
+          price: parseFloat(product.price), // Ensure price is a number
+        }));
         setFirstRowProducts(allProducts.filter(product => product.category.name === "Planets"));
         setSecondRowProducts(allProducts.filter(product => product.category.name === "Moons"));
         setThirdRowProducts(allProducts.filter(product => product.category.name === "Constellations"));
