@@ -68,7 +68,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
-# Content Security Policy settings
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = (
     "'self'",
@@ -93,7 +92,8 @@ CSP_IMG_SRC = (
     "'self'",
     "data:",  # Allow inline images (base64 encoded)
     "https://gc.kis.v2.scr.kaspersky-labs.com",
-    "https://*.stripe.com"
+    "https://*.stripe.com",
+    "https://quantombucket.s3.amazonaws.com"  # Allow images from your S3 bucket
 )
 CSP_CONNECT_SRC = (
     "'self'",
@@ -105,6 +105,7 @@ CSP_REPORT_URI = "https://q.stripe.com/csp-report"
 if DEBUG:
     CSP_SCRIPT_SRC += ("'unsafe-eval'", "'unsafe-inline'",)
     CSP_STYLE_SRC += ("'unsafe-inline'",)
+
 
 # URL configuration
 ROOT_URLCONF = 'ecommerce_site.urls'
