@@ -18,11 +18,6 @@ jobs:
         with:
           node-version: '21'
 
-      - name: Remove node_modules and package-lock.json
-        run: |
-          rm -rf frontend/node_modules
-          rm -f frontend/package-lock.json
-
       - name: Install frontend dependencies
         working-directory: ./frontend
         run: npm install
@@ -31,18 +26,6 @@ jobs:
         working-directory: ./frontend
         run: npm run build
         shell: bash
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install backend dependencies
-        working-directory: ./backend
-        run: |
-          python -m venv myenv
-          source myenv/bin/activate
-          pip install -r requirements.txt
 
       - name: Create .ssh directory
         run: mkdir -p $HOME/.ssh
@@ -65,15 +48,15 @@ jobs:
           # Sync frontend build to server frontend directory
           rsync -avz --delete frontend/dist/ $SERVER_USER@$SERVER_IP:/var/www/ecommerce/frontend/dist/
 
-          # Sync backend code
-          rsync -avz --delete backend/ $SERVER_USER@$SERVER_IP:/var/www/ecommerce/backend/
+          # Sync backend code, excluding the virtual environment, media, staticfiles, and .env file
+          rsync -avz --exclude='myenv' --exclude='media' --exclude='staticfiles' --exclude='.env' --delete backend/ $SERVER_USER@$SERVER_IP:/var/www/ecommerce/backend/
 
           # SSH into the server to restart services
           ssh $SERVER_USER@$SERVER_IP << 'EOF'
             cd /var/www/ecommerce/backend
             source myenv/bin/activate
             python manage.py collectstatic --noinput
-            sudo systemctl restart ecommerce-gunicorn
+            sudo systemctl restart gunicorn
             sudo systemctl restart nginx
           EOF
         shell: bash
