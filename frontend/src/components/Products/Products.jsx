@@ -57,7 +57,7 @@ const Products = () => {
   }, [search, selectedCategory]);
 
   const scrollLeft = (ref) => {
-    const cardWidth = ref.current.clientWidth / 4; // 25% of the container width
+    const cardWidth = ref.current.clientWidth / 3; // 25% of the container width
     ref.current.scrollBy({
       left: -cardWidth,
       behavior: 'smooth',
@@ -65,7 +65,7 @@ const Products = () => {
   };
 
   const scrollRight = (ref) => {
-    const cardWidth = ref.current.clientWidth / 4; // 25% of the container width
+    const cardWidth = ref.current.clientWidth / 3; // 25% of the container width
     ref.current.scrollBy({
       left: cardWidth,
       behavior: 'smooth',

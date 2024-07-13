@@ -33,7 +33,7 @@ function Carousell() {
   return (
     <div className="carousel-container">
       <div id="gallery" className="relative w-full" data-carousel="slide">
-        <div className="relative overflow-hidden rounded-lg">
+        <div className="relative overflow-hidden">
           <div className="hidden duration-700 ease-in-out carousel-item" data-carousel-item>
             <img src="/ecommerce/images/sun.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image 1" />
           </div>

@@ -1,15 +1,21 @@
 .card-container {
     padding: 1px;
-    /* You can add other styles here */
+    position: relative;
+    overflow: hidden;
+    /* border-radius: 0; */
   }
+
+.card {
+  height: 400px;
+} 
   
   .card-price {
     font-size: 1.5rem; /* Default size */
   }
   
   .add-to-cart-button {
-    font-size: 1rem; /* Default size */
-    padding: 0.5rem 1rem; /* Default padding */
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
   
   .card-details {
@@ -18,6 +24,33 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .card-description {
+    font-size: 0.8rem;
+  }
+
+
+  .card-container:hover .add-to-cart-button {
+    opacity: 1;
+    /* transform: translateY(0); */
+  }
+
+  .add-to-cart-button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+
+
+
+
+
+
+
+
   
   /* Media queries for responsive adjustments */
   @media (max-width: 580px) {
@@ -51,5 +84,12 @@
     .add-to-cart-button {
       min-width: 100%;
     }
+  }
+
+
+  @media (max-width: 1350px) {
+    .card {
+      height: 350px;
+    } 
   }
   

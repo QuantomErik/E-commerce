@@ -65,7 +65,8 @@
   } */
 
   .carousel-container {
-    max-width: 1620px;
+    /* max-width: 1620px; */
+    max-width: 1770px;
     margin: 0 auto;
     position: relative;
     margin-bottom: 20px;
@@ -88,7 +89,7 @@
   
   /* Set a specific height for the carousel container */
   .carousel-container .relative {
-    height: 600px; /* Increase the height of the container */
+    height: 800px; /* Increase the height of the container */
   }
   
   @media (max-width: 1025px) {
