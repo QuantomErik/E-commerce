@@ -26,12 +26,12 @@ const ProductCard = ({ product }) => {
 </button>
       </div>
 
-      <div className="px-5 pb-5">
+      <div className="text-box px-5 pb-3">
         <a href="#">
           <h5 className="text-xl font-semibold tracking-tight text-gray-900">{product.name}</h5>
         </a>
         <p className="card-description text-gray-700">{product.description}</p>
-        <div className="card-details mt-5">
+        <div className="card-details mt-4">
           <span className="card-price font-bold text-gray-900">${product.price}</span>
         </div>
       </div>

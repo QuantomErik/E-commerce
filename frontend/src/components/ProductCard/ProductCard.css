@@ -4,6 +4,9 @@
     overflow: hidden;
     /* border-radius: 0; */
     font-family: 'Roboto', sans-serif;
+    height: 35rem;
+    /* height: 100%; */
+    /* padding: 0px; */
   }
 
 .card {
@@ -11,7 +14,8 @@
 } 
   
   .card-price {
-    font-size: 1.5rem; /* Default size */
+    font-size: 1.5rem;/* Default size */
+   /*  margin-bottom: 1px; */
   }
   
   .add-to-cart-button {
@@ -24,11 +28,25 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    /* margin-bottom: 0px;  */
+    /* margin-top: auto; */
   }
 
   .card-description {
     font-size: 0.8rem;
     margin-top: 0.2rem;
+    /* flex-grow: 1;  */
+    margin-bottom: 1rem;
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    flex-grow: 1; /*
+  }
+
+  .text-box {
+
   }
 
 
@@ -46,12 +64,72 @@
   }
 
 
+ /*  .image-wrapper {
+    position: relative;
+    flex: 0 0 auto;
+  }
+ */
 
 
+  @media (max-width: 1700px) {
+    /* .card {
+      height: 150px;
+    }  */
+    .card-container {
+     /*  padding: 1px;
+      position: relative;
+      overflow: hidden;
+      
+      font-family: 'Roboto', sans-serif;
+      height: 27rem; */
+    }
+  }
+
+  @media (max-width: 1350px) {
+    .card {
+      height: 350px;
+    } 
+
+    .card-container {
+      height: 31rem; /* Adjust height if needed for smaller screens */
+      /* padding: 10px; */ /* Reduce padding */
+    }
+  }
 
 
-
-
+  @media (max-width: 750px) {
+    
+    .card-container {
+      height: 23rem; /* Adjust height if needed for smaller screens */
+      /* padding: 10px; */ /* Reduce padding */
+    }
+  
+    .text-box {
+      padding: 10px; /* Reduce padding */
+    }
+  
+    .card-title {
+      font-size: 1rem; /* Reduce font size */
+    }
+  
+    .card-description {
+      font-size: 0.75rem; /* Reduce font size */
+      -webkit-line-clamp: 2; /* Show fewer lines */
+    }
+  
+    .card-price {
+      font-size: 1rem; /* Reduce font size */
+    }
+  
+    .add-to-cart-button {
+      font-size: 0.75rem; /* Reduce font size */
+      padding: 5px 10px; /* Adjust padding */
+    }
+  
+    .card {
+      height: 15rem; /* Ensure the image height adjusts for smaller screens */
+    }
+  }
 
   
   /* Media queries for responsive adjustments */
@@ -89,9 +167,9 @@
   }
 
 
-  @media (max-width: 1350px) {
+ /*  @media (max-width: 1350px) {
     .card {
       height: 350px;
     } 
-  }
+  } */
   
