@@ -8,6 +8,7 @@
     border-color: #e2e8f0; /* Tailwind gray-200 */
     padding-left: 10px; /* Reduces padding on the left */
     
+    
     }
 
 
@@ -69,4 +70,5 @@
 
 .nav {
     /* background-color: #373949; */
+    font-family: 'Roboto', sans-serif;
 }

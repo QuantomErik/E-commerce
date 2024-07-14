@@ -2,6 +2,11 @@
 body, html {
   height: 100%;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
 }
 
 #root, .app-container {
@@ -12,6 +17,10 @@ body, html {
 
 .content {
   flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
 }
 
 

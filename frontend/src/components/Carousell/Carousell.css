@@ -66,8 +66,10 @@
 
   .carousel-container {
     /* max-width: 1620px; */
-    max-width: 1770px;
-    margin: 0 auto;
+    /* max-width: 1770px; */
+    margin-left: 65px;
+    /* margin: 0 auto; */
+    margin-right: 65px;
     position: relative;
     margin-bottom: 20px;
   }

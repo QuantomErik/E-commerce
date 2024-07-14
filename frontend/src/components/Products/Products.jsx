@@ -30,9 +30,25 @@ const Products = () => {
           ...product,
           price: parseFloat(product.price), // Ensure price is a number
         }));
-        setFirstRowProducts(allProducts.filter(product => product.category.name === "Planets"));
-        setSecondRowProducts(allProducts.filter(product => product.category.name === "Moons"));
-        setThirdRowProducts(allProducts.filter(product => product.category.name === "Constellations"));
+
+        // Reset the states
+        setFirstRowProducts([]);
+        setSecondRowProducts([]);
+        setThirdRowProducts([]);
+
+        // Filter products based on the selected category
+        if (selectedCategory) {
+          const filteredProducts = allProducts.filter(product => product.category.id === parseInt(selectedCategory));
+          setFirstRowProducts(filteredProducts.filter(product => product.category.name === "Planets"));
+          setSecondRowProducts(filteredProducts.filter(product => product.category.name === "Moons"));
+          setThirdRowProducts(filteredProducts.filter(product => product.category.name === "Constellations"));
+        } else {
+          // Show all products for "All Categories"
+          setFirstRowProducts(allProducts.filter(product => product.category.name === "Planets"));
+          setSecondRowProducts(allProducts.filter(product => product.category.name === "Moons"));
+          setThirdRowProducts(allProducts.filter(product => product.category.name === "Constellations"));
+        }
+
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch products');
@@ -57,7 +73,7 @@ const Products = () => {
   }, [search, selectedCategory]);
 
   const scrollLeft = (ref) => {
-    const cardWidth = ref.current.clientWidth / 3; // 25% of the container width
+    const cardWidth = ref.current.clientWidth / 3; // 33.33% of the container width
     ref.current.scrollBy({
       left: -cardWidth,
       behavior: 'smooth',
@@ -65,7 +81,7 @@ const Products = () => {
   };
 
   const scrollRight = (ref) => {
-    const cardWidth = ref.current.clientWidth / 3; // 25% of the container width
+    const cardWidth = ref.current.clientWidth / 3; // 33.33% of the container width
     ref.current.scrollBy({
       left: cardWidth,
       behavior: 'smooth',
@@ -96,57 +112,63 @@ const Products = () => {
           ))}
         </select>
       </div>
-      
+
       {/* Planets */}
-      <div className="products-wrapper">
-        <button className="scroll-button left" onClick={() => scrollLeft(containerRef1)}>
-          &lt;
-        </button>
-        <div className="products-container" ref={containerRef1}>
-          {firstRowProducts.map(product => (
-            <div className="product-card" key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
+      {selectedCategory === '' || firstRowProducts.length > 0 ? (
+        <div className="products-wrapper">
+          <button className="scroll-button left" onClick={() => scrollLeft(containerRef1)}>
+            &lt;
+          </button>
+          <div className="products-container" ref={containerRef1}>
+            {firstRowProducts.map(product => (
+              <div className="product-card" key={product.id}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+          <button className="scroll-button right" onClick={() => scrollRight(containerRef1)}>
+            &gt;
+          </button>
         </div>
-        <button className="scroll-button right" onClick={() => scrollRight(containerRef1)}>
-          &gt;
-        </button>
-      </div>
+      ) : null}
 
       {/* Moons */}
-      <div className="products-wrapper">
-        <button className="scroll-button left" onClick={() => scrollLeft(containerRef2)}>
-          &lt;
-        </button>
-        <div className="products-container" ref={containerRef2}>
-          {secondRowProducts.map(product => (
-            <div className="product-card" key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
+      {selectedCategory === '' || secondRowProducts.length > 0 ? (
+        <div className="products-wrapper">
+          <button className="scroll-button left" onClick={() => scrollLeft(containerRef2)}>
+            &lt;
+          </button>
+          <div className="products-container" ref={containerRef2}>
+            {secondRowProducts.map(product => (
+              <div className="product-card" key={product.id}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+          <button className="scroll-button right" onClick={() => scrollRight(containerRef2)}>
+            &gt;
+          </button>
         </div>
-        <button className="scroll-button right" onClick={() => scrollRight(containerRef2)}>
-          &gt;
-        </button>
-      </div>
+      ) : null}
 
       {/* Constellations */}
-      <div className="products-wrapper">
-        <button className="scroll-button left" onClick={() => scrollLeft(containerRef3)}>
-          &lt;
-        </button>
-        <div className="products-container" ref={containerRef3}>
-          {thirdRowProducts.map(product => (
-            <div className="product-card" key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
+      {selectedCategory === '' || thirdRowProducts.length > 0 ? (
+        <div className="products-wrapper">
+          <button className="scroll-button left" onClick={() => scrollLeft(containerRef3)}>
+            &lt;
+          </button>
+          <div className="products-container" ref={containerRef3}>
+            {thirdRowProducts.map(product => (
+              <div className="product-card" key={product.id}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+          <button className="scroll-button right" onClick={() => scrollRight(containerRef3)}>
+            &gt;
+          </button>
         </div>
-        <button className="scroll-button right" onClick={() => scrollRight(containerRef3)}>
-          &gt;
-        </button>
-      </div>
+      ) : null}
     </div>
   );
 };

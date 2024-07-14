@@ -39,7 +39,7 @@
     scroll-behavior: smooth;
     width: 100%;
     scrollbar-width: none;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
   }
   
   .products-container::-webkit-scrollbar {
@@ -75,7 +75,7 @@
   
   .scroll-button {
     position: absolute;
-    top: 30%;
+    top: 27%;
     transform: translateY(-50%);
     /* background-color: rgba(0, 0, 0, 0.3); */
     color: white;
