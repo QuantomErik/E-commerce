@@ -13,6 +13,10 @@ import SuccessPage from "./components/Success/SuccessPage";
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton";
 import { AuthProvider } from "./components/Auth/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import YourAccount from "./components/YourAccount/YourAccount";
+import YourOrders from "./components/YourOrders/YourOrders";
+import BuyAgain from "./components/BuyAgain/BuyAgain";
 import './App.css';
 
 library.add(faShoppingCart, faUser);
@@ -42,6 +46,9 @@ function App() {
                 <Route path="/register" element={<RegisterAndLogout />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/success" element={<SuccessPage />} />
+                <Route path="/account" element={<ProtectedRoute><YourAccount /></ProtectedRoute>} />
+                <Route path="/orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} />
+                <Route path="/buyagain" element={<ProtectedRoute><BuyAgain /></ProtectedRoute>} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>

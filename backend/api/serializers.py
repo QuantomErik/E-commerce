@@ -12,6 +12,8 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
 
+
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
