@@ -1,4 +1,4 @@
-/* import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext();
@@ -30,15 +30,15 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-}; */
+};
 /* import { jwtDecode } from "jwt-decode"; */
 
 
 
-import React, { createContext, useState, useEffect, useCallback } from 'react';
+/* import React, { createContext, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from "jwt-decode"; // Keep this import as required
+import { jwtDecode } from "jwt-decode";
 import api from '../../api';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../constants';
 
@@ -118,7 +118,7 @@ export const AuthProvider = ({ children }) => {
 
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}; */
 
 
 
