@@ -51,7 +51,7 @@ const PaymentForm = ({ amount, cartItems }) => {
 
 
     /* const response = await fetch('http://127.0.0.1:8000/api/create-payment-intent/', { */
-    /* const response = await fetch('http://127.0.0.1:8000/ecommerce/api/create-payment-intent/', { */
+  
     /* const response = await fetch(`${apiUrl}create-payment-intent/`, { */
     const response = await fetch('https://www.erikyang.se/ecommerce/api/create-payment-intent/', {
       method: 'POST',

@@ -28,8 +28,9 @@ export default api; */
 import axios from 'axios';
 
 /* const API_URL = 'http://localhost:8000/'; */
-/* const API_URL = import.meta.env.VITE_API_URL */
-const API_URL = process.env.NODE_ENV === 'production' ? 'https://erikyang.se/ecommerce/' : 'http://127.0.0.1:8000/';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/';
+/* const API_URL = process.env.NODE_ENV === 'production' ? 'https://erikyang.se/ecommerce/' : 'http://127.0.0.1:8000/'; */
+/* const API_URL = 'https://erikyang.se/ecommerce/' */
 
 
 const axiosInstance = axios.create({

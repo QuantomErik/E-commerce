@@ -2,14 +2,17 @@ from django.contrib.auth.models import User
 from rest_framework import generics, viewsets, filters
 from rest_framework.permissions import AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Product, Category
-from .serializers import UserSerializer, ProductSerializer, CategorySerializer
+""" from .models import Product, Category """
+from .models import Product, Category, Order
+""" from .serializers import UserSerializer, ProductSerializer, CategorySerializer """
+from .serializers import UserSerializer, ProductSerializer, CategorySerializer, OrderSerializer
 from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import stripe
 import json
 import logging
+from rest_framework.permissions import IsAuthenticated
 
 logger = logging.getLogger(__name__)
 
@@ -64,3 +67,11 @@ def create_payment_intent(request):
         })
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
+
+
+class OrderViewSet(viewsets.ModelViewSet):
+    serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Order.objects.filter(user=self.request.user).order_by('-created_at')
