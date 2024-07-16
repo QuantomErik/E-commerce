@@ -1,49 +1,33 @@
-/* import axios from "axios";
-import { ACCESS_TOKEN } from "./constants";
+import axios from 'axios';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from './constants';
 
-const apiUrl = "/choreo-apis/awbo/backend/rest-api-be2/v1.0";
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/';
 
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,
+const axiosInstance = axios.create({
+  baseURL: API_URL,
+  timeout: 5000,
+  headers: {
+    Authorization: localStorage.getItem(ACCESS_TOKEN)
+      ? 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+      : null,
+    'Content-Type': 'application/json',
+    accept: 'application/json',
+  },
 });
 
-api.interceptors.request.use(
+axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem(ACCESS_TOKEN);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    console.log('Request Headers:', config.headers); // Log headers
     return config;
   },
   (error) => {
     return Promise.reject(error);
   }
 );
-
-export default api; */
-
-
-
-// src/api.js
-import axios from 'axios';
-
-/* const API_URL = 'http://localhost:8000/'; */
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/';
-/* const API_URL = process.env.NODE_ENV === 'production' ? 'https://erikyang.se/ecommerce/' : 'http://127.0.0.1:8000/'; */
-/* const API_URL = 'https://erikyang.se/ecommerce/' */
-
-
-const axiosInstance = axios.create({
-  baseURL: API_URL,
-  timeout: 5000,
-  headers: {
-    Authorization: localStorage.getItem('access_token')
-      ? 'JWT ' + localStorage.getItem('access_token')
-      : null,
-    'Content-Type': 'application/json',
-    accept: 'application/json',
-  },
-});
 
 axiosInstance.interceptors.response.use(
   (response) => response,
@@ -54,7 +38,7 @@ axiosInstance.interceptors.response.use(
       return Promise.reject(error);
     }
 
-    if (error.response.status === 401 && originalRequest.url === API_URL + 'token/refresh/') {
+    if (error.response.status === 401 && originalRequest.url === API_URL + 'api/token/refresh/') {
       window.location.href = '/login/';
       return Promise.reject(error);
     }
@@ -62,24 +46,27 @@ axiosInstance.interceptors.response.use(
     if (error.response.data.code === 'token_not_valid' &&
         error.response.status === 401 &&
         error.response.statusText === 'Unauthorized') {
-      const refreshToken = localStorage.getItem('refresh_token');
+      const refreshToken = localStorage.getItem(REFRESH_TOKEN);
 
       if (refreshToken) {
         const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
 
-        // exp date in token is expressed in seconds, while now() returns milliseconds:
         const now = Math.ceil(Date.now() / 1000);
         if (tokenParts.exp > now) {
           return axiosInstance
-            .post('/token/refresh/', { refresh: refreshToken })
+            .post('/api/token/refresh/', { refresh: refreshToken })
             .then((response) => {
-              localStorage.setItem('access_token', response.data.access);
-              localStorage.setItem('refresh_token', response.data.refresh);
+              localStorage.setItem(ACCESS_TOKEN, response.data.access);
+              localStorage.setItem(REFRESH_TOKEN, response.data.refresh);
 
-              axiosInstance.defaults.headers['Authorization'] = 'JWT ' + response.data.access;
-              originalRequest.headers['Authorization'] = 'JWT ' + response.data.access;
+              axiosInstance.defaults.headers['Authorization'] = 'Bearer ' + response.data.access;
+              originalRequest.headers['Authorization'] = 'Bearer ' + response.data.access;
 
               return axiosInstance(originalRequest);
+            })
+            .catch(err => {
+              console.error('Error refreshing token:', err);
+              window.location.href = '/login/';
             });
         } else {
           console.log('Refresh token is expired', tokenParts.exp, now);
@@ -91,7 +78,6 @@ axiosInstance.interceptors.response.use(
       }
     }
 
-    // specific error handling done elsewhere
     return Promise.reject(error);
   }
 );

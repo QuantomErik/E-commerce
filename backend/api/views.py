@@ -74,4 +74,12 @@ class OrderViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Order.objects.filter(user=self.request.user).order_by('-created_at')
+        try:
+            user = self.request.user
+            logger.info(f"Fetching orders for user: {user}")
+            queryset = Order.objects.filter(user=user).order_by('-created_at')
+            logger.info(f"Orders fetched: {queryset}")
+            return queryset
+        except Exception as e:
+            logger.error(f"Error fetching orders: {e}")
+            raise e

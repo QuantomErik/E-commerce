@@ -14,6 +14,8 @@ export default YourOrders; */
 
 // src/components/YourOrders.jsx
 
+// src/components/YourOrders.jsx
+
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 import api from '../../api';
@@ -27,9 +29,11 @@ const YourOrders = () => {
       const fetchOrders = async () => {
         try {
           const response = await api.get('/api/orders/');
+          console.log('Fetched Orders:', response.data);
           setOrders(response.data);
         } catch (error) {
           console.error('Error fetching orders:', error);
+          console.error('Response Data:', error.response.data); // Log response data
         }
       };
 
@@ -66,3 +70,5 @@ const YourOrders = () => {
 };
 
 export default YourOrders;
+
+
