@@ -71,6 +71,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://erikyang.se",
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
 ]
 
 CSP_DEFAULT_SRC = ("'self'",)

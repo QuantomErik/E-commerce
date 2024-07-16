@@ -13,6 +13,7 @@ const PaymentForm = ({ amount, cartItems }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const { clearCart } = useContext(CartContext); 
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -45,9 +46,14 @@ const PaymentForm = ({ amount, cartItems }) => {
     }
 
     console.log('Payment method created:', paymentMethod);
+    /* const apiUrl = process.env.REACT_APP_API_URL;
+    console.log("API URL:", process.env.REACT_APP_API_URL); */
+
 
     /* const response = await fetch('http://127.0.0.1:8000/api/create-payment-intent/', { */
-    const response = await fetch('http://127.0.0.1:8000/ecommerce/api/create-payment-intent/', {
+    /* const response = await fetch('http://127.0.0.1:8000/ecommerce/api/create-payment-intent/', { */
+    /* const response = await fetch(`${apiUrl}create-payment-intent/`, { */
+    const response = await fetch('https://www.erikyang.se/ecommerce/api/create-payment-intent/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
