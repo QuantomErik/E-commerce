@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Checkout.css';
 import { CartContext } from '../Cart/CartContext';
 
-const PaymentForm = ({ amount, cartItems }) => {
+const PaymentForm = ({ amount, cartItems, onOrderCreation }) => {
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
@@ -12,14 +12,13 @@ const PaymentForm = ({ amount, cartItems }) => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const { clearCart } = useContext(CartContext); 
-  
+  const { clearCart } = useContext(CartContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     console.log('Starting payment process');
-    console.log(`Amount to be charged: ${amount}`);  // Debug statement
+    console.log(`Amount to be charged: ${amount}`); // Debug statement
 
     if (!stripe || !elements) {
       console.log('Stripe.js has not loaded');
@@ -46,14 +45,9 @@ const PaymentForm = ({ amount, cartItems }) => {
     }
 
     console.log('Payment method created:', paymentMethod);
-    /* const apiUrl = process.env.REACT_APP_API_URL;
-    console.log("API URL:", process.env.REACT_APP_API_URL); */
 
-
-    /* const response = await fetch('http://127.0.0.1:8000/api/create-payment-intent/', { */
-  
-    /* const response = await fetch(`${apiUrl}create-payment-intent/`, { */
-    const response = await fetch('https://www.erikyang.se/ecommerce/api/create-payment-intent/', {
+    /* const response = await fetch('https://www.erikyang.se/ecommerce/api/create-payment-intent/', { */
+    const response = await fetch('/api/create-payment-intent/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -91,14 +85,15 @@ const PaymentForm = ({ amount, cartItems }) => {
       setSuccessMessage('Payment successful!');
       setErrorMessage('');
 
-      // Clear the cart after successful payment
-      clearCart();
+      // Call the order creation function
+      await onOrderCreation();
 
       // Redirect to the success page with order details
       navigate('/success', { state: { cartItems, totalAmount: amount } });
     } else if (status === 'succeeded') {
       console.log('Payment already succeeded');
       setSuccessMessage('Payment already succeeded!');
+      await onOrderCreation();
       navigate('/success', { state: { cartItems, totalAmount: amount } });
     } else {
       console.log('Unexpected status:', status);

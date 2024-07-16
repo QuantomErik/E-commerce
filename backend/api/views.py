@@ -13,6 +13,10 @@ import stripe
 import json
 import logging
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework import viewsets, status
+from .models import Order, OrderItem
 
 logger = logging.getLogger(__name__)
 
@@ -83,3 +87,29 @@ class OrderViewSet(viewsets.ModelViewSet):
         except Exception as e:
             logger.error(f"Error fetching orders: {e}")
             raise e
+
+    @action(detail=False, methods=['post'], url_path='create_order')
+    def create_order(self, request):
+        print("create_order endpoint hit")
+        logger.info(f"create_order endpoint hit by user: {request.user}")
+        user = request.user
+        cart_items = request.data.get('cart_items', [])
+        total_amount = request.data.get('total_amount', 0)
+
+        logger.info(f"Received cart items: {cart_items}")
+        logger.info(f"Total amount: {total_amount}")
+
+        if not cart_items:
+            return Response({'detail': 'Cart is empty'}, status=status.HTTP_400_BAD_REQUEST)
+
+        order = Order.objects.create(user=user, total_amount=total_amount)
+        for item in cart_items:
+            OrderItem.objects.create(
+            order=order,
+            product_id=item['product'],  # Assuming item['product'] is the product ID
+            quantity=item['quantity'],
+            price=item['price']
+        )
+
+        serializer = self.get_serializer(order)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

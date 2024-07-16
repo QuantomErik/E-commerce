@@ -27,8 +27,7 @@ if settings.DEBUG:
 
 urlpatterns += [
     re_path(r'^ecommerce/.*$', TemplateView.as_view(template_name='index.html'))
-]     """
-
+] """
 
 
 # USE THIS WHEN DEPLOYING
@@ -59,6 +58,6 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += [re_path(r'^ecommerce/.*$', TemplateView.as_view(template_name='index.html'))
-]  
+] 
 
 
