@@ -138,14 +138,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { cart } = useContext(CartContext);
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, user, logout } = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
   const userIconRef = useRef(null);
 
   const handleUserIconClick = () => {
-    console.log('User icon clicked');
     if (isAuthenticated) {
       setIsDropdownOpen(!isDropdownOpen);
     } else {
@@ -165,16 +164,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    // Close dropdown on successful login
     if (isAuthenticated) {
       setIsDropdownOpen(false);
     }
 
-    // Add event listener for outside clicks
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      // Clean up event listener
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isAuthenticated]);
@@ -182,6 +178,10 @@ const Navbar = () => {
   const handleLinkClick = () => {
     setIsDropdownOpen(false);
   };
+
+  useEffect(() => {
+    console.log('User in Navbar:', user); // Debug statement
+  }, [user]);
 
   return (
     <nav className="bg-white border-gray-200">
@@ -220,6 +220,9 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-icon flex items-center space-x-5">
+          {isAuthenticated && user && (
+            <span className="navbar-username">{user.username}</span>
+          )}
           <div className="relative">
             <button 
               ref={userIconRef}
@@ -235,21 +238,21 @@ const Navbar = () => {
                 style={{ zIndex: 1000 }}
               >
                 <Link
-                  to="/account"
+                  to="/your-account"
                   className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
                   onClick={handleLinkClick}
                 >
                   Your Account
                 </Link>
                 <Link
-                  to="/orders"
+                  to="/your-orders"
                   className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
                   onClick={handleLinkClick}
                 >
                   Your Orders
                 </Link>
                 <Link
-                  to="/buyagain"
+                  to="/buy-again"
                   className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
                   onClick={handleLinkClick}
                 >
@@ -287,5 +290,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
 
 

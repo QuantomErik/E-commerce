@@ -17,6 +17,9 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import YourAccount from "./components/YourAccount/YourAccount";
 import YourOrders from "./components/YourOrders/YourOrders";
 import BuyAgain from "./components/BuyAgain/BuyAgain";
+import YourAddresses from "./components/YourAddresses/YourAddresses";
+import ContactUs from "./components/ContactUs/ContactUs";
+import GiftCards from "./components/GiftCards/GiftCards";
 import './App.css';
 
 library.add(faShoppingCart, faUser);
@@ -46,9 +49,16 @@ function App() {
                 <Route path="/register" element={<RegisterAndLogout />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/success" element={<SuccessPage />} />
-                <Route path="/account" element={<ProtectedRoute><YourAccount /></ProtectedRoute>} />
-                <Route path="/orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} />
-                <Route path="/buyagain" element={<ProtectedRoute><BuyAgain /></ProtectedRoute>} />
+
+                <Route path="/your-account" element={<ProtectedRoute><YourAccount /></ProtectedRoute>} />
+                <Route path="/your-orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} />
+                <Route path="/buy-again" element={<ProtectedRoute><BuyAgain /></ProtectedRoute>} />
+
+                <Route path="/your-addresses" element={<ProtectedRoute><YourAddresses /></ProtectedRoute>} />
+                <Route path="/contact-us" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
+                <Route path="/gift-cards" element={<ProtectedRoute><GiftCards /></ProtectedRoute>} />
+
+
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
