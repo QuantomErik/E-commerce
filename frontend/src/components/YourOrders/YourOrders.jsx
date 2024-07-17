@@ -16,24 +16,29 @@ export default YourOrders; */
 
 // src/components/YourOrders.jsx
 
-import React, { useEffect, useState, useContext } from 'react';
+/* import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 import api from '../../api';
+import './YourOrders.css';
 
 const YourOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { isAuthenticated } = useContext(AuthContext);
 
   useEffect(() => {
     if (isAuthenticated) {
       const fetchOrders = async () => {
+        setLoading(true);
         try {
           const response = await api.get('/api/orders/');
           console.log('Fetched Orders:', response.data);
           setOrders(response.data);
         } catch (error) {
           console.error('Error fetching orders:', error);
-          console.error('Response Data:', error.response.data); // Log response data
+          console.error('Response Data:', error.response.data);
+        } finally {
+          setLoading(false);
         }
       };
 
@@ -42,20 +47,24 @@ const YourOrders = () => {
   }, [isAuthenticated]);
 
   return (
-    <div className="container mx-auto my-10 p-5 border border-gray-300 rounded shadow-md">
+    <div className="orders-container container mx-auto my-10 p-5 rounded shadow-md">
       <h1 className="text-2xl font-bold mb-4">Your Orders</h1>
-      {orders.length > 0 ? (
+      {loading ? (
+        <div className="flex justify-center items-center">
+          <div className="loader"></div>
+        </div>
+      ) : orders.length > 0 ? (
         orders.map(order => (
-          <div key={order.id} className="mb-4">
-            <h2 className="text-xl font-semibold">Order {order.id}</h2>
-            <p>Placed on: {new Date(order.created_at).toLocaleDateString()}</p>
-            <p>Total Amount: ${order.total_amount}</p>
-            <ul className="mt-2">
+          <div key={order.id} className="order-card mb-4 p-4 border border-gray-300 rounded shadow-md">
+            <h2 className="text-xl font-semibold mb-2">Order #{order.id}</h2>
+            <p className="text-gray-600">Placed on: {new Date(order.created_at).toLocaleDateString()}</p>
+            <p className="text-gray-600">Total Amount: ${order.total_amount}</p>
+            <ul className="mt-4">
               {order.items.map(item => (
-                <li key={item.product.id} className="border-b border-gray-300 py-2">
+                <li key={item.product.id} className="order-item border-b border-gray-300 py-2">
                   <div className="flex justify-between">
-                    <span>{item.product.name}</span>
-                    <span>{item.quantity} x ${item.price}</span>
+                    <span className="text-gray-800">{item.product.name}</span>
+                    <span className="text-gray-800">{item.quantity} x ${item.price}</span>
                   </div>
                 </li>
               ))}
@@ -69,6 +78,105 @@ const YourOrders = () => {
   );
 };
 
+export default YourOrders; */
+
+import React, { useEffect, useState, useContext } from 'react';
+import { AuthContext } from '../Auth/AuthContext';
+import { CartContext } from '../Cart/CartContext';
+import api from '../../api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+import './YourOrders.css';
+
+const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the CartDrawer
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false); // State for loading indicator
+  const { isAuthenticated } = useContext(AuthContext);
+  const { addToCart } = useContext(CartContext); // Use addToCart from CartContext
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      const fetchOrders = async () => {
+        setLoading(true); // Set loading to true before fetching
+        try {
+          const response = await api.get('/api/orders/');
+          console.log('Fetched Orders:', response.data);
+          setOrders(response.data);
+        } catch (error) {
+          console.error('Error fetching orders:', error);
+          console.error('Response Data:', error.response.data); // Log response data
+        } finally {
+          setLoading(false); // Set loading to false after fetching is complete
+        }
+      };
+
+      fetchOrders();
+    }
+  }, [isAuthenticated]);
+
+  return (
+    <div className="orders-container container mx-auto my-10 p-5 rounded shadow-md">
+      <h1 className="text-2xl font-bold mb-4">Your Orders</h1>
+      {loading ? (
+        <div className="flex justify-center items-center">
+          <div className="loader"></div> {/* Loader element */}
+        </div>
+      ) : orders.length > 0 ? (
+        orders.map(order => (
+          <div key={order.id} className="order-card mb-4 p-4 border border-gray-300 rounded shadow-md">
+            <div className="flex justify-between mb-2">
+              <div>
+                <p className="text-gray-600">ORDER PLACED</p>
+                <p className="font-semibold">{new Date(order.created_at).toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+              </div>
+              <div>
+                <p className="text-gray-600">TOTAL</p>
+                <p className="font-semibold">${order.total_amount}</p>
+              </div>
+              <div>
+                <p className="text-gray-600">ORDER #</p>
+                <p className="font-semibold">{order.id}</p>
+              </div>
+            </div>
+            <ul className="mt-4">
+              {order.items.map(item => (
+                <li key={item.product.id} className="order-item border-b border-gray-300 py-2 flex items-center">
+                  <img src={item.product.image_url} alt={item.product.name} className="w-16 h-16 object-cover mr-4 rounded-lg" />
+                  <div className="flex-grow">
+                    <span className="text-gray-800">{item.product.name}</span>
+                    <span className="block text-gray-600">{item.quantity} x ${item.price}</span>
+                  </div>
+                  <button
+                    className="buy-again-btn ml-4 flex items-center text-blue-500 hover:text-blue-700"
+                    onClick={() => addToCart(item.product, onOpenCartDrawer)} // Pass the callback to open the CartDrawer
+                  >
+                    <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
+                    Buy it again
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      ) : (
+        <p>You have no orders.</p>
+      )}
+    </div>
+  );
+};
+
+YourOrders.propTypes = {
+  onOpenCartDrawer: PropTypes.func.isRequired,
+};
+
 export default YourOrders;
+
+
+
+
+
+
+
 
 

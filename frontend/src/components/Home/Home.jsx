@@ -5,13 +5,11 @@ import Carousell from '../Carousell/Carousell';
 import Footer from '../Footer/Footer';
 import '../../App.css'
 
-function Home() {
+function Home({ onOpenCartDrawer }) {
   return (
     <div>
-     
       <Carousell />
-      <Products />  {/* This line includes the Products component on the home page */}
-      {/* <Footer /> */}
+      <Products onOpenCartDrawer={onOpenCartDrawer} /> {/* Pass the prop here */}
     </div>
   );
 }

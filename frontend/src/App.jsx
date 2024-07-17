@@ -4,7 +4,8 @@ import Register from "./components/Register/Register";
 import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
 import Navbar from "./components/Navbar/Navbar";
-import Products from "./components/Products/Products";
+import ProductCard from "./components/ProductCard/ProductCard";
+/* import Products from "./components/Products/Products"; */
 import CheckoutPage from "./components/Checkout/CheckoutPage";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +21,9 @@ import BuyAgain from "./components/BuyAgain/BuyAgain";
 import YourAddresses from "./components/YourAddresses/YourAddresses";
 import ContactUs from "./components/ContactUs/ContactUs";
 import GiftCards from "./components/GiftCards/GiftCards";
+import CartDrawer from "./components/Cart/CartDrawer";
+import React, { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 
 library.add(faShoppingCart, faUser);
@@ -35,6 +39,17 @@ function RegisterAndLogout() {
 }
 
 function App() {
+
+  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
+
+  const openCartDrawer = () => {
+    setIsCartDrawerOpen(true);
+  };
+
+  const closeCartDrawer = () => {
+    setIsCartDrawerOpen(false);
+  };
+
   return (
     <BrowserRouter basename="/ecommerce/">
       <AuthProvider>
@@ -43,7 +58,8 @@ function App() {
             <Navbar />
             <div className="content">
               <Routes>
-                <Route path="/" element={<Home />} />
+                {/* <Route path="/" element={<Home />} /> */}
+                <Route path="/" element={<Home onOpenCartDrawer={openCartDrawer} />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/register" element={<RegisterAndLogout />} />
@@ -51,7 +67,9 @@ function App() {
                 <Route path="/success" element={<SuccessPage />} />
 
                 <Route path="/your-account" element={<ProtectedRoute><YourAccount /></ProtectedRoute>} />
-                <Route path="/your-orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} />
+                {/* <Route path="/your-orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} /> */}
+                {/* <Route path="/productcard" element={<ProtectedRoute><ProductCard onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} /> */}
+                <Route path="/your-orders" element={<ProtectedRoute><YourOrders onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} />
                 <Route path="/buy-again" element={<ProtectedRoute><BuyAgain /></ProtectedRoute>} />
 
                 <Route path="/your-addresses" element={<ProtectedRoute><YourAddresses /></ProtectedRoute>} />
@@ -64,7 +82,9 @@ function App() {
             </div>
             <ScrollToTopButton />
             <Footer />
+            <CartDrawer isOpen={isCartDrawerOpen} onClose={closeCartDrawer} />
           </div>
+          <ToastContainer position="bottom-center" />
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>
