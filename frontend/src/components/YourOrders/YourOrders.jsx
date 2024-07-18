@@ -86,7 +86,9 @@ import { CartContext } from '../Cart/CartContext';
 import api from '../../api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import './YourOrders.css';
 
 const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the CartDrawer
@@ -116,52 +118,67 @@ const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the
   }, [isAuthenticated]);
 
   return (
-    <div className="orders-container container mx-auto my-10 p-5 rounded shadow-md">
-      <h1 className="text-2xl font-bold mb-4">Your Orders</h1>
-      {loading ? (
-        <div className="flex justify-center items-center">
-          <div className="loader"></div> {/* Loader element */}
+    <div className="container mx-auto my-10 p-5">
+      <BreadCrumb />
+      
+      <div className="orders-container mx-auto my-10 p-5 rounded shadow-md">
+        <div className="flex items-center mb-4">
+          <h1 className="text-xl font-bold relative">
+            Your Orders
+            <span className="underline-active"></span>
+          </h1>
+          <Link to="/buy-again" className="buy-again-link text-xl font-bold relative">
+            Buy Again
+          </Link>
         </div>
-      ) : orders.length > 0 ? (
-        orders.map(order => (
-          <div key={order.id} className="order-card mb-4 p-4 border border-gray-300 rounded shadow-md">
-            <div className="flex justify-between mb-2">
-              <div>
-                <p className="text-gray-600">ORDER PLACED</p>
-                <p className="font-semibold">{new Date(order.created_at).toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
-              </div>
-              <div>
-                <p className="text-gray-600">TOTAL</p>
-                <p className="font-semibold">${order.total_amount}</p>
-              </div>
-              <div>
-                <p className="text-gray-600">ORDER #</p>
-                <p className="font-semibold">{order.id}</p>
-              </div>
-            </div>
-            <ul className="mt-4">
-              {order.items.map(item => (
-                <li key={item.product.id} className="order-item border-b border-gray-300 py-2 flex items-center">
-                  <img src={item.product.image_url} alt={item.product.name} className="w-16 h-16 object-cover mr-4 rounded-lg" />
-                  <div className="flex-grow">
-                    <span className="text-gray-800">{item.product.name}</span>
-                    <span className="block text-gray-600">{item.quantity} x ${item.price}</span>
-                  </div>
-                  <button
-                    className="buy-again-btn ml-4 flex items-center text-blue-500 hover:text-blue-700"
-                    onClick={() => addToCart(item.product, onOpenCartDrawer)} // Pass the callback to open the CartDrawer
-                  >
-                    <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
-                    Buy it again
-                  </button>
-                </li>
-              ))}
-            </ul>
+        <div className="underline-container">
+          <span className="underline-full"></span>
+        </div>
+        {loading ? (
+          <div className="flex justify-center items-center">
+            <div className="loader"></div> {/* Loader element */}
           </div>
-        ))
-      ) : (
-        <p>You have no orders.</p>
-      )}
+        ) : orders.length > 0 ? (
+          orders.map(order => (
+            <div key={order.id} className="order-card mb-4 p-4 border border-gray-300 rounded shadow-md">
+              <div className="flex justify-between mb-2">
+                <div>
+                  <p className="text-gray-600">ORDER PLACED</p>
+                  <p className="font-semibold">{new Date(order.created_at).toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">TOTAL</p>
+                  <p className="font-semibold">${order.total_amount}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">ORDER #</p>
+                  <p className="font-semibold">{order.id}</p>
+                </div>
+              </div>
+              <ul className="mt-4">
+                {order.items.map(item => (
+                  <li key={item.product.id} className="order-item border-b border-gray-300 py-2 flex items-center">
+                    <img src={item.product.image_url} alt={item.product.name} className="w-16 h-16 object-cover mr-4 rounded-lg" />
+                    <div className="flex-grow">
+                      <span className="text-gray-800">{item.product.name}</span>
+                      <span className="block text-gray-600">{item.quantity} x ${item.price}</span>
+                    </div>
+                    <button
+                      className="buy-again-btn ml-4 flex items-center text-blue-500 hover:text-blue-700"
+                      onClick={() => addToCart(item.product, onOpenCartDrawer)} // Pass the callback to open the CartDrawer
+                    >
+                      <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
+                      Buy it again
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <p>You have no orders.</p>
+        )}
+      </div>
     </div>
   );
 };
@@ -171,6 +188,8 @@ YourOrders.propTypes = {
 };
 
 export default YourOrders;
+
+
 
 
 

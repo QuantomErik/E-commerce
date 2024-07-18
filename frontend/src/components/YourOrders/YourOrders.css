@@ -1,52 +1,110 @@
+/* src/components/YourOrders/YourOrders.css */
+
 .orders-container {
-    background-color: #f9f9f9; /* Light background for better contrast */
-  }
-  
-  .order-card {
-    background-color: white; /* White background for cards */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .order-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .order-item {
-    transition: background-color 0.2s ease;
-  }
-  
-  .order-item:hover {
-    background-color: #f1f1f1; /* Light grey background on hover */
-  }
-  
-  .loader {
-    border: 4px solid #f3f3f3; /* Light grey */
-    border-top: 4px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 50px; /* Larger size */
-    height: 50px; /* Larger size */
-    animation: spin 1.5s linear infinite; /* Faster spin */
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  .buy-again-btn {
-    font-size: 0.875rem;
-    border: 1px solid #3498db;
-    border-radius: 4px;
-    padding: 4px 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    display: flex;
-    align-items: center;
-  }
-  
-  .buy-again-btn:hover {
-    background-color: #3498db;
-    color: white;
-  }
-  
+  background-color: #f9f9f9; /* Light background for better contrast */
+}
+
+.order-card {
+  background-color: white; /* White background for cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.order-item {
+  transition: background-color 0.2s ease;
+}
+
+.order-item:hover {
+  background-color: #f1f1f1; /* Light grey background on hover */
+}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px; /* Larger size */
+  height: 50px; /* Larger size */
+  animation: spin 1.5s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.buy-again-btn {
+  font-size: 0.875rem;
+  border: 1px solid #3498db;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.buy-again-btn:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.flex.items-center.mb-4 {
+  display: flex;
+  align-items: center;
+}
+
+h1.relative {
+  display: inline-block;
+  position: relative;
+  /* padding-bottom: 0.5rem; */
+  margin-right: 1rem; /* Add margin to the right of the heading */
+}
+
+.underline-active {
+  content: '';
+  display: block;
+  position: absolute;
+  /* bottom: -4px; */
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #c7850a; /* Color for active tab underline */
+}
+
+.underline-container {
+  position: relative;
+  height: 3px;
+  margin-bottom: 1rem;
+}
+
+.underline-full {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #d3d3d3; /* Color for inactive underline */
+}
+
+/* Additional styling for links */
+/* .text-blue-500 {
+  color: #007bff;
+}
+
+.text-blue-500:hover {
+  text-decoration: underline;
+} */
+
+
+.buy-again-link:hover {
+  color: #c7850a;
+  text-decoration: underline;
+}
+
+.buy-again-link {
+  color: #6c757d;
+}

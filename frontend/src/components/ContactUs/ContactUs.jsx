@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BreadCrumb from '../BreadCrumb/BreadCrumb';
 
 const ContactUs = () => {
   const [name, setName] = useState('');
@@ -12,6 +13,8 @@ const ContactUs = () => {
   };
 
   return (
+    <div className="container mx-auto my-10 p-5">
+      <BreadCrumb />
     <div className="container mx-auto my-10 p-5 border border-gray-300 rounded shadow-md">
       <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
       <p>Fill out the form below to get in touch with us.</p>
@@ -48,6 +51,7 @@ const ContactUs = () => {
         </div>
         <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">Submit</button>
       </form>
+    </div>
     </div>
   );
 };

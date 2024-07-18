@@ -1,22 +1,22 @@
-// src/components/BuyAgain/BuyAgain.jsx
-
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 import { CartContext } from '../Cart/CartContext';
 import api from '../../api';
-import ProductCard from '../ProductCard/ProductCard'; // Assuming you have a reusable ProductCard component
-import './BuyAgain.css'; // Create a CSS file to handle styles
+import ProductCard from '../ProductCard/ProductCard';
+import BreadCrumb from '../BreadCrumb/BreadCrumb';
+import { Link } from 'react-router-dom';
+import './BuyAgain.css';
 
 const BuyAgain = ({ onOpenCartDrawer }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false); // State for loading indicator
+  const [loading, setLoading] = useState(false);
   const { isAuthenticated } = useContext(AuthContext);
-  const { addToCart } = useContext(CartContext); // Use addToCart from CartContext
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     if (isAuthenticated) {
       const fetchProducts = async () => {
-        setLoading(true); // Set loading to true before fetching
+        setLoading(true);
         try {
           const response = await api.get('/api/orders/'); // Adjust the endpoint as needed
           const orders = response.data;
@@ -35,7 +35,7 @@ const BuyAgain = ({ onOpenCartDrawer }) => {
         } catch (error) {
           console.error('Error fetching orders:', error);
         } finally {
-          setLoading(false); // Set loading to false after fetching is complete
+          setLoading(false);
         }
       };
 
@@ -44,21 +44,36 @@ const BuyAgain = ({ onOpenCartDrawer }) => {
   }, [isAuthenticated]);
 
   return (
-    <div className="buy-again-container container mx-auto my-10 p-5 rounded shadow-md">
-      <h1 className="text-2xl font-bold mb-4">Buy Again</h1>
-      {loading ? (
-        <div className="flex justify-center items-center">
-          <div className="loader"></div> {/* Loader element */}
+    <div className="container mx-auto my-10 p-5">
+      <BreadCrumb />
+
+      <div className="buy-again-container mx-auto my-10 p-5 rounded shadow-md">
+        <div className="flex items-center mb-4">
+          <h1 className="text-xl font-bold relative">
+            Buy Again
+            <span className="underline-active"></span>
+          </h1>
+          <Link to="/your-orders" className="your-orders-link text-xl font-bold relative">
+            Your Orders
+          </Link>
         </div>
-      ) : products.length > 0 ? (
-        <div className="products-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {products.map(product => (
-            <ProductCard key={product.id} product={product} onOpenCartDrawer={onOpenCartDrawer} />
-          ))}
+        <div className="underline-container">
+          <span className="underline-full"></span>
         </div>
-      ) : (
-        <p>You have no products to buy again.</p>
-      )}
+        {loading ? (
+          <div className="flex justify-center items-center">
+            <div className="loader"></div>
+          </div>
+        ) : products.length > 0 ? (
+          <div className="products-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {products.map(product => (
+              <ProductCard key={product.id} product={product} onOpenCartDrawer={onOpenCartDrawer} />
+            ))}
+          </div>
+        ) : (
+          <p>You have no products to buy again.</p>
+        )}
+      </div>
     </div>
   );
 };

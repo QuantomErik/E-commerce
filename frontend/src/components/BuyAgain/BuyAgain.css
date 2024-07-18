@@ -1,29 +1,89 @@
 /* src/components/BuyAgain/BuyAgain.css */
 
 .buy-again-container {
-    /* Add any specific styles for the Buy Again container */
-  }
-  
+  background-color: #f9f9f9; /* Light background for better contrast */
+}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px; /* Larger size */
+  height: 50px; /* Larger size */
+  animation: spin 1.5s linear infinite; /* Faster spin */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.products-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
   .products-grid {
-    display: grid;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  @media (min-width: 640px) {
-    .products-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  @media (min-width: 768px) {
-    .products-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
-  
-  @media (min-width: 1024px) {
-    .products-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
+}
+
+.flex.items-center.mb-4 {
+  display: flex;
+  align-items: center;
+}
+
+h1.relative {
+  display: inline-block;
+  position: relative;
+  margin-right: 1rem; /* Add margin to the right of the heading */
+}
+
+.underline-active {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #c7850a; /* Color for active tab underline */
+}
+
+.underline-container {
+  position: relative;
+  height: 3px;
+  margin-bottom: 1rem;
+}
+
+.underline-full {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #d3d3d3; /* Color for inactive underline */
+}
+
+/* Additional styling for links */
+.your-orders-link {
+  color: #6c757d;
+  margin-left: 1rem;
+}
+
+.your-orders-link:hover {
+  color: #c7850a;
+  text-decoration: underline;
+}
