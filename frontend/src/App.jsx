@@ -70,7 +70,8 @@ function App() {
                 {/* <Route path="/your-orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} /> */}
                 {/* <Route path="/productcard" element={<ProtectedRoute><ProductCard onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} /> */}
                 <Route path="/your-orders" element={<ProtectedRoute><YourOrders onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} />
-                <Route path="/buy-again" element={<ProtectedRoute><BuyAgain /></ProtectedRoute>} />
+                {/* <Route path="/buy-again" element={<ProtectedRoute><BuyAgain /></ProtectedRoute>} /> */}
+                <Route path="/buy-again" element={<ProtectedRoute><BuyAgain onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} />
 
                 <Route path="/your-addresses" element={<ProtectedRoute><YourAddresses /></ProtectedRoute>} />
                 <Route path="/contact-us" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
@@ -84,7 +85,7 @@ function App() {
             <Footer />
             <CartDrawer isOpen={isCartDrawerOpen} onClose={closeCartDrawer} />
           </div>
-          <ToastContainer position="bottom-center" />
+          <ToastContainer position="bottom-center" autoClose={1500} hideProgressBar />
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>

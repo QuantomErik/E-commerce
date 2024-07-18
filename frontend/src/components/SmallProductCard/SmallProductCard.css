@@ -1,0 +1,45 @@
+/* src/components/SmallProductCard/SmallProductCard.css */
+
+.small-card-container {
+    width: 100%;
+    max-width: 200px; /* Adjust the width as needed */
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.25rem;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  
+  .small-card-container .card {
+    height: 100px; /* Smaller height */
+    object-fit: cover;
+  }
+  
+  .small-card-container .add-to-cart-button {
+    padding: 0.25rem 0.5rem; /* Smaller padding */
+    font-size: 0.75rem; /* Smaller font size */
+  }
+  
+  .small-card-container .text-box {
+    padding: 0.5rem; /* Adjust padding */
+  }
+  
+  .small-card-container .text-box h5 {
+    font-size: 0.875rem; /* Smaller font size */
+    margin-bottom: 0.25rem;
+  }
+  
+  .small-card-container .text-box p {
+    font-size: 0.75rem; /* Smaller font size */
+  }
+  
+  .small-card-container .card-details {
+    margin-top: 0.5rem;
+  }
+  
+  .small-card-container .card-price {
+    font-size: 0.875rem; /* Smaller font size */
+    font-weight: bold;
+  }
+  

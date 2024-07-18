@@ -19,3 +19,7 @@
   /* .cart {
     border-color: black;
   } */
+
+  .cart-drawer {
+    z-index: 1100; /* Ensure this is higher than the scroll-to-top-button */
+}
