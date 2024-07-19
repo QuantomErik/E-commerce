@@ -93,28 +93,69 @@ class OrderViewSet(viewsets.ModelViewSet):
             logger.error(f"Error fetching orders: {e}")
             raise e
 
-    @action(detail=False, methods=['post'], url_path='create_order')
+    """ @action(detail=False, methods=['post'], url_path='create_order')
     def create_order(self, request):
         print("create_order endpoint hit")
         logger.info(f"create_order endpoint hit by user: {request.user}")
         user = request.user
         cart_items = request.data.get('cart_items', [])
         total_amount = request.data.get('total_amount', 0)
+        email = request.data.get('email')
+        cardholder_name = request.data.get('cardholder_name')
+        masked_card_number = request.data.get('masked_card_number')
 
         logger.info(f"Received cart items: {cart_items}")
         logger.info(f"Total amount: {total_amount}")
+        logger.info(f"Email: {email}, Cardholder Name: {cardholder_name}, Masked Card Number: {masked_card_number}")
 
         if not cart_items:
             return Response({'detail': 'Cart is empty'}, status=status.HTTP_400_BAD_REQUEST)
 
-        order = Order.objects.create(user=user, total_amount=total_amount)
+        order = Order.objects.create(user=user, total_amount=total_amount, email=email, cardholder_name=cardholder_name, masked_card_number=masked_card_number)
         for item in cart_items:
             OrderItem.objects.create(
             order=order,
-            product_id=item['product'],  # Assuming item['product'] is the product ID
+            product_id=item['product'],
             quantity=item['quantity'],
             price=item['price']
         )
+
+        serializer = self.get_serializer(order)
+        return Response(serializer.data, status=status.HTTP_201_CREATED) """
+    
+    @action(detail=False, methods=['post'], url_path='create_order')
+    def create_order(self, request):
+        logger.info(f"create_order endpoint hit by user: {request.user}")
+        user = request.user
+        cart_items = request.data.get('cart_items', [])
+        total_amount = request.data.get('total_amount', 0)
+        email = request.data.get('email')
+        cardholder_name = request.data.get('cardholder_name')
+        masked_card_number = request.data.get('masked_card_number')
+
+        logger.info(f"create_order endpoint hit by user: {request.user}")
+        logger.info(f"Received cart items: {cart_items}")
+        logger.info(f"Total amount: {total_amount}")
+        logger.info(f"Email: {email}, Cardholder Name: {cardholder_name}, Masked Card Number: {masked_card_number}")
+
+        if not cart_items:
+            return Response({'detail': 'Cart is empty'}, status=status.HTTP_400_BAD_REQUEST)
+
+        order = Order.objects.create(
+            user=user,
+            total_amount=total_amount,
+            email=email,
+            cardholder_name=cardholder_name,
+            masked_card_number=masked_card_number
+        )
+
+        for item in cart_items:
+            OrderItem.objects.create(
+                order=order,
+                product_id=item['product'],  # Assuming item['product'] is the product ID
+                quantity=item['quantity'],
+                price=item['price']
+            )
 
         serializer = self.get_serializer(order)
         return Response(serializer.data, status=status.HTTP_201_CREATED)

@@ -176,7 +176,7 @@ const Products = () => {
 export default Products;
  */
 
-import React, { useEffect, useState, useRef } from 'react';
+/* import React, { useEffect, useState, useRef } from 'react';
 import api from '../../api';
 import ProductCard from '../ProductCard/ProductCard';
 import './Products.css';
@@ -206,22 +206,22 @@ const Products = ({ onOpenCartDrawer }) => {
         console.log('Fetch Products Response:', response);
         const allProducts = response.data.map(product => ({
           ...product,
-          price: parseFloat(product.price), // Ensure price is a number
+          price: parseFloat(product.price),
         }));
 
-        // Reset the states
+        
         setFirstRowProducts([]);
         setSecondRowProducts([]);
         setThirdRowProducts([]);
 
-        // Filter products based on the selected category
+       
         if (selectedCategory) {
           const filteredProducts = allProducts.filter(product => product.category.id === parseInt(selectedCategory));
           setFirstRowProducts(filteredProducts.filter(product => product.category.name === "Planets"));
           setSecondRowProducts(filteredProducts.filter(product => product.category.name === "Moons"));
           setThirdRowProducts(filteredProducts.filter(product => product.category.name === "Constellations"));
         } else {
-          // Show all products for "All Categories"
+          
           setFirstRowProducts(allProducts.filter(product => product.category.name === "Planets"));
           setSecondRowProducts(allProducts.filter(product => product.category.name === "Moons"));
           setThirdRowProducts(allProducts.filter(product => product.category.name === "Constellations"));
@@ -251,7 +251,7 @@ const Products = ({ onOpenCartDrawer }) => {
   }, [search, selectedCategory]);
 
   const scrollLeft = (ref) => {
-    const cardWidth = ref.current.clientWidth / 3; // 33.33% of the container width
+    const cardWidth = ref.current.clientWidth / 3;
     ref.current.scrollBy({
       left: -cardWidth,
       behavior: 'smooth',
@@ -259,7 +259,7 @@ const Products = ({ onOpenCartDrawer }) => {
   };
 
   const scrollRight = (ref) => {
-    const cardWidth = ref.current.clientWidth / 3; // 33.33% of the container width
+    const cardWidth = ref.current.clientWidth / 3;
     ref.current.scrollBy({
       left: cardWidth,
       behavior: 'smooth',
@@ -291,7 +291,7 @@ const Products = ({ onOpenCartDrawer }) => {
         </select>
       </div>
 
-      {/* Planets */}
+     
       {selectedCategory === '' || firstRowProducts.length > 0 ? (
         <div className="products-wrapper">
           <button className="scroll-button left" onClick={() => scrollLeft(containerRef1)}>
@@ -300,7 +300,7 @@ const Products = ({ onOpenCartDrawer }) => {
           <div className="products-container" ref={containerRef1}>
             {firstRowProducts.map(product => (
               <div className="product-card" key={product.id}>
-                <ProductCard product={product} onOpenCartDrawer={onOpenCartDrawer} /> {/* Pass the prop here */}
+                <ProductCard product={product} onOpenCartDrawer={onOpenCartDrawer} />
               </div>
             ))}
           </div>
@@ -310,7 +310,7 @@ const Products = ({ onOpenCartDrawer }) => {
         </div>
       ) : null}
 
-      {/* Moons */}
+     
       {selectedCategory === '' || secondRowProducts.length > 0 ? (
         <div className="products-wrapper">
           <button className="scroll-button left" onClick={() => scrollLeft(containerRef2)}>
@@ -319,7 +319,7 @@ const Products = ({ onOpenCartDrawer }) => {
           <div className="products-container" ref={containerRef2}>
             {secondRowProducts.map(product => (
               <div className="product-card" key={product.id}>
-                <ProductCard product={product} onOpenCartDrawer={onOpenCartDrawer} /> {/* Pass the prop here */}
+                <ProductCard product={product} onOpenCartDrawer={onOpenCartDrawer} />
               </div>
             ))}
           </div>
@@ -329,7 +329,7 @@ const Products = ({ onOpenCartDrawer }) => {
         </div>
       ) : null}
 
-      {/* Constellations */}
+     
       {selectedCategory === '' || thirdRowProducts.length > 0 ? (
         <div className="products-wrapper">
           <button className="scroll-button left" onClick={() => scrollLeft(containerRef3)}>
@@ -338,7 +338,7 @@ const Products = ({ onOpenCartDrawer }) => {
           <div className="products-container" ref={containerRef3}>
             {thirdRowProducts.map(product => (
               <div className="product-card" key={product.id}>
-                <ProductCard product={product} onOpenCartDrawer={onOpenCartDrawer} /> {/* Pass the prop here */}
+                <ProductCard product={product} onOpenCartDrawer={onOpenCartDrawer} />
               </div>
             ))}
           </div>
@@ -349,6 +349,65 @@ const Products = ({ onOpenCartDrawer }) => {
       ) : null}
     </div>
   );
+};
+
+export default Products; */
+
+
+
+import React, { useEffect, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
+import ProductCard from '../ProductCard/ProductCard';
+import './Products.css';
+
+const Products = ({ products, onOpenCartDrawer, categoryName }) => {
+  const containerRef = useRef(null);
+
+  const scrollLeft = () => {
+    const cardWidth = containerRef.current.clientWidth / 3; // 33.33% of the container width
+    containerRef.current.scrollBy({
+      left: -cardWidth,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollRight = () => {
+    const cardWidth = containerRef.current.clientWidth / 3; // 33.33% of the container width
+    containerRef.current.scrollBy({
+      left: cardWidth,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <div>
+      {products.length > 0 ? (
+        <div className="products-wrapper">
+          <button className="scroll-button left" onClick={scrollLeft}>
+            &lt;
+          </button>
+          <div className="products-container" ref={containerRef}>
+            {products.map(product => (
+              <div className="product-card" key={product.id}>
+                <ProductCard product={product} onOpenCartDrawer={onOpenCartDrawer} />
+              </div>
+            ))}
+          </div>
+          <button className="scroll-button right" onClick={scrollRight}>
+            &gt;
+          </button>
+        </div>
+      ) : (
+        <p>No products found in {categoryName} category.</p>
+      )}
+    </div>
+  );
+};
+
+Products.propTypes = {
+  products: PropTypes.array.isRequired,
+  onOpenCartDrawer: PropTypes.func.isRequired,
+  categoryName: PropTypes.string.isRequired,
 };
 
 export default Products;

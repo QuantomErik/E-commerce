@@ -1,0 +1,55 @@
+/* src/components/SuccessPage/SuccessPage.css */
+
+.success-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7fafc;
+  }
+  
+  .success-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 40rem;
+  }
+  
+  .success-header {
+    text-align: center;
+    color: #38a169;
+    margin-bottom: 1.5rem;
+  }
+  
+  .success-subtitle {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .success-section {
+    background-color: #f1f5f9;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .success-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+  
+  .success-item:last-child {
+    border-bottom: none;
+  }
+  
+  .success-link {
+    display: block;
+    text-align: center;
+    color: #4299e1;
+    margin-top: 2rem;
+    text-decoration: underline;
+  }
+  

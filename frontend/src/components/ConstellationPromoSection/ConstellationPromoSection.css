@@ -1,0 +1,45 @@
+.constellation-promo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 2rem; */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 2rem 0;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    
+  }
+  
+  .constellation-promo-text {
+    flex: 1;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  
+  .constellation-promo-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .constellation-promo-text p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  .constellation-promo-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* margin-right: 2rem; */
+  }
+  
+  .constellation-promo-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+    /* margin-right: 8rem; */
+  }
+  

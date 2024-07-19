@@ -120,7 +120,7 @@ const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the
   return (
     <div className="container mx-auto my-10 p-5">
       <BreadCrumb />
-      
+
       <div className="orders-container mx-auto my-10 p-5 rounded shadow-md">
         <div className="flex items-center mb-4">
           <h1 className="text-xl font-bold relative">
@@ -141,7 +141,8 @@ const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the
         ) : orders.length > 0 ? (
           orders.map(order => (
             <div key={order.id} className="order-card mb-4 p-4 border border-gray-300 rounded shadow-md">
-              <div className="flex justify-between mb-2">
+              {/* <div className="flex justify-between mb-2"> */}
+              <div className="order-header flex justify-between">
                 <div>
                   <p className="text-gray-600">ORDER PLACED</p>
                   <p className="font-semibold">{new Date(order.created_at).toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
@@ -150,9 +151,11 @@ const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the
                   <p className="text-gray-600">TOTAL</p>
                   <p className="font-semibold">${order.total_amount}</p>
                 </div>
-                <div>
-                  <p className="text-gray-600">ORDER #</p>
-                  <p className="font-semibold">{order.id}</p>
+                <div className="order-id">
+                  <p className="text-gray-600">ORDER # {order.id}</p>
+                  <Link to={`/order-confirmation/${order.id}`} className="view-order-details-button font-semibold hover:underline">
+                    View order details
+                  </Link>
                 </div>
               </div>
               <ul className="mt-4">
@@ -188,6 +191,7 @@ YourOrders.propTypes = {
 };
 
 export default YourOrders;
+
 
 
 

@@ -9,14 +9,23 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+
 .order-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-.order-item {
+/* .order-item {
   transition: background-color 0.2s ease;
-}
+  padding: 1rem;
+  margin-bottom: 1rem;
+  
+} */
+
+
+/* .border {
+  padding: 1rem;
+} */
 
 .order-item:hover {
   background-color: #f1f1f1; /* Light grey background on hover */
@@ -106,5 +115,28 @@ h1.relative {
 }
 
 .buy-again-link {
-  color: #6c757d;
+  color: #628fb6;
+}
+
+.order-id {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.view-order-details-button {
+  margin-top: 0px;
+  font-size: 14px;
+  color: #628fb6;
+}
+
+.view-order-details-button:hover {
+  color: #c7850a;
+  text-decoration: underline;
+}
+
+.order-header {
+  background-color: #f7fafc; /* Light gray background */
+  padding: 16px;
+  border-radius: 8px;
 }

@@ -22,6 +22,7 @@ import YourAddresses from "./components/YourAddresses/YourAddresses";
 import ContactUs from "./components/ContactUs/ContactUs";
 import GiftCards from "./components/GiftCards/GiftCards";
 import CartDrawer from "./components/Cart/CartDrawer";
+import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
@@ -76,6 +77,7 @@ function App() {
                 <Route path="/your-addresses" element={<ProtectedRoute><YourAddresses /></ProtectedRoute>} />
                 <Route path="/contact-us" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
                 <Route path="/gift-cards" element={<ProtectedRoute><GiftCards /></ProtectedRoute>} />
+                <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmation /></ProtectedRoute>} />
 
 
                 <Route path="*" element={<NotFound />} />

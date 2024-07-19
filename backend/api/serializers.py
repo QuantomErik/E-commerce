@@ -42,10 +42,20 @@ class OrderItemSerializer(serializers.ModelSerializer):
         model = OrderItem
         fields = ['product', 'quantity', 'price']
 
+""" class OrderSerializer(serializers.ModelSerializer):
+    items = OrderItemSerializer(many=True)
+    total_amount = serializers.DecimalField(max_digits=10, decimal_places=2)
+
+    class Meta:
+        model = Order
+        fields = ['id', 'created_at', 'total_amount', 'items'] """
+
 class OrderSerializer(serializers.ModelSerializer):
     items = OrderItemSerializer(many=True)
     total_amount = serializers.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta:
         model = Order
-        fields = ['id', 'created_at', 'total_amount', 'items']
+        fields = ['id', 'created_at', 'total_amount', 'email', 'cardholder_name', 'masked_card_number', 'items']
+
+       

@@ -89,12 +89,16 @@ const CheckoutPage = () => {
     return cart.reduce((total, product) => total + (Number(product.price) * product.quantity), 0).toFixed(2);
   };
 
-  const createOrder = async (cartItems, totalAmount) => {
+  /* const createOrder = async (cartItems, totalAmount) => { */
+  const createOrder = async (cartItems, totalAmount, email, cardholderName, maskedCardNumber) => {
     try {
       const response = await api.post('https://www.erikyang.se/ecommerce/api/orders/create_order/', {
       /* const response = await api.post('/api/orders/create_order/', { */
         cart_items: cartItems,
         total_amount: totalAmount,
+        email: email,
+        cardholder_name: cardholderName,
+        masked_card_number: maskedCardNumber,
       });
       return response;
     } catch (error) {
@@ -103,7 +107,7 @@ const CheckoutPage = () => {
     }
   };
 
-  const handleOrderCreation = async () => {
+  const handleOrderCreation = async (email, cardholderName, maskedCardNumber) => {
     try {
       const cartItems = cart.map(item => ({
         product: item.id,
@@ -112,11 +116,21 @@ const CheckoutPage = () => {
       }));
       const totalAmount = calculateSubtotal();
 
-      const response = await createOrder(cartItems, totalAmount);
+      const response = await createOrder(cartItems, totalAmount, email, cardholderName, maskedCardNumber);
       console.log('Order created successfully:', response.data);
 
       clearCart();
-      navigate('/success', { state: { order: response.data } });
+      /* navigate('/success', { state: { order: response.data } }); */
+      navigate('/success', {
+        state: {
+            cartItems,
+            totalAmount,
+            email,
+            cardholderName,
+            maskedCardNumber,
+            orderId: response.data.id // Pass the order ID to navigate to OrderConfirmation
+        }
+    });
     } catch (error) {
       console.error('Error creating order:', error);
     }

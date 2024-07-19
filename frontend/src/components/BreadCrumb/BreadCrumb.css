@@ -10,7 +10,8 @@
     flex-wrap: wrap;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #6c757d;
+    /* color: #6c757d; */
+    color: #628fb6;
   }
   
   .breadcrumb-list li {

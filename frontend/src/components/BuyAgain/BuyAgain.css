@@ -79,7 +79,8 @@ h1.relative {
 
 /* Additional styling for links */
 .your-orders-link {
-  color: #6c757d;
+  /* color: #6c757d; */
+  color: #628fb6;
   margin-left: 1rem;
 }
 

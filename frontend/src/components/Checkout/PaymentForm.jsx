@@ -16,19 +16,19 @@ const PaymentForm = ({ amount, cartItems, onOrderCreation }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     console.log('Starting payment process');
-    console.log(`Amount to be charged: ${amount}`); // Debug statement
-
+    console.log(`Amount to be charged: ${amount}`);
+  
     if (!stripe || !elements) {
       console.log('Stripe.js has not loaded');
       return;
     }
-
+  
     const cardNumberElement = elements.getElement(CardNumberElement);
     const cardExpiryElement = elements.getElement(CardExpiryElement);
     const cardCvcElement = elements.getElement(CardCvcElement);
-
+  
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardNumberElement,
@@ -37,17 +37,30 @@ const PaymentForm = ({ amount, cartItems, onOrderCreation }) => {
         email: email,
       },
     });
-
+  
     if (error) {
       console.log('Error creating payment method:', error.message);
       setErrorMessage(error.message);
       return;
     }
-
+  
+    const lastFourDigits = paymentMethod.card.last4;
+    const maskedCardNumber = `**** **** **** ${lastFourDigits}`;
+  
     console.log('Payment method created:', paymentMethod);
 
+    const payload = {
+      payment_method: paymentMethod.id,
+      amount: amount,
+      email: email,
+      cardholder_name: cardholderName,
+      masked_card_number: maskedCardNumber,
+    };
+  
+    console.log('Payload to be sent to backend:', payload);
+  
     const response = await fetch('https://www.erikyang.se/ecommerce/api/create-payment-intent/', {
-    /* const response = await fetch('/api/create-payment-intent/', { */
+      /* const response = await fetch('/api/create-payment-intent/', { */
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,51 +68,55 @@ const PaymentForm = ({ amount, cartItems, onOrderCreation }) => {
       body: JSON.stringify({
         payment_method: paymentMethod.id,
         amount: amount,
+        email: email,
+        cardholder_name: cardholderName,
+        masked_card_number: maskedCardNumber,
       }),
     });
-
+  
     const paymentIntentData = await response.json();
-
+  
     console.log('Payment intent response:', paymentIntentData);
-
+  
     if (paymentIntentData.error) {
       console.log('Error from backend:', paymentIntentData.error);
       setErrorMessage(paymentIntentData.error);
       return;
     }
-
+  
     const { client_secret, status } = paymentIntentData;
-
+  
     console.log('Payment intent status:', status);
-
+  
     if (status === 'requires_confirmation' || status === 'requires_action') {
       const { error: confirmError } = await stripe.confirmCardPayment(client_secret);
-
+  
       if (confirmError) {
         console.log('Error confirming payment:', confirmError.message);
         setErrorMessage(confirmError.message);
         return;
       }
-
+  
       console.log('Payment confirmed successfully');
       setSuccessMessage('Payment successful!');
       setErrorMessage('');
-
+  
       // Call the order creation function
-      await onOrderCreation();
-
+      await onOrderCreation(email, cardholderName, maskedCardNumber);
+  
       // Redirect to the success page with order details
-      navigate('/success', { state: { cartItems, totalAmount: amount } });
+      navigate('/success', { state: { cartItems, totalAmount: amount, email, cardholderName, maskedCardNumber } });
     } else if (status === 'succeeded') {
       console.log('Payment already succeeded');
       setSuccessMessage('Payment already succeeded!');
-      await onOrderCreation();
-      navigate('/success', { state: { cartItems, totalAmount: amount } });
+      await onOrderCreation(email, cardholderName, maskedCardNumber);
+      navigate('/success', { state: { cartItems, totalAmount: amount, email, cardholderName, maskedCardNumber } });
     } else {
       console.log('Unexpected status:', status);
       setErrorMessage('Unexpected status: ' + status);
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="payment-form">
@@ -153,3 +170,7 @@ const PaymentForm = ({ amount, cartItems, onOrderCreation }) => {
 };
 
 export default PaymentForm;
+
+
+
+/* const response = await fetch('/api/create-payment-intent/', { */
