@@ -59,8 +59,8 @@ const PaymentForm = ({ amount, cartItems, onOrderCreation }) => {
   
     console.log('Payload to be sent to backend:', payload);
   
-    const response = await fetch('https://www.erikyang.se/ecommerce/api/create-payment-intent/', {
-      /* const response = await fetch('/api/create-payment-intent/', { */
+    /* const response = await fetch('https://www.erikyang.se/ecommerce/api/create-payment-intent/', { */
+      const response = await fetch('/api/create-payment-intent/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

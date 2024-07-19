@@ -68,11 +68,11 @@ function Home({ onOpenCartDrawer }) {
 
   return (
     <div>
-      <PlanetPromoSection imageSrc="./src/components/PlanetPromoSection/PlanetPromo.jpg"/>
+      <PlanetPromoSection imageSrc="/ecommerce/images/PlanetPromo.jpg"/>
       <Products products={firstRowProducts} onOpenCartDrawer={onOpenCartDrawer} categoryName="Planets" />
-      <MoonPromoSection imageSrc="./src/components/MoonPromoSection/forest-ice-blue-moon.jpeg"/>
+      <MoonPromoSection imageSrc="/ecommerce/images/forest-ice-blue-moon.jpeg"/>
       <Products products={secondRowProducts} onOpenCartDrawer={onOpenCartDrawer} categoryName="Moons" />
-      <ConstellationPromoSection imageSrc="./src/components/ConstellationPromoSection/Panther-constellation2.png"/>
+      <ConstellationPromoSection imageSrc="/ecommerce/images/Panther-constellation2.png"/>
       <Products products={thirdRowProducts} onOpenCartDrawer={onOpenCartDrawer} categoryName="Constellations" />
     </div>
   );
