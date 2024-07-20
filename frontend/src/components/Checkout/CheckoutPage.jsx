@@ -92,8 +92,8 @@ const CheckoutPage = () => {
   /* const createOrder = async (cartItems, totalAmount) => { */
   const createOrder = async (cartItems, totalAmount, email, cardholderName, maskedCardNumber) => {
     try {
-      /* const response = await api.post('https://www.erikyang.se/ecommerce/api/orders/create_order/', { */
-      const response = await api.post('/api/orders/create_order/', {
+      const response = await api.post('https://www.erikyang.se/ecommerce/api/orders/create_order/', {
+      /* const response = await api.post('/api/orders/create_order/', { */
         cart_items: cartItems,
         total_amount: totalAmount,
         email: email,
