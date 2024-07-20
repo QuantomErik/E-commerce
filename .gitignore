@@ -45,7 +45,7 @@ media/
 node_modules/
 dist/
 dist-ssr/
-public/
+# public/
 
 # Build directories
 build/
