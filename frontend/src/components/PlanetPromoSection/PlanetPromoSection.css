@@ -1,5 +1,6 @@
 .promo-section {
     display: flex;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: space-between;
     /* padding: 2rem; */
@@ -33,7 +34,7 @@
   }
   
   .promo-image {
-    flex: 2;
+    flex: 4;
     display: flex;
     justify-content: center;
     /* height: 35rem; */
@@ -54,9 +55,135 @@
         margin-left: 2rem;
         margin-right: 2rem;
       }
+
+      
+  }
+
+  @media (max-width: 1500px) {
+    
+    .promo-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+      
+    }
+    
+    .promo-text p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #555;
+      
+    }
+      
   }
 
 
+  @media (max-width: 1300px) {
+    
+    .promo-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+      
+    }
+    
+    .promo-text p {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: #555;
+      
+    }
+      
+  }
+
+
+  @media (max-width: 1000px) {
+    .promo-text h2 {
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+      color: #333;
+      
+    }
+    
+    .promo-text p {
+      font-size: 0.7rem;
+      line-height: 1.5;
+      color: #555;
+      
+    }
+
+      
+  }
+
+
+
+  @media (max-width: 900px) {
+    .promo-text h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+
+    }
+
+    .promo-text p {
+      font-size: 0.65rem;
+      line-height: 1.5;
+      color: #555;
+      
+    }
+  }
+
+
+  @media (max-width: 800px) {
+    .promo-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .promo-text {
+      padding: 1rem;
+    }
+
+    .promo-text p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #555;
+    }
+  }
+
+  @media (max-width: 740px) {
+   
+    .promo-text h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+      
+    }
+    
+    .promo-text p {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: #555;
+      
+    }
+  }
+
+  @media (max-width: 600px) {
+   
+    .promo-text h2 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #333;
+      
+    }
+    
+    .promo-text p {
+      font-size: 0.6rem;
+      line-height: 1.5;
+      color: #555;
+      
+    }
+  }
 
   @media (max-width: 424px) {
     .promo-section {
@@ -69,5 +196,59 @@
       margin: 2rem 0;
       margin-left: 0rem;
       margin-right: 0rem;
+    }
+  }
+
+
+  @media (max-width: 300px) {
+   
+    .promo-text h2 {
+      font-size: 0.6rem;
+      margin-bottom: 1rem;
+      color: #333;
+      
+    }
+    
+    .promo-text p {
+      font-size: 0.4rem;
+      line-height: 1.5;
+      color: #555;
+      
+    }
+  }
+
+
+  @media (max-width: 250px) {
+   
+    .promo-text h2 {
+      font-size: 0.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+      
+    }
+    
+    .promo-text p {
+      font-size: 0.3rem;
+      line-height: 1.5;
+      color: #555;
+      
+    }
+  }
+
+
+  @media (max-width: 221px) {
+   
+    .promo-text h2 {
+      font-size: 0.45rem;
+      margin-bottom: 1rem;
+      color: #333;
+      
+    }
+    
+    .promo-text p {
+      font-size: 0.25rem;
+      line-height: 1.5;
+      color: #555;
+      
     }
   }
