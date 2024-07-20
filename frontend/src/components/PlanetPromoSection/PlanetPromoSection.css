@@ -8,36 +8,42 @@
     margin: 2rem 0;
     margin-left: 4rem;
     margin-right: 4rem;
+    /* height: 25rem; */
   }
   
   .promo-text {
     flex: 1;
     padding-right: 2rem;
     padding-left: 2rem;
+    /* height: 25rem; */
   }
   
   .promo-text h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #333;
+    
   }
   
   .promo-text p {
     font-size: 1.125rem;
     line-height: 1.5;
     color: #555;
+    
   }
   
   .promo-image {
-    flex: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
+    /* height: 35rem; */
   }
   
   .promo-image img {
     max-width: 100%;
     height: auto;
     border-radius: 3px;
+    /* height: 35rem; */
   }
   
 
@@ -48,4 +54,20 @@
         margin-left: 2rem;
         margin-right: 2rem;
       }
+  }
+
+
+
+  @media (max-width: 424px) {
+    .promo-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* padding: 2rem; */
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      margin: 2rem 0;
+      margin-left: 0rem;
+      margin-right: 0rem;
+    }
   }

@@ -88,7 +88,7 @@ const ProductCard = ({ product, onOpenCartDrawer }) => {
 
       <div className="text-box px-5 pb-3">
         <a href="#">
-          <h5 className="text-xl font-semibold tracking-tight text-gray-900">{product.name}</h5>
+          <h5 className="card-title font-semibold tracking-tight text-gray-900">{product.name}</h5>
         </a>
         <p className="card-description text-gray-700">{product.description}</p>
         <div className="card-details mt-4">
