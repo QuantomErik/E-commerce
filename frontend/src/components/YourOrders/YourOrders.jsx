@@ -118,10 +118,10 @@ const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the
   }, [isAuthenticated]);
 
   return (
-    <div className="container mx-auto my-10 p-5">
+    <div className="container mx-auto my-10 ">
       <BreadCrumb />
 
-      <div className="orders-container mx-auto my-10 p-5 rounded shadow-md">
+      <div className="orders-container mx-auto my-10 rounded shadow-md">
         <div className="flex items-center mb-4">
           <h1 className="text-xl font-bold relative">
             Your Orders
@@ -140,16 +140,16 @@ const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the
           </div>
         ) : orders.length > 0 ? (
           orders.map(order => (
-            <div key={order.id} className="order-card mb-4 p-4 border border-gray-300 rounded shadow-md">
+            <div key={order.id} className="order-card mb-4 border border-gray-300 rounded shadow-md">
               {/* <div className="flex justify-between mb-2"> */}
               <div className="order-header flex justify-between">
                 <div>
-                  <p className="text-gray-600">ORDER PLACED</p>
-                  <p className="font-semibold">{new Date(order.created_at).toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+                  <p className="order-placed-text text-gray-600">ORDER PLACED</p>
+                  <p className="order-placed-date font-semibold">{new Date(order.created_at).toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
                 </div>
                 <div>
-                  <p className="text-gray-600">TOTAL</p>
-                  <p className="font-semibold">${order.total_amount}</p>
+                  <p className="order-total-text text-gray-600">TOTAL</p>
+                  <p className="order-total-amount font-semibold">${order.total_amount}</p>
                 </div>
                 <div className="order-id">
                   <p className="text-gray-600">ORDER # {order.id}</p>
@@ -158,7 +158,7 @@ const YourOrders = ({ onOpenCartDrawer }) => { // Add a new prop for opening the
                   </Link>
                 </div>
               </div>
-              <ul className="mt-4">
+              <ul className="mt-2">
                 {order.items.map(item => (
                   <li key={item.product.id} className="order-item border-b border-gray-300 py-2 flex items-center">
                     <img src={item.product.image_url} alt={item.product.name} className="w-16 h-16 object-cover mr-4 rounded-lg" />

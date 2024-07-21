@@ -2,11 +2,17 @@
 
 .orders-container {
   background-color: #f9f9f9; /* Light background for better contrast */
+  padding: 20px;
+}
+
+.container {
+  padding: 20px;
 }
 
 .order-card {
   background-color: white; /* White background for cards */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 17px;
 }
 
 
@@ -140,3 +146,109 @@ h1.relative {
   padding: 16px;
   border-radius: 8px;
 }
+
+
+@media (max-width: 500px) {
+    .orders-container {
+      padding: 1px;
+    }
+
+    .container {
+      padding: 2px;
+    }
+
+    .order-placed-text {
+      font-size: 0.8rem;
+    }
+
+    .order-placed-date {
+      font-size: 0.8rem;
+    }
+
+    .order-total-text {
+      font-size: 0.8rem;
+    }
+
+    .order-total-amount {
+      font-size: 0.8rem;
+    }
+
+    .order-id {
+      font-size: 0.8rem;
+    }
+
+    .view-order-details-button {
+      font-size: 0.8rem;
+    }
+
+    .order-card {
+      padding: 3px;
+    }
+
+    .order-header {
+      padding: 1px;
+    }
+  }
+
+
+ @media (max-width: 300px) {
+    .orders-container {
+      padding: 1px;
+    }
+
+    .container {
+      padding: 2px;
+    }
+
+    .order-placed-text {
+      font-size: 0.7rem;
+    }
+
+    .order-placed-date {
+      font-size: 0.6rem;
+    }
+
+    .order-total-text {
+      font-size: 0.7rem;
+    }
+
+    .order-total-amount {
+      font-size: 0.6rem;
+    }
+
+    .order-id p{
+      font-size: 0.6rem;
+    }
+
+    .view-order-details-button {
+      font-size: 0.6rem;
+    }
+
+    .order-card {
+      padding: 3px;
+    }
+
+    .order-header {
+      padding: 1px;
+    }
+
+    .order-img {
+      font-size: 0.5rem;
+    }
+
+
+    .buy-again-btn {
+      font-size: 0.4rem;
+      border: 1px solid #3498db;
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      display: flex;
+      align-items: center;
+    }
+
+
+
+
+  }
