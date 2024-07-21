@@ -79,7 +79,7 @@ const ProductCard = ({ product, onOpenCartDrawer }) => {
         </a>
         <button
           onClick={handleAddToCart}
-          className="add-to-cart-button text-white bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg px-5 py-2.5 text-center absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="add-to-cart-button text-white bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-center absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
           <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
           Add to cart
