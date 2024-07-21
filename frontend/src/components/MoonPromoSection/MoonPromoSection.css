@@ -177,7 +177,7 @@
     }
   }
 
-  @media (max-width: 424px) {
+  @media (max-width: 500px) {
     .moon-promo-section {
       display: flex;
       align-items: center;

@@ -182,7 +182,7 @@
     }
   }
 
-  @media (max-width: 424px) {
+  @media (max-width: 500px) {
     .constellation-promo-section {
       display: flex;
       align-items: center;
