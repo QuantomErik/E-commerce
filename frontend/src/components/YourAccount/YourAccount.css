@@ -1,0 +1,125 @@
+.your-account-container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  h1 {
+    /* text-align: center; */
+    margin-bottom: 2rem;
+  }
+  
+  .your-account-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .your-account-card {
+    background-color: white;
+    /* text-align: center; */
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    height: auto;
+  }
+  
+  .your-account-card:hover {
+    background-color: #f7fafc;
+    transform: translateY(-2px);
+  }
+  
+  .your-account-card h2 {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .your-account-card p {
+    color: #718096;
+    margin-bottom: 10rem;
+  }
+
+
+
+  @media (max-width: 1280px) {
+    .your-account-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .your-account-card p {
+        font-size: 0.9rem;
+        margin-bottom: 5rem;
+        
+      }
+  }
+  
+  @media (max-width: 1024px) {
+    .your-account-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .your-account-card p {
+        font-size: 0.9rem;
+        margin-bottom: auto;
+        
+      }
+  }
+  
+  @media (max-width: 650px) {
+    .your-account-grid {
+      grid-template-columns: 1fr;
+      
+    }
+    
+    .your-account-card {
+      padding: 1.5rem;
+      text-align: center;
+      height: auto;
+      
+    }
+  
+    .your-account-card h2 {
+      font-size: 1.1rem;
+      
+    }
+  
+    .your-account-card p {
+      font-size: 0.9rem;
+      margin-bottom: auto;
+      
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    .your-account-grid {
+      grid-template-columns: 1fr;
+      
+    }
+    
+    .your-account-card {
+      padding: 1.5rem;
+      height: auto;
+      
+    }
+  
+    .your-account-card h2 {
+      font-size: 1rem;
+      
+    }
+  
+    .your-account-card p {
+      font-size: 0.9rem;
+     
+      
+    }
+
+    
+
+      /* .container {
+        justify-content: center;
+      align-items: center;
+      justify-items: center;
+      }   */
+  }
