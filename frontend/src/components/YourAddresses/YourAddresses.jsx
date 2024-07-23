@@ -26,7 +26,18 @@ const YourAddresses = () => {
   };
 
   const handleEditAddress = (id) => {
-    // Logic for editing an address
+    navigate(`/your-addresses/edit-address/${id}`);
+  };
+
+  const handleRemoveAddress = async (id) => {
+    if (window.confirm("Are you sure you want to delete this address?")) {
+      try {
+        await api.delete(`/api/addresses/${id}/`);
+        setAddresses(addresses.filter(address => address.id !== id));
+      } catch (error) {
+        console.error('Error deleting address:', error);
+      }
+    }
   };
 
   return (
@@ -47,12 +58,21 @@ const YourAddresses = () => {
             <div key={address.id} className="address-card">
               <h2 className="text-xl font-semibold">{address.address_type}</h2>
               <p>{address.street_address}, {address.city}, {address.postcode}, {address.country}</p>
-              <button
-                className="mt-2 text-blue-600"
-                onClick={() => handleEditAddress(address.id)}
-              >
-                Edit
-              </button>
+              <div className="button-group mt-2">
+                <button
+                  className="text-custom-color mr-2"
+                  onClick={() => handleEditAddress(address.id)}
+                >
+                  Edit
+                </button>
+                <span className="separator">|</span>
+                <button
+                  className="text-custom-color ml-2"
+                  onClick={() => handleRemoveAddress(address.id)}
+                >
+                  Remove
+                </button>
+              </div>
             </div>
           ))}
         </div>

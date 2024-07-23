@@ -24,6 +24,7 @@ import GiftCards from "./components/GiftCards/GiftCards";
 import CartDrawer from "./components/Cart/CartDrawer";
 import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
 import NewAddress from "./components/NewAddress/NewAddress";
+import EditAddress from "./components/EditAddress/EditAddress";
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
@@ -68,6 +69,10 @@ function App() {
     setAddresses([...addresses, newAddress]);
   };
 
+  const updateAddress = (updatedAddress) => {
+    setAddresses(addresses.map(address => (address.id === updatedAddress.id ? updatedAddress : address)));
+  };
+
   return (
     <BrowserRouter basename="/ecommerce/">
       <AuthProvider>
@@ -94,6 +99,10 @@ function App() {
                 <Route path="/your-addresses" element={<ProtectedRoute><YourAddresses /></ProtectedRoute>} />
                {/*  <Route path="/new-address" element={<ProtectedRoute><NewAddress /></ProtectedRoute>} /> */}
                <Route path="/your-addresses/new-address" element={<ProtectedRoute><NewAddress addNewAddress={addNewAddress} /></ProtectedRoute>} />
+               {/* <Route path="/your-addresses/edit-address/:id" element={<ProtectedRoute><EditAddress /></ProtectedRoute>} /> */}
+               <Route path="/your-addresses/edit-address/:id"element={<EditAddress updateAddress={updateAddress} />}/>
+
+
                 <Route path="/contact-us" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
                 <Route path="/gift-cards" element={<ProtectedRoute><GiftCards /></ProtectedRoute>} />
                 <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmation /></ProtectedRoute>} />

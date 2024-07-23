@@ -52,6 +52,7 @@ h1 {
 
 .address-card p, .add-card p {
   color: #718096;
+  margin-bottom: 10px;
 }
 
 .add-card {
@@ -61,6 +62,10 @@ h1 {
 
 .text-blue-600 {
   color: #3182ce;
+}
+
+.text-custom-color {
+  color: #628fb6;
 }
 
 @media (max-width: 1024px) {
