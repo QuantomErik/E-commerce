@@ -25,6 +25,7 @@ import CartDrawer from "./components/Cart/CartDrawer";
 import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
 import NewAddress from "./components/NewAddress/NewAddress";
 import EditAddress from "./components/EditAddress/EditAddress";
+import BestSellers from "./components/BestSellers/BestSellers";
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
@@ -88,6 +89,8 @@ function App() {
                 <Route path="/register" element={<RegisterAndLogout />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/success" element={<SuccessPage />} />
+
+                <Route path="/best-sellers" element={<BestSellers />} />
 
                 <Route path="/your-account" element={<ProtectedRoute><YourAccount /></ProtectedRoute>} />
                 {/* <Route path="/your-orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} /> */}

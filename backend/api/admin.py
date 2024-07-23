@@ -14,10 +14,10 @@ from .models import Product, Category, Order, OrderItem
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'description', 'category', 'distance_to_sun', 'created_at')  # Ensure the field names are correct
-    fields = ('name', 'price', 'description', 'image', 'category', 'distance_to_sun')
+    list_display = ('name', 'price', 'description', 'category', 'distance_to_sun', 'created_at', 'best_seller')
+    fields = ('name', 'price', 'description', 'image', 'category', 'distance_to_sun', 'best_seller')
     search_fields = ('name', 'description', 'category__name')
-    list_filter = ('category',)
+    list_filter = ('category', 'best_seller')
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):

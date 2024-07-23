@@ -181,3 +181,22 @@ class AddressViewSet(viewsets.ModelViewSet):
         user = self.request.user
         logger.info(f"Creating address for user: {user} with data: {self.request.data}")
         serializer.save(user=user)
+
+
+
+class BestSellersViewSet(viewsets.ViewSet):
+    def list(self, request):
+        sort_option = request.query_params.get('sort', 'popularity')
+        queryset = Product.objects.filter(best_seller=True)
+        
+        if sort_option == 'price-asc':
+            queryset = queryset.order_by('price')
+        elif sort_option == 'price-desc':
+            queryset = queryset.order_by('-price')
+        elif sort_option == 'rating':
+            queryset = queryset.order_by('-rating')  # Assuming you have a rating field
+        else:
+            queryset = queryset.order_by('-popularity')  # Assuming you have a popularity field
+
+        serializer = ProductSerializer(queryset, many=True)
+        return Response(serializer.data)        
