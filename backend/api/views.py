@@ -5,7 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 """ from .models import Product, Category """
 from .models import Product, Category, Order
 """ from .serializers import UserSerializer, ProductSerializer, CategorySerializer """
-from .serializers import UserSerializer, ProductSerializer, CategorySerializer, OrderSerializer
+from .serializers import UserSerializer, ProductSerializer, CategorySerializer, OrderSerializer, AddressSerializer
 from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -16,7 +16,14 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import viewsets, status
-from .models import Order, OrderItem
+from .models import Order, OrderItem, Address
+
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.http import JsonResponse
+
+@ensure_csrf_cookie
+def set_csrf_token(request):
+    return JsonResponse({'detail': 'CSRF cookie set'})
 
 logger = logging.getLogger(__name__)
 
@@ -159,3 +166,18 @@ class OrderViewSet(viewsets.ModelViewSet):
 
         serializer = self.get_serializer(order)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class AddressViewSet(viewsets.ModelViewSet):
+    serializer_class = AddressSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        logger.info(f"Fetching addresses for user: {user}")
+        return Address.objects.filter(user=user)
+
+    def perform_create(self, serializer):
+        user = self.request.user
+        logger.info(f"Creating address for user: {user} with data: {self.request.data}")
+        serializer.save(user=user)

@@ -1,27 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
+import './YourAddresses.css';
+import api from '../../api'; // Ensure this points to your api module
 
 const YourAddresses = () => {
+  const navigate = useNavigate();
+  const [addresses, setAddresses] = useState([]);
+
+  useEffect(() => {
+    const fetchAddresses = async () => {
+      try {
+        const response = await api.get('/api/addresses/');
+        setAddresses(response.data);
+      } catch (error) {
+        console.error('Error fetching addresses:', error);
+      }
+    };
+
+    fetchAddresses();
+  }, []);
+
+  const handleAddAddress = () => {
+    navigate('/your-addresses/new-address');
+  };
+
+  const handleEditAddress = (id) => {
+    // Logic for editing an address
+  };
+
   return (
     <div className="container mx-auto my-10 p-5">
       <BreadCrumb />
-      <div className="container mx-auto my-10 p-5 border border-gray-300 rounded shadow-md">
+      <div className="addresses-container mx-auto my-10 p-5">
         <h1 className="text-2xl font-bold mb-4">Your Addresses</h1>
         <p>Manage your shipping addresses here.</p>
-        <div className="mt-4">
-          {/* Sample address list */}
-          <div className="mb-4">
-            <h2 className="text-xl font-semibold">Home</h2>
-            <p>123 Main St, Springfield, IL 62704</p>
-            <button className="mt-2 text-blue-600">Edit</button>
+        <div className="mt-4 grid your-addresses-grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div
+            className="add-card flex flex-col items-center justify-center cursor-pointer"
+            onClick={handleAddAddress}
+          >
+            <div className="text-4xl text-blue-600">+</div>
+            <p className="mt-2 text-blue-600">Add Address</p>
           </div>
-          <div className="mb-4">
-            <h2 className="text-xl font-semibold">Work</h2>
-            <p>456 Elm St, Springfield, IL 62701</p>
-            <button className="mt-2 text-blue-600">Edit</button>
-          </div>
+          {addresses.map((address) => (
+            <div key={address.id} className="address-card">
+              <h2 className="text-xl font-semibold">{address.address_type}</h2>
+              <p>{address.street_address}, {address.city}, {address.postcode}, {address.country}</p>
+              <button
+                className="mt-2 text-blue-600"
+                onClick={() => handleEditAddress(address.id)}
+              >
+                Edit
+              </button>
+            </div>
+          ))}
         </div>
-        <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Add New Address</button>
       </div>
     </div>
   );

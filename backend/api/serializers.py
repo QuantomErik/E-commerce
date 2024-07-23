@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 """ from .models import Product, Category """
-from .models import Product, Category, Order, OrderItem
+from .models import Product, Category, Order, OrderItem, Address
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -58,4 +58,11 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ['id', 'created_at', 'total_amount', 'email', 'cardholder_name', 'masked_card_number', 'items']
 
-       
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = '__all__'
+        extra_kwargs = {
+            'user': {'read_only': True},
+             }

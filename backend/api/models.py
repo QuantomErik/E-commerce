@@ -51,3 +51,17 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.product.name} ({self.quantity})"
+
+
+class Address(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    address_type = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
+    full_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=20)
+    street_address = models.TextField()
+    postcode = models.CharField(max_length=20)
+    city = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.address_type} - {self.street_address}, {self.city}, {self.country}"

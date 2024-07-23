@@ -23,9 +23,21 @@ import ContactUs from "./components/ContactUs/ContactUs";
 import GiftCards from "./components/GiftCards/GiftCards";
 import CartDrawer from "./components/Cart/CartDrawer";
 import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
+import NewAddress from "./components/NewAddress/NewAddress";
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
+import axios from "axios";
+
+
+// Set CSRF token
+axios.get('https://erikyang.se/ecommerce/api/set-csrf/')
+  .then(response => {
+    console.log('CSRF token set');
+  })
+  .catch(error => {
+    console.error('Error setting CSRF token:', error);
+  });
 
 library.add(faShoppingCart, faUser);
 
@@ -42,6 +54,7 @@ function RegisterAndLogout() {
 function App() {
 
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
+  const [addresses, setAddresses] = useState([]);
 
   const openCartDrawer = () => {
     setIsCartDrawerOpen(true);
@@ -49,6 +62,10 @@ function App() {
 
   const closeCartDrawer = () => {
     setIsCartDrawerOpen(false);
+  };
+
+  const addNewAddress = (newAddress) => {
+    setAddresses([...addresses, newAddress]);
   };
 
   return (
@@ -75,6 +92,8 @@ function App() {
                 <Route path="/buy-again" element={<ProtectedRoute><BuyAgain onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} />
 
                 <Route path="/your-addresses" element={<ProtectedRoute><YourAddresses /></ProtectedRoute>} />
+               {/*  <Route path="/new-address" element={<ProtectedRoute><NewAddress /></ProtectedRoute>} /> */}
+               <Route path="/your-addresses/new-address" element={<ProtectedRoute><NewAddress addNewAddress={addNewAddress} /></ProtectedRoute>} />
                 <Route path="/contact-us" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
                 <Route path="/gift-cards" element={<ProtectedRoute><GiftCards /></ProtectedRoute>} />
                 <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmation /></ProtectedRoute>} />
