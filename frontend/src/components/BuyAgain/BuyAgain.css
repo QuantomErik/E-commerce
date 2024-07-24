@@ -42,9 +42,15 @@
   }
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .products-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+} */
+
+@media (min-width: 1280px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -94,4 +100,104 @@ h1.relative {
 .your-orders-link:hover {
   color: #c7850a;
   text-decoration: underline;
+}
+
+
+
+/* Specific class for BuyAgain page */
+.card-container.buy-again-height {
+  height: 420px; 
+}
+
+.card-container.buy-again-height .card {
+  height: 280px; 
+}
+
+
+
+
+
+
+@media (max-width: 1280px) {
+  .card-container.buy-again-height {
+    height: 330px; 
+  }
+
+  .card-container.buy-again-height .card {
+    height: 190px; 
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .card-container.buy-again-height {
+    height: 355px; 
+  }
+
+  .card-container.buy-again-height .card {
+    height: 220px; 
+  }
+
+}
+
+
+@media (max-width: 750px) {
+  .card-container.buy-again-height {
+    height: 330px; 
+  }
+
+  .card-container.buy-again-height .card {
+    height: 220px; 
+  }
+
+}
+
+
+@media (max-width: 650px) {
+  .card-container.buy-again-height {
+    height: 310px; 
+  }
+
+  .card-container.buy-again-height .card {
+    height: 220px; 
+  }
+
+}
+
+
+
+@media (max-width: 600px) {
+  .card-container.buy-again-height {
+    height: 300px; 
+  }
+
+  .card-container.buy-again-height .card {
+    height: 220px; 
+  }
+
+}
+
+
+@media (max-width: 350px) {
+  .card-container.buy-again-height {
+    height: 288px; 
+  }
+
+  .card-container.buy-again-height .card {
+    height: 220px; 
+  }
+
+}
+
+
+@media (max-width: 300px) {
+  .card-container.buy-again-height {
+    height: 280px; 
+  }
+
+  .card-container.buy-again-height .card {
+    height: 220px; 
+  }
+
 }

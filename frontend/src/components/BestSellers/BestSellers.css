@@ -1,6 +1,6 @@
 /* Specific class for BestSellers page */
 .card-container.best-sellers-height {
-  height: 450px; 
+  height: 420px; 
 }
 
 .card-container.best-sellers-height .card {
@@ -25,6 +25,17 @@
   }
 }
 
+@media (max-width: 1150px) {
+  .card-container.best-sellers-height {
+    height: 340px; 
+  }
+
+  .card-container.best-sellers-height .card {
+    height: 200px; 
+  }
+
+}
+
 
 @media (max-width: 1024px) {
   .card-container.best-sellers-height {
@@ -40,16 +51,24 @@
 
 @media (max-width: 768px) {
   .card-container.best-sellers-height {
-    height: 350px; 
+    height: 360px; 
   }
 
   .card-container.best-sellers-height .card {
     height: 220px; 
   }
 
-  .card-container.best-sellers-height .text-box {
-    height: calc(100% - 220px); /* Adjust based on the card image height */
+}
+
+@media (max-width: 750px) {
+  .card-container.best-sellers-height {
+    height: 330px; 
   }
+
+  .card-container.best-sellers-height .card {
+    height: 220px; 
+  }
+
 }
 
 @media (max-width: 640px) {
@@ -143,7 +162,7 @@
 @media (max-width: 3000px) {
   .container-best-sellers {
     /* padding: 5rem; */
-    margin-top: 6rem;
+    margin-top: 5rem;
     margin-left: 12.5rem;
     margin-right: 12.5rem;
   }
@@ -191,6 +210,8 @@
   
   .sort-label {
     margin-right: 10px;
+    font-size: 1rem;
+    white-space: nowrap; 
   }
   
   .sort-select {
@@ -207,12 +228,12 @@
 
   @media (max-width: 500px) {
     .best-sellers-container {
-      padding: 0px;
+      padding: 15px;
       margin-left: 0px;
     }
 
     .container-best-sellers {
-      padding: 0px;
+      padding: 1px;
       margin-left: 1px;
       margin-right: 1px;
     }
@@ -237,7 +258,7 @@
     }
   }
   
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     .best-sellers-products-grid {
       grid-template-columns: repeat(4, 1fr);
     }
