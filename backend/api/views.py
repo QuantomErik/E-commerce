@@ -188,15 +188,17 @@ class BestSellersViewSet(viewsets.ViewSet):
     def list(self, request):
         sort_option = request.query_params.get('sort', 'popularity')
         queryset = Product.objects.filter(best_seller=True)
-        
+
         if sort_option == 'price-asc':
             queryset = queryset.order_by('price')
         elif sort_option == 'price-desc':
             queryset = queryset.order_by('-price')
-        elif sort_option == 'rating':
-            queryset = queryset.order_by('-rating')  # Assuming you have a rating field
-        else:
-            queryset = queryset.order_by('-popularity')  # Assuming you have a popularity field
+        elif sort_option == 'created_at':
+            queryset = queryset.order_by('-created_at')
+        elif sort_option == 'distance-to-sun':
+            queryset = queryset.order_by('distance_to_sun')
+        elif sort_option == 'distance-to-sun-desc':
+            queryset = queryset.order_by('-distance_to_sun')
 
-        serializer = ProductSerializer(queryset, many=True)
-        return Response(serializer.data)        
+        serializer = ProductSerializer(queryset, many=True, context={'request': request})
+        return Response(serializer.data)      

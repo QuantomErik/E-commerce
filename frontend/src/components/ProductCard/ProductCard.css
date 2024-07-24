@@ -1,3 +1,10 @@
+/* Specific class for BestSellers page */
+/* .card-container.best-sellers-height {
+  height: 500px;
+} */
+
+
+
 .card-container {
     padding: 1px;
     position: relative;
@@ -11,6 +18,7 @@
 
 .card {
   height: 400px;
+ 
 } 
   
   .card-price {

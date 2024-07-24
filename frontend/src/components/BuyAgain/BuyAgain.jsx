@@ -65,7 +65,7 @@ const BuyAgain = ({ onOpenCartDrawer }) => {
             <div className="loader"></div>
           </div>
         ) : products.length > 0 ? (
-          <div className="products-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="products-grid grid">
             {products.map(product => (
               <ProductCard key={product.id} product={product} onOpenCartDrawer={onOpenCartDrawer} />
             ))}
