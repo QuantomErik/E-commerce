@@ -47,7 +47,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter, DjangoFilterBackend]
     search_fields = ['name', 'description', 'category__name']
-    ordering_fields = ['price', 'created_at']
+    ordering_fields = ['price', 'created_at',]
     filterset_fields = ['category', 'price']
 
     def get_serializer_context(self):
@@ -185,6 +185,9 @@ class AddressViewSet(viewsets.ModelViewSet):
 
 
 class BestSellersViewSet(viewsets.ViewSet):
+
+    permission_classes = [AllowAny]
+
     def list(self, request):
         sort_option = request.query_params.get('sort', 'popularity')
         queryset = Product.objects.filter(best_seller=True)
@@ -202,3 +205,40 @@ class BestSellersViewSet(viewsets.ViewSet):
 
         serializer = ProductSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)      
+    
+
+class AllProductsViewSet(viewsets.ViewSet):
+
+    permission_classes = [AllowAny]
+    
+    def list(self, request):
+        search = request.query_params.get('search', '')
+        selected_category = request.query_params.get('category', '')
+        sort_option = request.query_params.get('sort', 'created_at')
+        min_price = request.query_params.get('min_price', '')
+        max_price = request.query_params.get('max_price', '')
+
+        queryset = Product.objects.all()
+
+        if search:
+            queryset = queryset.filter(name__icontains=search)
+        if selected_category:
+            queryset = queryset.filter(category_id=selected_category)
+        if min_price:
+            queryset = queryset.filter(price__gte=min_price)
+        if max_price:
+            queryset = queryset.filter(price__lte=max_price)
+
+        if sort_option == 'price-asc':
+            queryset = queryset.order_by('price')
+        elif sort_option == 'price-desc':
+            queryset = queryset.order_by('-price')
+        elif sort_option == 'created_at':
+            queryset = queryset.order_by('-created_at')
+        elif sort_option == 'distance_to_sun':
+            queryset = queryset.order_by('distance_to_sun')
+        elif sort_option == 'distance_to_sun-desc':
+            queryset = queryset.order_by('-distance_to_sun')
+
+        serializer = ProductSerializer(queryset, many=True, context={'request': request})
+        return Response(serializer.data)
