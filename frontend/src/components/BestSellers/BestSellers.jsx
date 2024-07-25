@@ -4,7 +4,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import api from '../../api';
 import './BestSellers.css';
 
-const BestSellers = () => {
+const BestSellers = ({ onOpenCartDrawer }) => {
   const [products, setProducts] = useState([]);
   const [sortOption, setSortOption] = useState('created_at');  // Default sort option
   const [loading, setLoading] = useState(true);
@@ -29,7 +29,7 @@ const BestSellers = () => {
   };
 
   const handleAddToCart = (product) => {
-    // Implement add to cart functionality
+    onOpenCartDrawer();
   };
 
   if (loading) {
@@ -51,6 +51,8 @@ const BestSellers = () => {
           <option value="distance-to-sun-desc">Distance to Sun: Farthest</option>
         </select>
       </div>
+
+
       <div className="best-sellers-products-grid">
         {products.map(product => (
           <ProductCard key={product.id} product={product} onOpenCartDrawer={handleAddToCart} additionalClass="best-sellers-height"/>

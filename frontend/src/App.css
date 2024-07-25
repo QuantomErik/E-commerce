@@ -24,6 +24,45 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* Toastify CSS Overrides */
+/* .Toastify__toast-container {
+  width: auto;
+}
+
+.Toastify__toast {
+  border-radius: 8px;
+  min-height: 50px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.Toastify__toast--success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.Toastify__toast--info {
+  background-color: #2196f3;
+  color: white;
+}
+
+.Toastify__toast--error {
+  background-color: #f44336;
+  color: white;
+}
+
+.Toastify__toast-body {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.Toastify__close-button {
+  color: white;
+} */
+
+
+
 
 
 /* #root {

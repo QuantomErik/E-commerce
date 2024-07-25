@@ -7,23 +7,12 @@
     background-color: white;
     border-color: #e2e8f0; /* Tailwind gray-200 */
     padding-left: 10px; /* Reduces padding on the left */
-    
-    
-    }
-
-
-
-/* .navbar-dark {
-    background-color: #1a202c;
 }
- */
+
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-    
-    
-
 }
 
 .logo img {
@@ -55,21 +44,12 @@
     /* background-color: rgb(124, 38, 38); */
 }
 
-/* .navbar-icon {
-    margin-right: 10px;
-} */
-
 .nav-text {
     font-size: 1rem;
     font-weight: bold;
 }
 
-/* .navbar-icon {
-    margin-left: 600px;
-} */
-
 .nav {
-    /* background-color: #373949; */
     font-family: 'Roboto', sans-serif;
 }
 
@@ -77,8 +57,22 @@
     font-size: 1rem;
     font-weight: bold;
     color: #4a5568; /* Tailwind gray-700 */
-    /* margin-right:px; */ /* Add some space between the username and the icon */
 }
 
+/* Ensure dropdown stays open when hovering */
+#dropdownHoverButton:hover + #dropdownHover,
+#dropdownHover:hover {
+    display: block;
+}
 
-  
+#dropdownHover {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /* margin-top: 0.5rem; */
+    z-index: 1000;
+    min-width: 100%; /* Ensures dropdown covers the button width */
+    /* Extend dropdown to cover gap */
+    padding-top: 1rem; /* Adjust as necessary */
+}

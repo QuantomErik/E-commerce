@@ -26,10 +26,13 @@ import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation"
 import NewAddress from "./components/NewAddress/NewAddress";
 import EditAddress from "./components/EditAddress/EditAddress";
 import BestSellers from "./components/BestSellers/BestSellers";
+import AllProductsPage from "./components/AllProductsPage/AllProductsPage";
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import axios from "axios";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 // Set CSRF token
@@ -90,7 +93,8 @@ function App() {
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/success" element={<SuccessPage />} />
 
-                <Route path="/best-sellers" element={<BestSellers />} />
+                <Route path="/best-sellers" element={<BestSellers onOpenCartDrawer={openCartDrawer} />} />
+                <Route path="/products" element={<AllProductsPage onOpenCartDrawer={openCartDrawer} />} />
 
                 <Route path="/your-account" element={<ProtectedRoute><YourAccount /></ProtectedRoute>} />
                 {/* <Route path="/your-orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} /> */}

@@ -1,4 +1,4 @@
-/* Specific class for BestSellers page */
+
 .card-container.best-sellers-height {
   height: 420px; 
 }
@@ -8,7 +8,7 @@
 }
 
 .card-container.best-sellers-height .text-box {
-  height: calc(100% - 300px); /* Adjust based on the card image height */
+  height: calc(100% - 300px); 
 }
 
 @media (max-width: 1350px) {
@@ -21,7 +21,7 @@
   }
 
   .card-container.best-sellers-height .text-box {
-    height: calc(100% - 250px); /* Adjust based on the card image height */
+    height: calc(100% - 250px); 
   }
 }
 
