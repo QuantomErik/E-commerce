@@ -109,7 +109,7 @@ AuthProvider.propTypes = {
 import React, { createContext, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import api from '../../api';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../constants';
 
