@@ -33,9 +33,16 @@ REST_FRAMEWORK = {
 
 # JWT settings
 SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=60),
+}
+""" SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=300),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
 }
+ """
+
+
 
 # Installed applications
 INSTALLED_APPS = [
