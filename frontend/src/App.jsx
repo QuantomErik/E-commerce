@@ -27,6 +27,7 @@ import NewAddress from "./components/NewAddress/NewAddress";
 import EditAddress from "./components/EditAddress/EditAddress";
 import BestSellers from "./components/BestSellers/BestSellers";
 import AllProductsPage from "./components/AllProductsPage/AllProductsPage";
+import GiftIdeas from "./components/GiftIdeas/GiftIdeas";
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
@@ -111,7 +112,9 @@ function App() {
 
 
                 <Route path="/contact-us" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
-                <Route path="/gift-cards" element={<ProtectedRoute><GiftCards /></ProtectedRoute>} />
+                {/* <Route path="/gift-cards" element={<ProtectedRoute><GiftCards /></ProtectedRoute>} /> */}
+                <Route path="/gift-cards" element={<GiftCards />} />
+                <Route path="/gift-ideas" element={<GiftIdeas />} />
                 <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmation /></ProtectedRoute>} />
 
 

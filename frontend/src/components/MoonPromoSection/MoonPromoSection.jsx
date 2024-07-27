@@ -9,7 +9,7 @@ const MoonPromoSection = ({ imageSrc }) => {
       </div>
       <div className="moon-promo-text">
         <h2>Discover Our Moons!</h2>
-        <p>Explore the beauty of our unique moon collection. Whether you're looking to add a celestial touch to your home or searching for a special gift, our moons are the perfect choice. Each one is a piece of art, capturing the essence of the night sky.</p>
+        <p>Explore the beauty of our unique moons. Whether you're looking to add a celestial touch to your collection or searching for a special gift, our moons are the perfect choice. Each one is a piece of art, capturing the essence of the night sky.</p>
       </div>
     </div>
   );

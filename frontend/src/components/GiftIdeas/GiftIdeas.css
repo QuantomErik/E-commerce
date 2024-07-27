@@ -1,0 +1,259 @@
+.bundle-container {
+    border: 1px solid #ddd;
+    /* border-radius: 8px; */
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .gift-ideas-container {
+    margin-top: 5rem;
+    margin-left: 12.5rem;
+    margin-right: 12.5rem;
+  }
+  
+  .bundle-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .bundle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  
+  .bundle-products {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .bundle-details {
+    display: flex;
+    align-items: center;
+    gap: 18rem;
+    text-align: left;
+    /* flex-direction: row; */
+    /* font-size: 1rem; */
+  }
+  
+  .bundle-details p {
+    margin-bottom: 0.5rem;
+    /* font-size: 1.2rem; */
+  }
+  
+  .bundle-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* margin-left: 20rem; */
+    
+  }
+  
+  .add-bundle-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-left: 22rem; */
+  }
+  
+  .add-bundle-button:hover {
+    background-color: #45a049;
+  }
+  
+ /*  @media (max-width: 768px) {
+    .bundle-content {
+      flex-direction: column;
+    }
+  
+    .bundle-details {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  } */
+  
+  /* Custom size for GiftIdeas component */
+  .card-container.gift-ideas-size {
+    height: 420px;
+    /* width: 25rem; */
+  }
+  
+  .card-container.gift-ideas-size .card {
+    height: 280px;
+    /* width: 20rem; */
+  }
+  
+
+
+
+
+  @media (max-width: 3000px) {
+    .gift-ideas-container {
+        margin-top: 5rem;
+        margin-left: 12.5rem;
+        margin-right: 12.5rem;
+      }
+
+      .card-container.gift-ideas-size {
+        height: 420px;
+        /* width: 25rem; */
+      }
+  }
+
+  
+
+
+  @media (max-width: 1700px) {
+    .gift-ideas-container {
+        margin-top: 5rem;
+        margin-left: 3.5rem;
+        margin-right: 3.5rem;
+      }
+      
+  }
+
+
+
+  @media (max-width: 1700px) {
+    .card-container.gift-ideas-size {
+        height: 390px; 
+      }
+    
+      .card-container.gift-ideas-size .card {
+        height: 250px; 
+      }
+
+  }
+
+
+  
+  @media (max-width: 1350px) {
+    .card-container.gift-ideas-size {
+      height: 340px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 200px; /* Customize this as needed */
+    }
+  
+    
+  }
+  
+  @media (max-width: 1150px) {
+    .card-container.gift-ideas-size {
+      height: 340px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 200px; /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .card-container.gift-ideas-size {
+      height: 310px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 170px; /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-container.gift-ideas-size {
+      height: 360px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 220px; /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 750px) {
+    .card-container.gift-ideas-size {
+      height: 330px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 220px; /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .card-container.gift-ideas-size {
+      height: 280px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 180px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .text-box {
+      height: calc(100% - 180px); /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .card-container.gift-ideas-size {
+      height: 265px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 180px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .text-box {
+      height: calc(100% - 180px); /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-container.gift-ideas-size {
+      height: 210px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 130px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .text-box {
+      height: calc(100% - 150px); /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .card-container.gift-ideas-size {
+      height: 180px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .card {
+      height: 100px; /* Customize this as needed */
+    }
+  
+    .card-container.gift-ideas-size .text-box {
+      height: calc(100% - 150px); /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 350px) {
+    .card-container.gift-ideas-size {
+      height: 170px; /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .card-container.gift-ideas-size {
+      height: 160px; /* Customize this as needed */
+    }
+  }
+  
+  @media (max-width: 250px) {
+    .card-container.gift-ideas-size {
+      height: 147px; /* Customize this as needed */
+    }
+  }
+  
