@@ -130,7 +130,7 @@ axiosInstance.interceptors.response.use(
 
     if (error.response.status === 401 && originalRequest.url === API_URL + 'api/token/refresh/') {
       /* window.location.href = '/login/'; */
-      window.location.href = '/ecommerce/';
+      window.location.href = '/ecommerce/login/';
       return Promise.reject(error);
     }
 
@@ -158,17 +158,17 @@ axiosInstance.interceptors.response.use(
             .catch(err => {
               console.error('Error refreshing token:', err);
               /* window.location.href = '/login/'; */
-              window.location.href = '/ecommerce/';
+              window.location.href = '/ecommerce/login/';
             });
         } else {
           console.log('Refresh token is expired', tokenParts.exp, now);
           /* window.location.href = '/login/'; */
-          window.location.href = '/ecommerce/';
+          window.location.href = '/ecommerce/login/';
         }
       } else {
         console.log('Refresh token not available.');
         /* window.location.href = '/login/'; */
-        window.location.href = '/ecommerce/';
+        window.location.href = '/ecommerce/login/';
       }
     }
 
