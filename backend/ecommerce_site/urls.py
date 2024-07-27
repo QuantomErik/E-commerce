@@ -1,4 +1,4 @@
-""" from api.views import CreateUserView, create_payment_intent
+from api.views import CreateUserView, create_payment_intent
 from django.contrib import admin
 from django.urls import include, path, re_path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -27,12 +27,12 @@ if settings.DEBUG:
 
 urlpatterns += [
     re_path(r'^ecommerce/.*$', TemplateView.as_view(template_name='index.html'))
-]  """
+]
   
 
 # USE THIS WHEN DEPLOYING
 
-from api.views import CreateUserView, create_payment_intent
+""" from api.views import CreateUserView, create_payment_intent
 from django.contrib import admin
 from django.urls import include, path, re_path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -58,6 +58,6 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += [re_path(r'^ecommerce/.*$', TemplateView.as_view(template_name='index.html'))
-]
+] """
 
 

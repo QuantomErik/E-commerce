@@ -135,10 +135,37 @@ export const CartProvider = ({ children }) => {
       }
     });
 
+
     if (openCartDrawer) {
       openCartDrawer(); // Ensure the drawer opens after updating the state
     }
   };
+
+
+
+
+  const addBundleToCart = (bundle, openCartDrawer) => {
+    setCart((prevCart) => {
+      const newCart = [...prevCart];
+      bundle.forEach((product) => {
+        const existingProduct = newCart.find((item) => item.id === product.id);
+        if (existingProduct) {
+          existingProduct.quantity += 1;
+        } else {
+          newCart.push({ ...product, quantity: 1 });
+        }
+      });
+      toast.success('Bundle added to the cart.');
+      return newCart;
+    });
+
+    if (openCartDrawer) {
+      openCartDrawer(); // Ensure the drawer opens after updating the state
+    }
+  };
+
+
+
 
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((product) => product.id !== productId));
@@ -157,7 +184,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, updateQuantity }}>
+    <CartContext.Provider value={{ cart, addToCart, addBundleToCart, removeFromCart, clearCart, updateQuantity }}>
       {children}
     </CartContext.Provider>
   );

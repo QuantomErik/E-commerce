@@ -114,7 +114,8 @@ function App() {
                 <Route path="/contact-us" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
                 {/* <Route path="/gift-cards" element={<ProtectedRoute><GiftCards /></ProtectedRoute>} /> */}
                 <Route path="/gift-cards" element={<GiftCards />} />
-                <Route path="/gift-ideas" element={<GiftIdeas />} />
+                <Route path="/gift-ideas" element={<GiftIdeas onOpenCartDrawer={openCartDrawer} />} />
+                {/* <Route path="/gift-ideas" element={<GiftIdeas />} /> */}
                 <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmation /></ProtectedRoute>} />
 
 
