@@ -129,7 +129,8 @@ axiosInstance.interceptors.response.use(
     }
 
     if (error.response.status === 401 && originalRequest.url === API_URL + 'api/token/refresh/') {
-      window.location.href = '/login/';
+      /* window.location.href = '/login/'; */
+      window.location.href = '/ecommerce/';
       return Promise.reject(error);
     }
 
