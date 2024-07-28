@@ -172,4 +172,13 @@ axiosInstance.interceptors.response.use(
   }
 );
 
+export const fetchDeals = () => {
+  return axiosInstance.get('/api/deals/')
+    .then(response => response.data)
+    .catch(error => {
+      console.error('Error fetching deals:', error);
+      throw error;
+    });
+};
+
 export default axiosInstance;

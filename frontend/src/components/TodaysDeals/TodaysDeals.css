@@ -1,0 +1,16 @@
+/* src/components/TodaysDeals/TodaysDeals.css */
+.todays-deals-container {
+    margin: 20px;
+  }
+  
+  .deals-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .deals-grid .product-card {
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+  }
+  

@@ -374,7 +374,7 @@ const Navbar = () => {
               <Link to="/best-sellers" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Best Sellers</Link>
             </li>
             <li>
-              <Link to="/todaysdeals" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Today's Deals</Link>
+              <Link to="/todays-deals" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Today's Deals</Link>
             </li>
             <li className="relative">
               <button id="dropdownHoverButton" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded  inline-flex items-center">

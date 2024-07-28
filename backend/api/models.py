@@ -20,6 +20,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     distance_to_sun = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     best_seller = models.BooleanField(default=False)
+    todays_deal = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -66,3 +67,16 @@ class Address(models.Model):
 
     def __str__(self):
         return f"{self.address_type} - {self.street_address}, {self.city}, {self.country}"
+    
+
+    
+
+class Deal(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='deals')
+    discount = models.DecimalField(max_digits=5, decimal_places=2)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.product.name} - {self.discount}% off"    

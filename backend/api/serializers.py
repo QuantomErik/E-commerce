@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 """ from .models import Product, Category """
-from .models import Product, Category, Order, OrderItem, Address
+from .models import Product, Category, Order, OrderItem, Address, Deal
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,7 +26,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'description', 'price', 'image_url', 'category', 'distance_to_sun', 'created_at', 'best_seller']
+        fields = ['id', 'name', 'description', 'price', 'image_url', 'category', 'distance_to_sun', 'created_at', 'best_seller', 'todays_deal']
 
     def get_image_url(self, obj):
         request = self.context.get('request')
@@ -66,3 +66,13 @@ class AddressSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'user': {'read_only': True},
              }
+        
+
+
+
+class DealSerializer(serializers.ModelSerializer):
+    product = ProductSerializer()
+
+    class Meta:
+        model = Deal
+        fields = ['product', 'discount', 'start_date', 'end_date', 'is_active']       

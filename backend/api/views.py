@@ -3,9 +3,9 @@ from rest_framework import generics, viewsets, filters
 from rest_framework.permissions import AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
 """ from .models import Product, Category """
-from .models import Product, Category, Order
+from .models import Product, Category, Order, Deal
 """ from .serializers import UserSerializer, ProductSerializer, CategorySerializer """
-from .serializers import UserSerializer, ProductSerializer, CategorySerializer, OrderSerializer, AddressSerializer
+from .serializers import UserSerializer, ProductSerializer, CategorySerializer, OrderSerializer, AddressSerializer, DealSerializer
 from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -240,5 +240,16 @@ class AllProductsViewSet(viewsets.ViewSet):
         elif sort_option == 'distance_to_sun-desc':
             queryset = queryset.order_by('-distance_to_sun')
 
+        serializer = ProductSerializer(queryset, many=True, context={'request': request})
+        return Response(serializer.data)
+
+
+
+
+class TodaysDealsViewSet(viewsets.ViewSet):
+    permission_classes = [AllowAny]
+
+    def list(self, request):
+        queryset = Product.objects.filter(todays_deal=True)
         serializer = ProductSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)

@@ -10,14 +10,14 @@ class ProductAdmin(admin.ModelAdmin):
 
 # api/admin.py
 from django.contrib import admin
-from .models import Product, Category, Order, OrderItem
+from .models import Product, Category, Order, OrderItem, Deal
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'description', 'category', 'distance_to_sun', 'created_at', 'best_seller')
     fields = ('name', 'price', 'description', 'image', 'category', 'distance_to_sun', 'best_seller')
     search_fields = ('name', 'description', 'category__name')
-    list_filter = ('category', 'best_seller')
+    list_filter = ('category', 'best_seller', 'todays_deal')
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -40,4 +40,10 @@ class OrderItemAdmin(admin.ModelAdmin):
     list_display = ('order', 'product', 'quantity', 'price')
     list_filter = ('order', 'product')
     search_fields = ('order__user__username', 'product__name')
+
+@admin.register(Deal)
+class DealAdmin(admin.ModelAdmin):
+    list_display = ('product', 'discount', 'start_date', 'end_date', 'is_active')
+    list_filter = ('is_active', 'start_date', 'end_date')
+    search_fields = ('product__name',)    
 
