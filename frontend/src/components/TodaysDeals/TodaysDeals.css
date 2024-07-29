@@ -3,14 +3,64 @@
     margin: 20px;
   }
   
-  .deals-grid {
+  /* .deals-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
   }
-  
+   */
+
+   /* .discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #d9534f; 
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  } */
+
+   .deals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px; /* Space between grid items */
+  }
+
+
   .deals-grid .product-card {
     flex: 1 1 calc(25% - 20px);
     box-sizing: border-box;
   }
   
+
+
+  .card-original-price {
+    text-decoration: line-through;
+  }
+  
+  .card-discounted-price {
+    color: #d9534f; /* Or any color you prefer for the discounted price */
+  }
+  
+  .product-discount {
+    margin-top: 5px; /* Adjust as necessary */
+  }
+  
+
+  .todays-deals {
+    height: ;
+  }
+
+
+  .todays-deals .card {
+    height: 280px;
+  }
+
+
+ /*  @media (min-width: 1200px) {
+    .deals-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  } */

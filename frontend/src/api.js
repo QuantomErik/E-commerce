@@ -90,7 +90,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from './constants';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/';
+const API_URL = /* import.meta.env.VITE_API_URL || */ 'http://localhost:8000/';
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
@@ -172,13 +172,13 @@ axiosInstance.interceptors.response.use(
   }
 );
 
-export const fetchDeals = () => {
-  return axiosInstance.get('/api/deals/')
+/* export const fetchDeals = () => {
+  return axiosInstance.get('/api/todays-deals/')
     .then(response => response.data)
     .catch(error => {
       console.error('Error fetching deals:', error);
       throw error;
     });
-};
+}; */
 
 export default axiosInstance;

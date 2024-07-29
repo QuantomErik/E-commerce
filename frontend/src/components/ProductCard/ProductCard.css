@@ -3,7 +3,22 @@
   height: 500px;
 } */
 
+/* .content {
+  margin-left: 1rem;
+  margin-right: 1rem;
+} */
 
+.discount-badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #d9534f; 
+  color: white;
+  padding: 5px 10px;
+  /* border-radius: 5px; */
+  font-size: 0.9rem;
+  font-weight: bold;
+}
 
 .card-container {
     padding: 1px;
@@ -14,6 +29,8 @@
     height: 35rem;
     /* height: 100%; */
     /* padding: 0px; */
+   /*  margin-left: 1rem;
+    margin-right: 1rem; */
   }
 
 .card {
@@ -24,6 +41,14 @@
   .card-price {
     font-size: 1.5rem;/* Default size */
    /*  margin-bottom: 1px; */
+  }
+
+  .card-original-price {
+    font-size: 1.5rem;
+  }
+
+  .card-discounted-price {
+    font-size: 1.5rem;
   }
   
   /* .add-to-cart-button {
@@ -81,7 +106,8 @@
       overflow: hidden;
       
       font-family: 'Roboto', sans-serif;
-      height: auto;
+      height: 440px;
+      /* height: auto; */
     }
   }
 
@@ -130,7 +156,16 @@
   }
 
   
+  @media (max-width: 900px) {
+    .card {
+      height: 230px;
+    } 
 
+    .card-container {
+      height: 370px; 
+    }
+
+  }
 
 
   @media (max-width: 750px) {
@@ -165,6 +200,19 @@
       font-size: 0.9rem; 
       padding: 4px;
     }
+
+    .card-original-price {
+      font-size: 0.95rem;
+    }
+  
+    .card-discounted-price {
+      font-size: 0.95rem;
+    }
+
+    .card-container {
+      height: 290px; 
+    }
+
   
   
   }
@@ -201,6 +249,26 @@
       font-size: 0.7rem; 
       padding: 4px;
     }
+
+    .card-original-price {
+      font-size: 0.85rem;
+    }
+  
+    .card-discounted-price {
+      font-size: 0.85rem;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-color: #d9534f; 
+      color: white;
+      padding: 5px 10px;
+      /* border-radius: 5px; */
+      font-size: 0.6rem;
+      font-weight: bold;
+    }
   
    
   }
@@ -233,6 +301,26 @@
     .card-price {
       font-size: 0.7rem; 
     }
+
+    .card-original-price {
+      font-size: 0.7rem;
+    }
+  
+    .card-discounted-price {
+      font-size: 0.7rem;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-color: #d9534f; 
+      color: white;
+      padding: 5px 10px;
+      /* border-radius: 5px; */
+      font-size: 0.5rem;
+      font-weight: bold;
+    }
   
     .add-to-cart-button {
       position: absolute;
@@ -241,6 +329,11 @@
       right: 0px;
       opacity: 0;
       transition: opacity 0.3s ease;
+    }
+
+    .card-container {
+      height: 190px; 
+     
     }
   
    /*  .card {
@@ -336,6 +429,32 @@
       padding: 1px;
     }
 
+    .card-original-price {
+      font-size: 0.5rem;
+    }
+  
+    .card-discounted-price {
+      font-size: 0.5rem;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-color: #d9534f; 
+      color: white;
+      padding: 5px 10px;
+      /* border-radius: 5px; */
+      font-size: 0.3rem;
+      font-weight: bold;
+    }
+  
+
+    .card-container {
+      height: 150px; 
+     
+    }
+
   }
 
   @media (max-width: 300px) {
@@ -373,6 +492,32 @@
       padding: 1px;
     }
 
+    .card-original-price {
+      font-size: 0.5rem;
+    }
+  
+    .card-discounted-price {
+      font-size: 0.5rem;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-color: #d9534f; 
+      color: white;
+      padding: 5px 10px;
+      /* border-radius: 5px; */
+      font-size: 0.2rem;
+      font-weight: bold;
+    }
+  
+
+    .card-container {
+      height: 130px; 
+     
+    }
+
   }
 
   
@@ -407,6 +552,33 @@
     .card {
       height: 3rem;
     }
+
+    .card-original-price {
+      font-size: 0.3rem;
+    }
+  
+    .card-discounted-price {
+      font-size: 0.3rem;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-color: #d9534f; 
+      color: white;
+      padding: 5px 10px;
+      /* border-radius: 5px; */
+      font-size: 0.1rem;
+      font-weight: bold;
+    }
+  
+
+    .card-container {
+      height: 100px; 
+     
+    }
+
 
   
   }

@@ -20,6 +20,7 @@ from .models import Order, OrderItem, Address
 
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import JsonResponse
+from django.utils.timezone import now
 
 @ensure_csrf_cookie
 def set_csrf_token(request):
@@ -246,10 +247,25 @@ class AllProductsViewSet(viewsets.ViewSet):
 
 
 
+""" class TodaysDealsViewSet(viewsets.ViewSet):
+    permission_classes = [AllowAny]
+
+    def list(self, request):
+        logger.info("Fetching today's deals")
+        queryset = Product.objects.filter(todays_deal=True)
+        logger.info(f"Deals found: {queryset.count()}") 
+        for product in queryset:
+            logger.info(f"Deal: {product.name} - {product.price}")
+        serializer = ProductSerializer(queryset, many=True, context={'request': request})
+        return Response(serializer.data) """
+
 class TodaysDealsViewSet(viewsets.ViewSet):
     permission_classes = [AllowAny]
 
     def list(self, request):
-        queryset = Product.objects.filter(todays_deal=True)
-        serializer = ProductSerializer(queryset, many=True, context={'request': request})
+        """ current_time = now() """
+        """ deals = Deal.objects.filter(is_active=True, start_date__lte=current_time, end_date__gte=current_time) """
+        deals = Deal.objects.filter(is_active=True)
+        products = Product.objects.filter(deals__in=deals).distinct()
+        serializer = ProductSerializer(products, many=True, context={'request': request})
         return Response(serializer.data)

@@ -23,15 +23,23 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
     image_url = serializers.SerializerMethodField()
+    discount = serializers.SerializerMethodField()
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'description', 'price', 'image_url', 'category', 'distance_to_sun', 'created_at', 'best_seller', 'todays_deal']
+        fields = ['id', 'name', 'description', 'price', 'image_url', 'category', 'distance_to_sun', 'created_at', 'best_seller', 'todays_deal', 'discount']
 
     def get_image_url(self, obj):
         request = self.context.get('request')
         if obj.image:
             return request.build_absolute_uri(obj.image.url)
+        return None
+    
+    def get_discount(self, obj):
+        """ current_time = timezone.now() """
+        deal = obj.deals.filter(is_active=True).first()
+        if deal:
+            return deal.discount
         return None
 
 
