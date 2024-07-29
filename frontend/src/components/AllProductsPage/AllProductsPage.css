@@ -542,6 +542,19 @@ h1.text-2xl {
 } */
 
 
+.all-products-page-height .card-original-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-bottom: 1rem;
+}
+
+.all-products-page-height .card-discounted-price {
+  /* color: #d9534f; */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+
 
 .all-products-page {
   padding: 20px;
@@ -798,7 +811,14 @@ h1.text-2xl {
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
   }
-  
+
+  .all-products-page-height .card-original-price {
+    font-size: 1rem;
+  }
+
+  .all-products-page-height .card-discounted-price {
+    font-size: 1rem;
+  }
 
 }
 
@@ -992,6 +1012,14 @@ h1.text-2xl {
     font-size: 0.7rem;
   }
 
+  .all-products-page-height .card-original-price {
+   font-size: 0.7rem;
+  }
+  
+  .all-products-page-height .card-discounted-price {
+    font-size: 0.7rem;
+  }
+
 }
 
 /* @media (min-width: 768px) {
@@ -1170,6 +1198,15 @@ h1.text-2xl {
     font-size: 0.6rem;
     
   }
+
+  .all-products-page-height .card-original-price {
+    font-size: 0.6rem;
+   }
+   
+   .all-products-page-height .card-discounted-price {
+     font-size: 0.6rem;
+   }
+ 
 
  
 

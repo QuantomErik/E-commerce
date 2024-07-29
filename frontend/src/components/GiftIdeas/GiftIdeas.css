@@ -699,6 +699,19 @@
     .card-container.gift-ideas-size {
       height: 170px; 
     }
+
+    .card-container.gift-ideas-size .card {
+      height: 100px; 
+    }
+
+    .bundle-title {
+      font-size: 0.8rem;
+    }
+
+    .bundle-price {
+      font-size: 0.6rem;
+    }
+
   }
 
 
@@ -709,8 +722,21 @@
   
   @media (max-width: 300px) {
     .card-container.gift-ideas-size {
-      height: 160px; 
+      height: 140px; 
     }
+
+    .card-container.gift-ideas-size .card {
+      height: 80px; 
+    }
+
+    .bundle-title {
+      font-size: 0.7rem;
+    }
+
+    .bundle-price {
+      font-size: 0.5rem;
+    }
+
 
     .add-bundle-button {
       /* padding: 5px 5px; */
@@ -728,7 +754,19 @@
   
   @media (max-width: 250px) {
     .card-container.gift-ideas-size {
-      height: 147px; 
+      height: 110px; 
+    }
+
+    .card-container.gift-ideas-size .card {
+      height: 60px; 
+    }
+
+    .bundle-title {
+      font-size: 0.5rem;
+    }
+
+    .bundle-price {
+      font-size: 0.4rem;
     }
   }
   

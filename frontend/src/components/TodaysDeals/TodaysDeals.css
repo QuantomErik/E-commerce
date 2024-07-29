@@ -1,31 +1,36 @@
-/* src/components/TodaysDeals/TodaysDeals.css */
+.sort-options {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sort-label {
+  margin-right: 10px;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.sort-select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
 .todays-deals-container {
-    margin: 20px;
+    /* margin: 20px; */
+    padding: 20px;
+    margin-top: 5rem;
+    margin-left: 12.5rem;
+    margin-right: 12.5rem;
   }
   
-  /* .deals-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-   */
-
-   /* .discount-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #d9534f; 
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: bold;
-  } */
+ 
 
    .deals-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 20px; /* Space between grid items */
+    gap: 1rem; 
   }
 
 
@@ -34,23 +39,14 @@
     box-sizing: border-box;
   }
   
-
-
-  .card-original-price {
-    text-decoration: line-through;
-  }
   
-  .card-discounted-price {
-    color: #d9534f; /* Or any color you prefer for the discounted price */
-  }
-  
-  .product-discount {
-    margin-top: 5px; /* Adjust as necessary */
-  }
+ /*  .product-discount {
+    margin-top: 5px; 
+  } */
   
 
   .todays-deals {
-    height: ;
+    height: 420px;
   }
 
 
@@ -59,8 +55,202 @@
   }
 
 
- /*  @media (min-width: 1200px) {
+  @media (max-width: 640px) {
+    .deals-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 640px) {
+    .deals-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .deals-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (min-width: 1200px) {
     .deals-grid {
       grid-template-columns: repeat(4, 1fr);
     }
-  } */
+  }
+
+
+
+
+
+  @media (max-width: 3000px) {
+    .todays-deals-container  {
+      margin-top: 5rem;
+      margin-left: 12.5rem;
+      margin-right: 12.5rem;
+    }
+  }
+  
+  @media (max-width: 1700px) {
+    .todays-deals-container  {
+      margin-top: 4rem;
+      margin-left: 3.5rem;
+      margin-right: 3.5rem;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .todays-deals-container  {
+      margin-top: 2rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
+
+
+
+
+  @media (max-width: 1350px) {
+    .todays-deals {
+      height: 340px; 
+    }
+  
+    .todays-deals .card {
+      height: 200px; 
+    }
+  
+    .todays-deals .text-box {
+      height: calc(100% - 250px); 
+    }
+  }
+  
+  @media (max-width: 1150px) {
+    .todays-deals {
+      height: 340px; 
+    }
+  
+    .todays-deals .card {
+      height: 200px; 
+    }
+  
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .todays-deals {
+      height: 310px; 
+    }
+  
+    .todays-deals .card {
+      height: 170px; 
+    }
+  
+    
+  }
+  
+  @media (max-width: 768px) {
+    .todays-deals {
+      height: 360px; 
+    }
+  
+    .todays-deals .card {
+      height: 220px; 
+    }
+  
+  }
+  
+  @media (max-width: 750px) {
+    .todays-deals {
+      height: 330px; 
+    }
+  
+    .todays-deals .card {
+      height: 220px; 
+    }
+  
+  }
+  
+  @media (max-width: 640px) {
+    .todays-deals {
+      height: 280px; 
+    }
+  
+    .todays-deals .card {
+      height: 180px; 
+    }
+  
+    .todays-deals .text-box {
+      height: calc(100% - 180px); /* Adjust based on the card image height */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .todays-deals {
+      height: 265px; 
+    }
+  
+    .todays-deals .card {
+      height: 180px; 
+    }
+  
+    .todays-deals .text-box {
+      height: calc(100% - 180px); /* Adjust based on the card image height */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .todays-deals {
+      height: 210px; 
+    }
+  
+    .todays-deals .card {
+      height: 130px; 
+    }
+  
+    .todays-deals .text-box {
+      height: calc(100% - 150px); /* Adjust based on the card image height */
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .todays-deals {
+      height: 180px; 
+    }
+  
+    .todays-deals .card {
+      height: 100px; 
+    }
+  
+    .todays-deals .text-box {
+      height: calc(100% - 150px);
+    }
+  }
+  
+  @media (max-width: 350px) {
+    .todays-deals {
+      height: 170px; 
+    }
+  }
+  
+  @media (max-width: 350px) {
+    .todays-deals {
+      height: 170px; 
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .todays-deals {
+      height: 160px; 
+    }
+  }
+  
+  @media (max-width: 250px) {
+    .todays-deals {
+      height: 147px; 
+    }
+  }
+
+
+
+

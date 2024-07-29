@@ -84,7 +84,7 @@ const TodaysDeals = ({ onOpenCartDrawer }) => {
 export default TodaysDeals; */
 
 
-import React, { useEffect, useState } from 'react';
+/* import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from '../ProductCard/ProductCard';
 import api from '../../api';
@@ -125,24 +125,24 @@ const TodaysDeals = ({ onOpenCartDrawer }) => {
   );
 };
 
-export default TodaysDeals;
+export default TodaysDeals; */
 
 
-/* import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import api from '../../api';
 import './TodaysDeals.css';
 
 const TodaysDeals = ({ onOpenCartDrawer }) => {
   const [deals, setDeals] = useState([]);
+  const [sortOption, setSortOption] = useState('created_at');  // Default sort option
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchDeals = async () => {
       try {
-        const response = await api.get('/api/todays-deals/');
+        const response = await api.get('/api/todays-deals/', { params: { sort: sortOption } });
         setDeals(response.data);
         setLoading(false);
       } catch (err) {
@@ -152,7 +152,11 @@ const TodaysDeals = ({ onOpenCartDrawer }) => {
       }
     };
     fetchDeals();
-  }, []);
+  }, [sortOption]);
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
 
   if (loading) return <p>Loading today's deals...</p>;
   if (error) return <p>{error}</p>;
@@ -160,20 +164,25 @@ const TodaysDeals = ({ onOpenCartDrawer }) => {
   return (
     <div className="todays-deals-container">
       <h2 className="text-2xl font-bold mb-4">Today's Deals</h2>
+      <div className="sort-options">
+        <label htmlFor="sort" className="sort-label">Sort by:</label>
+        <select id="sort" value={sortOption} onChange={handleSortChange} className="sort-select">
+          <option value="created_at">Newest</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
       <div className="deals-grid">
         {deals.map(deal => (
-          <ProductCard
-            key={deal.id}
-            product={deal}
-            onOpenCartDrawer={onOpenCartDrawer}
-            additionalClass="todays-deals"
-            discount={`${deal.discount}% off`}
-          />
+          <ProductCard key={deal.id} product={deal} onOpenCartDrawer={onOpenCartDrawer} additionalClass="todays-deals" />
         ))}
       </div>
     </div>
   );
 };
 
-export default TodaysDeals; */
+export default TodaysDeals;
+
+
+
 
