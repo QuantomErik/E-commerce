@@ -170,6 +170,8 @@ const TodaysDeals = ({ onOpenCartDrawer }) => {
           <option value="created_at">Newest</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
+          <option value="discount-asc">Discount: Low to High</option>
+          <option value="discount-desc">Discount: High to Low</option>
         </select>
       </div>
       <div className="deals-grid">
@@ -182,6 +184,8 @@ const TodaysDeals = ({ onOpenCartDrawer }) => {
 };
 
 export default TodaysDeals;
+
+
 
 
 

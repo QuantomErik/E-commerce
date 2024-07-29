@@ -268,9 +268,9 @@ class TodaysDealsViewSet(viewsets.ViewSet):
 
     def list(self, request):
         sort_option = request.query_params.get('sort', 'created_at')
-        current_time = now()
         
-        deals = Deal.objects.filter(is_active=True, start_date__lte=current_time, end_date__gte=current_time)
+        
+        deals = Deal.objects.filter(is_active=True)
         
         products = Product.objects.filter(deals__in=deals).annotate(
             discounted_price=ExpressionWrapper(
@@ -285,6 +285,10 @@ class TodaysDealsViewSet(viewsets.ViewSet):
             products = products.order_by('-discounted_price')
         elif sort_option == 'created_at':
             products = products.order_by('-created_at')
+        elif sort_option == 'discount-asc':
+            products = products.order_by('discount')
+        elif sort_option == 'discount-desc':
+            products = products.order_by('-discount')
 
         serializer = ProductSerializer(products, many=True, context={'request': request})
         return Response(serializer.data)

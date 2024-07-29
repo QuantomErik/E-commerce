@@ -21,6 +21,7 @@ class Product(models.Model):
     distance_to_sun = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     best_seller = models.BooleanField(default=False)
     todays_deal = models.BooleanField(default=False)
+    discount = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
