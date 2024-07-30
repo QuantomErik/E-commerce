@@ -469,7 +469,7 @@ const GiftIdeas = ({ onOpenCartDrawer }) => {
 
   const moonTrio = getCategoryProducts('Moons').slice(0, 3);
   const planetPack = getCategoryProducts('Planets').slice(0, 3);
-  const constellationCluster = getCategoryProducts('Constellations').slice(0, 3);
+  const constellationCluster = getCategoryProducts('Constellations').slice(2, 5);
 
   const calculateBundlePrice = (bundle) => {
     return bundle.reduce((total, product) => total + product.price, 0);
