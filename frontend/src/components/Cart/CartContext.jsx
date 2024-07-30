@@ -194,6 +194,9 @@ export const CartProvider = ({ children }) => {
 
 
 
+
+
+
 import React, { createContext, useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
@@ -212,8 +215,8 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product, openCartDrawer) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
-      const discountedPrice = product.price * (1 - product.discount / 100);
-      
+      const discountedPrice = product.discount > 0 ? product.price * (1 - product.discount / 100) : null;
+
       if (existingProduct) {
         toast.info(`Increased quantity of ${product.name} in the cart.`);
         return prevCart.map((item) =>
@@ -237,8 +240,8 @@ export const CartProvider = ({ children }) => {
       const newCart = [...prevCart];
       bundle.forEach((product) => {
         const existingProduct = newCart.find((item) => item.id === product.id);
-        const discountedPrice = product.price * (1 - product.discount / 100);
-        
+        const discountedPrice = product.discount > 0 ? product.price * (1 - product.discount / 100) : null;
+
         if (existingProduct) {
           existingProduct.quantity += 1;
         } else {
@@ -276,4 +279,8 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+
+
+
 
