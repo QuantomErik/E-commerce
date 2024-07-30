@@ -268,17 +268,17 @@ class TodaysDealsViewSet(viewsets.ViewSet):
 
     def list(self, request):
         sort_option = request.query_params.get('sort', 'created_at')
-        
 
+        # Fetch active deals
         deals = Deal.objects.filter(is_active=True)
 
         # Annotate the products with discounted price and discount percentage
-        products = Product.objects.filter(deals__in=deals).annotate(
+        products = Product.objects.filter(deals__in=deals).distinct().annotate(
             discounted_price=ExpressionWrapper(
-                F('price') * (1 - F('discount') / 100),
+                F('price') * (1 - F('deals__discount') / 100),
                 output_field=DecimalField()
             ),
-            discount_percentage=F('discount')
+            discount_percentage=F('deals__discount')
         )
 
         # Sort based on the provided sort option
