@@ -18,7 +18,7 @@
 
 
 .todays-deals-container {
-    /* margin: 20px; */
+    
     padding: 20px;
     margin-top: 5rem;
     margin-left: 12.5rem;
@@ -29,7 +29,7 @@
 
    .deals-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 1rem; 
   }
 
@@ -40,10 +40,7 @@
   }
   
   
- /*  .product-discount {
-    margin-top: 5px; 
-  } */
-  
+ 
 
   .todays-deals {
     height: 420px;
@@ -179,10 +176,7 @@
     .todays-deals .card {
       height: 180px; 
     }
-  
-    .todays-deals .text-box {
-      height: calc(100% - 180px); /* Adjust based on the card image height */
-    }
+
   }
   
   @media (max-width: 600px) {
@@ -193,10 +187,7 @@
     .todays-deals .card {
       height: 180px; 
     }
-  
-    .todays-deals .text-box {
-      height: calc(100% - 180px); /* Adjust based on the card image height */
-    }
+
   }
   
   @media (max-width: 480px) {
@@ -207,10 +198,7 @@
     .todays-deals .card {
       height: 130px; 
     }
-  
-    .todays-deals .text-box {
-      height: calc(100% - 150px); /* Adjust based on the card image height */
-    }
+
   }
   
   @media (max-width: 450px) {

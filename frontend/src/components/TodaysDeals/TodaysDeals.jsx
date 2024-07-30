@@ -135,7 +135,7 @@ import './TodaysDeals.css';
 
 const TodaysDeals = ({ onOpenCartDrawer }) => {
   const [deals, setDeals] = useState([]);
-  const [sortOption, setSortOption] = useState('created_at');  // Default sort option
+  const [sortOption, setSortOption] = useState('created_at');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

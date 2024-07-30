@@ -269,16 +269,19 @@ class TodaysDealsViewSet(viewsets.ViewSet):
     def list(self, request):
         sort_option = request.query_params.get('sort', 'created_at')
         
-        
+
         deals = Deal.objects.filter(is_active=True)
-        
+
+        # Annotate the products with discounted price and discount percentage
         products = Product.objects.filter(deals__in=deals).annotate(
             discounted_price=ExpressionWrapper(
                 F('price') * (1 - F('discount') / 100),
                 output_field=DecimalField()
-            )
+            ),
+            discount_percentage=F('discount')
         )
-        
+
+        # Sort based on the provided sort option
         if sort_option == 'price-asc':
             products = products.order_by('discounted_price')
         elif sort_option == 'price-desc':
@@ -286,9 +289,9 @@ class TodaysDealsViewSet(viewsets.ViewSet):
         elif sort_option == 'created_at':
             products = products.order_by('-created_at')
         elif sort_option == 'discount-asc':
-            products = products.order_by('discount')
+            products = products.order_by('discount_percentage')
         elif sort_option == 'discount-desc':
-            products = products.order_by('-discount')
+            products = products.order_by('-discount_percentage')
 
         serializer = ProductSerializer(products, many=True, context={'request': request})
         return Response(serializer.data)
