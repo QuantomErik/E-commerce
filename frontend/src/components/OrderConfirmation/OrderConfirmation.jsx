@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+/* import React, { useEffect, useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
 import api from '../../api';
@@ -75,10 +75,10 @@ const OrderConfirmation = () => {
 };
 
 export default OrderConfirmation;
+ */
 
 
-
-/* import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
 import api from '../../api';
@@ -162,4 +162,4 @@ const OrderConfirmation = () => {
   );
 };
 
-export default OrderConfirmation; */
+export default OrderConfirmation;
