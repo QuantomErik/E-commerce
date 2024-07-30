@@ -1,160 +1,3 @@
-/* .bundle-container {
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin-bottom: 50px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  position: relative;
-}
-
-.gift-ideas-container {
-  margin-top: 5rem;
-  margin-left: 12.5rem;
-  margin-right: 12.5rem;
-}
-
-.bundle-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-align: left;
-}
-
-.bundle-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.bundle-products {
-  display: flex;
-  justify-content: center;
-  gap: 0rem;
-  margin-bottom: 1rem;
-}
-
-.bundle-details {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px 0;
-  border-top: 1px solid #ddd;
-  margin-top: 1rem;
-  flex-direction: column;
-}
-
-.bundle-details p {
-  margin: 0;
-}
-
-.bundle-price {
-  font-size: 1.2rem;
-  font-weight: bold;
-  position: absolute;
-  top: 20px; 
-  right: 20px;
-}
-
-.add-bundle-button {
- 
-  background-color: #d2d8d2;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  
-  transition: background-color 0.3s;
-} */
-
-
-/* .bundle-container {
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin-bottom: 50px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bundle-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.gift-ideas-container {
-  margin-top: 5rem;
-  margin-left: 12.5rem;
-  margin-right: 12.5rem;
-}
-
-.bundle-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-align: left;
-}
-
-.bundle-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.bundle-products {
-  display: flex;
-  justify-content: center;
-  gap: rem;
-  margin-bottom: 1rem;
-}
-
-.bundle-details {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px 0;
-  border-top: 1px solid #ddd;
-  margin-top: 1rem;
-  flex-direction: column;
-  align-items: center;
-}
-
-.bundle-details p {
-  margin: 0;
-}
-
-.bundle-price {
-  font-size: 1.2rem;
-  font-weight: bold;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.add-bundle-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, opacity 0.3s;
-  opacity: 0; 
-}
-
-.bundle-container:hover .add-bundle-button {
-  opacity: 1; 
-}
-
-
-
-.add-bundle-button:hover {
-  background-color: #45a049;
-} */
-
 
 .bundle-container {
   border: 1px solid #ddd;
@@ -164,7 +7,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   position: relative;
-  overflow: hidden; /* Ensure the container hides overflowing elements */
+  overflow: hidden; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -195,7 +38,6 @@
 .bundle-products {
   display: flex;
   justify-content: center;
- /*  gap: 0rem; */
   margin-bottom: 1rem;
 }
 
@@ -245,7 +87,6 @@
 }
 
 
-
 .card-container.gift-ideas-size {
   height: 300px;
   padding: 0px;
@@ -263,8 +104,6 @@
 
 
 
-
-
   @media (max-width: 3000px) {
     .gift-ideas-container {
         margin-top: 5rem;
@@ -274,7 +113,6 @@
 
       .card-container.gift-ideas-size {
         height: 420px;
-        /* width: 25rem; */
       }
   }
 
@@ -368,7 +206,6 @@
 
     .bundle-details p {
       margin: 0;
-      /* font-size: 0.9rem; */
     }
     
 
@@ -386,7 +223,6 @@
     .add-bundle-button {
       width: 20%;
       margin-top: 1rem;
-      /* align-items: center; */
     }
 
   }
@@ -427,9 +263,8 @@
     }
 
     .card-container.gift-ideas-size .card-description {
-      /* font-size: 1rem; */
       display: -webkit-box;
-      -webkit-line-clamp: 2; /* number of lines to show */
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
 
@@ -460,11 +295,6 @@
     }
 
 
-    /* .add-bundle-button {
-      padding: 10px 20px;
-      font-size: 0.7rem;
-    } */
-
     .gift-ideas-container {
       margin-top: 2rem;
       margin-left: 1rem;
@@ -483,11 +313,7 @@
       height: 150px; 
     }
 
-
-    /* .add-bundle-button {
-      padding: 10px 10px;
-      font-size: 0.7rem;
-    } */
+   
   }
 
 
@@ -515,7 +341,6 @@
     .add-bundle-button {
       padding: 5px 5px;
       font-size: 0.7rem;
-      /* width: 30%; */
     }
 
     .bundle-details {
@@ -596,7 +421,6 @@
     }
 
     .gift-ideas-container {
-      /* margin-top: 5rem; */
       margin-left: 0rem;
       margin-right: 0rem;
     }
@@ -738,12 +562,7 @@
     }
 
 
-    .add-bundle-button {
-      /* padding: 5px 5px; */
-      
-     /*  width: 50%;
-      margin-top: 1px; */
-    }
+
   }
 
 

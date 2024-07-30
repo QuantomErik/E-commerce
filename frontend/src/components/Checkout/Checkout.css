@@ -3,6 +3,18 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.checkout-container {
+  min-height: 100vh;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* background-color: #f7fafc; */
+  margin-top: 5rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -78,8 +90,8 @@ body {
 }
 
 .trash-icon svg {
-  font-size: 0.75rem; /* Adjust the size as needed */
-  color: gray; /* Change color to gray */
+  font-size: 0.75rem; 
+  color: gray;
 }
 
 .border {
@@ -120,11 +132,51 @@ body {
   margin-top: 1rem;
 }
 
-/* Other styles remain the same */
+
+
+@media (max-width: 1500px) {
+  .checkout-container {
+    /* flex-direction: column; */
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+
+  .cart-items,
+  .payment-information {
+    width: 100%;
+  }
+
+  .payment-information {
+    margin-top: 1rem;
+  }
+}
+
+
+
+@media (max-width: 1200px) {
+  .checkout-container {
+    /* flex-direction: column; */
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .cart-items,
+  .payment-information {
+    width: 100%;
+  }
+
+  .payment-information {
+    margin-top: 1rem;
+  }
+}
+
+
 
 @media (max-width: 745px) {
-  .min-h-screen {
+  .checkout-container {
     flex-direction: column;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
 
   .cart-items,
@@ -174,7 +226,7 @@ body {
   }
 
   .trash-icon svg {
-    font-size: 0.65rem; /* Adjust the size as needed */
+    font-size: 0.65rem; 
   }
 }
 
@@ -217,7 +269,7 @@ body {
   }
 
   .trash-icon svg {
-    font-size: 0.65rem; /* Adjust the size as needed */
+    font-size: 0.65rem; 
   }
 
   .text-gray-600 {
@@ -233,15 +285,7 @@ body {
     height: 100px;
   }
 
-  /* .cart-items {
-    padding: 0%;
-  } */
-
-  /* .cart-items {
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-  } */
+ 
   .product-name {
     width: 100%;
   } 
@@ -249,7 +293,6 @@ body {
   .cart-items .flex {
     flex-direction: column;
     align-items: center;
-   /*  padding: 0; */
   }
 
   .cart-items .flex > * {
@@ -289,7 +332,5 @@ body {
 
  
 
- /*  .gauge {
-    flex-direction: row;
-  } */
+ 
 }

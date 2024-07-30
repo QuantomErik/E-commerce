@@ -1,4 +1,4 @@
-/* Add this CSS to your main CSS file or create a new one if needed */
+
 
 .transition-transform {
     transition: transform 0.5s ease-in-out;
@@ -9,17 +9,14 @@
   }
   
   .w-96 {
-    width: 24rem; /* Adjust this value as needed for the desired width */
+    width: 24rem; 
   }
   
   .duration-500 {
-    transition-duration: 500ms; /* Adjust this value for the desired transition time */
+    transition-duration: 500ms; 
   }
   
-  /* .cart {
-    border-color: black;
-  } */
-
+  
   .cart-drawer {
-    z-index: 1100; /* Ensure this is higher than the scroll-to-top-button */
+    z-index: 1100;
 }

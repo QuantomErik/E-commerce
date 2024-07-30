@@ -257,7 +257,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex checkout-container">
       <div className="cart-items bg-gray-200">
         <h1 className="text-2xl font-bold mb-4 mt-4">Your Cart</h1>
         {cart.length === 0 ? (

@@ -939,7 +939,7 @@ const AllProductsPage = ({ onOpenCartDrawer }) => {
           </select>
         </div>
       </div>
-      <div className="content">
+      <div className="all-products-content">
         <div className={`sidebar ${isFilterDropdownOpen ? 'open' : ''}`}>
           <div className="sidebar-header">
             <span>Filter</span>
