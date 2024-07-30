@@ -22,6 +22,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import JsonResponse
 from django.utils.timezone import now
 from django.db.models import F, ExpressionWrapper, DecimalField
+from rest_framework.decorators import api_view
 
 @ensure_csrf_cookie
 def set_csrf_token(request):
@@ -296,3 +297,25 @@ class TodaysDealsViewSet(viewsets.ViewSet):
         serializer = ProductSerializer(products, many=True, context={'request': request})
         return Response(serializer.data)
 
+
+@api_view(['GET'])
+def buy_with(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+        # Logic to get related products (e.g., products frequently bought with this one)
+        related_products = Product.objects.filter(category=product.category).exclude(pk=pk)[:2]  # Example logic
+        serializer = ProductSerializer(related_products, many=True, context={'request': request})
+        return Response(serializer.data)
+    except Product.DoesNotExist:
+        return Response(status=404)
+
+@api_view(['GET'])
+def viewed_with(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+        # Logic to get related products (e.g., customers who viewed this item also viewed these)
+        related_products = Product.objects.exclude(pk=pk)[:5]  # Example logic
+        serializer = ProductSerializer(related_products, many=True, context={'request': request})
+        return Response(serializer.data)
+    except Product.DoesNotExist:
+        return Response(status=404)

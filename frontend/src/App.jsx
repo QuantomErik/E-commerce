@@ -29,6 +29,7 @@ import BestSellers from "./components/BestSellers/BestSellers";
 import AllProductsPage from "./components/AllProductsPage/AllProductsPage";
 import GiftIdeas from "./components/GiftIdeas/GiftIdeas";
 import TodaysDeals from "./components/TodaysDeals/TodaysDeals";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
@@ -98,6 +99,7 @@ function App() {
                 <Route path="/best-sellers" element={<BestSellers onOpenCartDrawer={openCartDrawer} />} />
                 <Route path="/todays-deals" element={<TodaysDeals onOpenCartDrawer={openCartDrawer} />} />
                 <Route path="/products" element={<AllProductsPage onOpenCartDrawer={openCartDrawer} />} />
+                <Route path="/products/:id" element={<ProductDetail onOpenCartDrawer={openCartDrawer} />} />
 
                 <Route path="/your-account" element={<ProtectedRoute><YourAccount /></ProtectedRoute>} />
                 {/* <Route path="/your-orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} /> */}

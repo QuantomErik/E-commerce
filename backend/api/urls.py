@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import ProductViewSet, CategoryViewSet, CreateUserView, create_payment_intent, OrderViewSet, UserViewSet, AddressViewSet, BestSellersViewSet, AllProductsViewSet, TodaysDealsViewSet
+from .views import ProductViewSet, CategoryViewSet, CreateUserView, create_payment_intent, OrderViewSet, UserViewSet, AddressViewSet, BestSellersViewSet, AllProductsViewSet, TodaysDealsViewSet, buy_with, viewed_with
 from . import views
 
 router = DefaultRouter()
@@ -18,4 +18,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('create-payment-intent/', create_payment_intent, name='create-payment-intent'),
     path('set-csrf/', views.set_csrf_token, name='set-csrf'),
+    path('products/<int:pk>/buy-with/', buy_with, name='buy-with'),
+    path('products/<int:pk>/viewed-with/', viewed_with, name='viewed-with'),
 ]
