@@ -24,7 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name', 'price', 'description', 'category', 'distance_to_sun', 'created_at',
         'best_seller', 'todays_deal', 'discovery_date', 'distance_to_earth', 'size',
-        'mass', 'surface_temperature', 'gravity', 'atmosphere', 'surface_features', 'best_viewing_time',
+        'mass', 'surface_temperature', 'gravity', 'atmosphere', 'surface_features',
         'quadrant', 'area'
     )
     fields = (
@@ -32,7 +32,6 @@ class ProductAdmin(admin.ModelAdmin):
         'best_seller', 'todays_deal', 'discovery_date', 'distance_to_earth', 'size', 
         'mass', 'surface_temperature', 'gravity',  
         'atmosphere', 'surface_features',
-        'best_viewing_time',
         'quadrant', 'area',
     )
     search_fields = ('name', 'description', 'category__name')

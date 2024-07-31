@@ -61,7 +61,7 @@ class Product(models.Model):
     surface_features = models.TextField(null=True, blank=True)
     
     
-    best_viewing_time = models.CharField(max_length=255, null=True, blank=True)
+    
     
     quadrant = models.CharField(max_length=255, null=True, blank=True)
     area = models.CharField(max_length=255, null=True, blank=True)

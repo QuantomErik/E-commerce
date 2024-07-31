@@ -36,7 +36,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'distance_to_sun', 'created_at', 'best_seller', 'todays_deal', 'discount',
             'discovery_date', 'distance_to_earth', 'size', 'mass',
             'surface_temperature', 'gravity', 'atmosphere',
-            'surface_features', 'best_viewing_time', 
+            'surface_features', 
             'quadrant', 'area', 
         ]
 
