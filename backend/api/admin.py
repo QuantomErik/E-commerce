@@ -22,24 +22,18 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'price', 'description', 'category', 'distance_to_sun', 'created_at', 
-        'best_seller', 'todays_deal', 'discovery_date', 'distance_to_earth', 'size', 
-        'mass', 'orbital_period', 'surface_temperature', 'gravity', 'composition', 
-        'constellation', 'orbital_distance', 'atmosphere', 'moons', 'rotation_period', 
-        'magnetic_field', 'rings', 'habitable', 'parent_planet', 
-        'orbital_distance_from_planet', 'surface_features', 'tidal_effects', 
-        'geological_activity', 'main_stars', 'best_viewing_time', 'mythology', 
-        'quadrant', 'area', 'visibility'
+        'name', 'price', 'description', 'category', 'distance_to_sun', 'created_at',
+        'best_seller', 'todays_deal', 'discovery_date', 'distance_to_earth', 'size',
+        'mass', 'surface_temperature', 'gravity', 'atmosphere', 'surface_features', 'best_viewing_time',
+        'quadrant', 'area'
     )
     fields = (
         'name', 'price', 'description', 'image', 'category', 'distance_to_sun', 
         'best_seller', 'todays_deal', 'discovery_date', 'distance_to_earth', 'size', 
-        'mass', 'orbital_period', 'surface_temperature', 'gravity', 'composition', 
-        'constellation', 'orbital_distance', 'atmosphere', 'moons', 'rotation_period', 
-        'magnetic_field', 'rings', 'habitable', 'parent_planet', 
-        'orbital_distance_from_planet', 'surface_features', 'tidal_effects', 
-        'geological_activity', 'main_stars', 'best_viewing_time', 'mythology', 
-        'quadrant', 'area', 'visibility'
+        'mass', 'surface_temperature', 'gravity',  
+        'atmosphere', 'surface_features',
+        'best_viewing_time',
+        'quadrant', 'area',
     )
     search_fields = ('name', 'description', 'category__name')
     list_filter = ('category', 'best_seller', 'todays_deal')

@@ -34,13 +34,10 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'name', 'description', 'price', 'image_url', 'category', 
             'distance_to_sun', 'created_at', 'best_seller', 'todays_deal', 'discount',
-            'discovery_date', 'distance_to_earth', 'size', 'mass', 'orbital_period', 
-            'surface_temperature', 'gravity', 'composition', 'constellation', 
-            'orbital_distance', 'atmosphere', 'moons', 'rotation_period', 
-            'magnetic_field', 'rings', 'habitable', 'parent_planet', 
-            'orbital_distance_from_planet', 'surface_features', 'tidal_effects', 
-            'geological_activity', 'main_stars', 'best_viewing_time', 'mythology', 
-            'quadrant', 'area', 'visibility'
+            'discovery_date', 'distance_to_earth', 'size', 'mass',
+            'surface_temperature', 'gravity', 'atmosphere',
+            'surface_features', 'best_viewing_time', 
+            'quadrant', 'area', 
         ]
 
     def get_image_url(self, obj):
