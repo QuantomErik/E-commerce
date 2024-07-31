@@ -1,0 +1,68 @@
+.product-detail-info-card {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-detail-info-card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .product-detail-info-card .price .original-price {
+    text-decoration: line-through;
+    color: #777;
+    margin-right: 10px;
+  }
+  
+  .product-detail-info-card .price .discounted-price {
+    color: red;
+  }
+  
+  .product-detail-info-card .delivery-address {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .product-detail-info-card .delivery-address svg {
+    margin-right: 8px;
+  }
+  
+  .product-detail-info-card .stock-status {
+    color: green;
+    margin-bottom: 10px;
+  }
+  
+  .product-detail-info-card .quantity-selector {
+    margin-bottom: 10px;
+  }
+  
+  .product-detail-info-card .quantity-selector label {
+    margin-right: 10px;
+  }
+  
+  .product-detail-info-card .add-to-basket-button,
+  .product-detail-info-card .buy-now-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .product-detail-info-card .add-to-basket-button {
+    background-color: #f0c14b;
+    color: #111;
+  }
+  
+  .product-detail-info-card .buy-now-button {
+    background-color: #e47911;
+    color: white;
+  }
