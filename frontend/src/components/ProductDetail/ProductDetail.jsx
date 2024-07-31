@@ -342,7 +342,7 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
           <p>{product.description}</p>
           {product.age && <p>Age: {product.age}</p>}
           <p>Distance to Sun: {product.distance_to_sun} AU</p>
-          {product.distance_to_earth && <p>Distance to Earth: {product.distance_to_earth} km</p>}
+          {product.distance_to_earth && <p>Distance to Earth: {product.distance_to_earth}</p>}
           {product.size && <p>Size: {product.size}</p>}
           {product.mass && <p>Mass: {product.mass}</p>}
           {product.surface_temperature && <p>Surface Temperature: {product.surface_temperature}</p>}
