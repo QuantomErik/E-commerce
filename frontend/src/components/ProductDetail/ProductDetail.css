@@ -174,7 +174,7 @@
   
   .product-detail-image {
     flex: 1;
-    min-width: 700px;
+    min-width: 900px;
     max-width: 700px;
     margin-right: 20px;
     margin-bottom: 3rem;
@@ -182,7 +182,7 @@
   
   .product-detail-image img {
     width: 100%;
-    height: 450px;
+    height: 600px;
     border-radius: 8px;
   }
   
@@ -250,6 +250,7 @@
   .related-products-grid {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
   }
   
   .related-products-grid > div {
@@ -257,6 +258,27 @@
     min-width: 200px;
     margin-bottom: 10px;
   }
+
+
+  .related-products-card {
+    height: 300px;
+}
+
+.related-products-card .card{
+    height: 180px;
+    /* border-radius: 5px; */
+    /* border-color: #ddd; */
+    
+}
+
+.related-products-card .card-description {
+  /* height: 180px; */
+  display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  
+}
+
   
   /* .product-detail-info-card {
     flex: 1;

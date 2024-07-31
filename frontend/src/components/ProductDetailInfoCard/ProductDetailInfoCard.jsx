@@ -150,7 +150,7 @@ const ProductDetailInfoCard = ({ product, onOpenCartDrawer, showToast }) => {
       </div>
       <div className="delivery-address">
         <FontAwesomeIcon icon={faMapMarkerAlt} />
-        <span>Deliver to: {address ? `${address.street_address}, ${address.city}` : 'Fetching address...'}</span>
+        <span>Deliver to: {address ? `${address.street_address}, ${address.city}` : 'No address found. Please log in to add delivery address.'}</span>
       </div>
       <div className="stock-status">In Stock</div>
       <div className="quantity-selector">

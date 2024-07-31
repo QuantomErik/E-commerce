@@ -11,7 +11,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-class Product(models.Model):
+""" class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField(blank=True, null=True)
@@ -26,6 +26,58 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         logger.info(f'File path: {self.image.url}')
+
+    class Meta:
+        ordering = ['category__name', 'distance_to_sun']
+
+    def __str__(self):
+        return self.name """
+
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='products/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
+    distance_to_sun = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    best_seller = models.BooleanField(default=False)
+    todays_deal = models.BooleanField(default=False)
+    discount = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
+    
+    # New fields
+    discovery_date = models.DateField(null=True, blank=True)
+    distance_to_earth = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, null=True, blank=True)
+    size = models.CharField(max_length=255, null=True, blank=True)
+    mass = models.CharField(max_length=255, null=True, blank=True)
+    orbital_period = models.CharField(max_length=255, null=True, blank=True)
+    surface_temperature = models.CharField(max_length=255, null=True, blank=True)
+    gravity = models.CharField(max_length=255, null=True, blank=True)
+    composition = models.TextField(null=True, blank=True)
+    constellation = models.CharField(max_length=255, null=True, blank=True)
+    orbital_distance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, null=True, blank=True)
+    atmosphere = models.TextField(null=True, blank=True)
+    moons = models.CharField(max_length=255, null=True, blank=True)
+    rotation_period = models.CharField(max_length=255, null=True, blank=True)
+    magnetic_field = models.TextField(null=True, blank=True)
+    rings = models.CharField(max_length=255, null=True, blank=True)
+    habitable = models.BooleanField(default=False)
+    parent_planet = models.CharField(max_length=255, null=True, blank=True)
+    orbital_distance_from_planet = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, null=True, blank=True)
+    surface_features = models.TextField(null=True, blank=True)
+    tidal_effects = models.TextField(null=True, blank=True)
+    geological_activity = models.TextField(null=True, blank=True)
+    main_stars = models.TextField(null=True, blank=True)
+    best_viewing_time = models.CharField(max_length=255, null=True, blank=True)
+    mythology = models.TextField(null=True, blank=True)
+    quadrant = models.CharField(max_length=255, null=True, blank=True)
+    area = models.CharField(max_length=255, null=True, blank=True)
+    visibility = models.CharField(max_length=255, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.image:
+            logger.info(f'File path: {self.image.url}')
 
     class Meta:
         ordering = ['category__name', 'distance_to_sun']  # Order by category name first, then by distance to sun
