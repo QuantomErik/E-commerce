@@ -46,25 +46,16 @@ class Product(models.Model):
     discount = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
     
     # New fields
-    discovery_date = models.DateField(null=True, blank=True)
+    age = size = models.CharField(max_length=255, null=True, blank=True)
     distance_to_earth = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, null=True, blank=True)
+    """ distance_to_sun = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, null=True, blank=True) """
     size = models.CharField(max_length=255, null=True, blank=True)
     mass = models.CharField(max_length=255, null=True, blank=True)
-    
     surface_temperature = models.CharField(max_length=255, null=True, blank=True)
     gravity = models.CharField(max_length=255, null=True, blank=True)
-    
-    
-    
     atmosphere = models.TextField(null=True, blank=True)
-    
     surface_features = models.TextField(null=True, blank=True)
     
-    
-    
-    
-    quadrant = models.CharField(max_length=255, null=True, blank=True)
-    area = models.CharField(max_length=255, null=True, blank=True)
    
 
     def save(self, *args, **kwargs):

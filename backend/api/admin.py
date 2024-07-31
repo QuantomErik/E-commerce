@@ -23,16 +23,14 @@ class ProductAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name', 'price', 'description', 'category', 'distance_to_sun', 'created_at',
-        'best_seller', 'todays_deal', 'discovery_date', 'distance_to_earth', 'size',
+        'best_seller', 'todays_deal', 'age', 'distance_to_earth', 'size',
         'mass', 'surface_temperature', 'gravity', 'atmosphere', 'surface_features',
-        'quadrant', 'area'
+        
     )
     fields = (
         'name', 'price', 'description', 'image', 'category', 'distance_to_sun', 
-        'best_seller', 'todays_deal', 'discovery_date', 'distance_to_earth', 'size', 
-        'mass', 'surface_temperature', 'gravity',  
-        'atmosphere', 'surface_features',
-        'quadrant', 'area',
+        'best_seller', 'todays_deal', 'age', 'distance_to_earth', 'size', 
+        'mass', 'surface_temperature', 'gravity', 'atmosphere', 'surface_features'
     )
     search_fields = ('name', 'description', 'category__name')
     list_filter = ('category', 'best_seller', 'todays_deal')
