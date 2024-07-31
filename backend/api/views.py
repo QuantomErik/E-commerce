@@ -22,7 +22,8 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import JsonResponse
 from django.utils.timezone import now
 from django.db.models import F, ExpressionWrapper, DecimalField
-from rest_framework.decorators import api_view
+""" from rest_framework.decorators import api_view """
+from rest_framework.decorators import action, api_view, permission_classes
 
 @ensure_csrf_cookie
 def set_csrf_token(request):
@@ -299,6 +300,7 @@ class TodaysDealsViewSet(viewsets.ViewSet):
 
 
 @api_view(['GET'])
+@permission_classes([AllowAny])
 def buy_with(request, pk):
     try:
         product = Product.objects.get(pk=pk)
@@ -310,6 +312,7 @@ def buy_with(request, pk):
         return Response(status=404)
 
 @api_view(['GET'])
+@permission_classes([AllowAny])
 def viewed_with(request, pk):
     try:
         product = Product.objects.get(pk=pk)
