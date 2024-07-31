@@ -340,33 +340,15 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
         <div className="product-detail-text">
           <h1>{product.name}</h1>
           <p>{product.description}</p>
-          {product.discovery_date && <p>Discovery Date: {product.discovery_date}</p>}
+          {product.age && <p>Age: {product.age}</p>}
+          <p>Distance to Sun: {product.distance_to_sun} AU</p>
           {product.distance_to_earth && <p>Distance to Earth: {product.distance_to_earth} km</p>}
           {product.size && <p>Size: {product.size}</p>}
           {product.mass && <p>Mass: {product.mass}</p>}
-          {product.orbital_period && <p>Orbital Period: {product.orbital_period}</p>}
           {product.surface_temperature && <p>Surface Temperature: {product.surface_temperature}</p>}
           {product.gravity && <p>Gravity: {product.gravity}</p>}
-          {product.composition && <p>Composition: {product.composition}</p>}
-          {product.constellation && <p>Constellation: {product.constellation}</p>}
-          {product.orbital_distance && <p>Orbital Distance: {product.orbital_distance} AU</p>}
           {product.atmosphere && <p>Atmosphere: {product.atmosphere}</p>}
-          {product.moons && <p>Moons: {product.moons}</p>}
-          {product.rotation_period && <p>Rotation Period: {product.rotation_period}</p>}
-          {product.magnetic_field && <p>Magnetic Field: {product.magnetic_field}</p>}
-          {product.rings && <p>Rings: {product.rings}</p>}
-          {product.habitable && <p>Habitable: {product.habitable ? 'Yes' : 'No'}</p>}
-          {product.parent_planet && <p>Parent Planet: {product.parent_planet}</p>}
-          {product.orbital_distance_from_planet && <p>Orbital Distance from Parent Planet: {product.orbital_distance_from_planet} AU</p>}
           {product.surface_features && <p>Surface Features: {product.surface_features}</p>}
-          {product.tidal_effects && <p>Tidal Effects: {product.tidal_effects}</p>}
-          {product.geological_activity && <p>Geological Activity: {product.geological_activity}</p>}
-          {product.main_stars && <p>Main Stars: {product.main_stars}</p>}
-          {product.best_viewing_time && <p>Best Viewing Time: {product.best_viewing_time}</p>}
-          {product.mythology && <p>Mythology: {product.mythology}</p>}
-          {product.quadrant && <p>Quadrant: {product.quadrant}</p>}
-          {product.area && <p>Area: {product.area}</p>}
-          {product.visibility && <p>Visibility: {product.visibility}</p>}
         </div>
         <ProductDetailInfoCard product={product} onOpenCartDrawer={onOpenCartDrawer} showToast={showToast} />
       </div>
@@ -376,7 +358,7 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
         <h2>Buy it with</h2>
         <div className="related-products-grid">
           {buyWithProducts.map(buyProduct => (
-            <ProductCard key={buyProduct.id} product={buyProduct} onOpenCartDrawer={onOpenCartDrawer} additionalClass="related-products-card"/>
+            <ProductCard key={buyProduct.id} product={buyProduct} onOpenCartDrawer={onOpenCartDrawer} additionalClass="related-products-card" />
           ))}
         </div>
       </div>
@@ -387,7 +369,7 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
         <h2>Customers who viewed this item also viewed</h2>
         <div className="related-products-grid">
           {viewedWithProducts.map(viewedProduct => (
-            <ProductCard key={viewedProduct.id} product={viewedProduct} onOpenCartDrawer={onOpenCartDrawer} additionalClass="related-products-card"/>
+            <ProductCard key={viewedProduct.id} product={viewedProduct} onOpenCartDrawer={onOpenCartDrawer} additionalClass="related-products-card" />
           ))}
         </div>
       </div>
@@ -396,6 +378,7 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
 };
 
 export default ProductDetail;
+
 
 
 

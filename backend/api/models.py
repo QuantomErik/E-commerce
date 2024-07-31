@@ -40,14 +40,15 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
-    distance_to_sun = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    """ distance_to_sun = models.DecimalField(max_digits=10, decimal_places=2, default=0.00) """
+    distance_to_sun = models.CharField(max_length=255, null=True, blank=True)
     best_seller = models.BooleanField(default=False)
     todays_deal = models.BooleanField(default=False)
     discount = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
     
     # New fields
     age = size = models.CharField(max_length=255, null=True, blank=True)
-    distance_to_earth = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, null=True, blank=True)
+    distance_to_earth = models.CharField(max_length=255, null=True, blank=True)
     """ distance_to_sun = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, null=True, blank=True) """
     size = models.CharField(max_length=255, null=True, blank=True)
     mass = models.CharField(max_length=255, null=True, blank=True)
