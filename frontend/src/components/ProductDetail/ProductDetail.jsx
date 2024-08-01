@@ -387,6 +387,8 @@ import ProductCard from '../ProductCard/ProductCard';
 import ProductDetailInfoCard from '../ProductDetailInfoCard/ProductDetailInfoCard';
 import './ProductDetail.css';
 
+import { Tooltip as ReactTooltip } from 'react-tooltip'; 
+
 const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -436,7 +438,8 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
           <h1>{product.name}</h1>
           <p>{product.description}</p>
           {product.age && <p>Age: {product.age}</p>}
-          <p>Distance to Sun: {product.distance_to_sun} AU</p>
+          
+          {product.distance_to_sun && <p>Distance to Sun: {product.distance_to_sun} AU</p>}
           {product.distance_to_earth && <p>Distance to Earth: {product.distance_to_earth}</p>}
           {product.size && <p>Size: {product.size}</p>}
           {product.mass && <p>Mass: {product.mass}</p>}
@@ -445,11 +448,20 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
           {product.atmosphere && <p>Atmosphere: {product.atmosphere}</p>}
           {product.surface_features && <p>Surface Features: {product.surface_features}</p>}
           
-          {/* Render constellation-specific details if available */}
+          
           {product.constellation_detail && (
             <>
               <p>Distance to Earth: {product.constellation_detail.distance_to_earth}</p>
-              <p>Size: {product.constellation_detail.size}</p>
+              
+
+              <p>
+                Size: {product.constellation_detail.size}{' '}
+                <span data-tooltip-id="size-tooltip" data-tooltip-content="Size of the constellation in square degrees, which is a measure of area on the sky." style={{cursor: 'pointer', color: 'blue'}}>ℹ️</span>
+                <ReactTooltip id="size-tooltip" place="top" type="dark" effect="solid" className="custom-tooltip"/>
+              </p>
+
+
+
               <p>Brightest Star: {product.constellation_detail.brightest_star}</p>
               <p>Best Viewing Time: {product.constellation_detail.best_viewing_time}</p>
               <p>Number of Stars: {product.constellation_detail.number_of_stars}</p>

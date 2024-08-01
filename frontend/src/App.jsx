@@ -35,6 +35,7 @@ import { ToastContainer } from 'react-toastify';
 import './App.css';
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-tooltip/dist/react-tooltip.css';
 
 
 

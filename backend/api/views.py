@@ -299,13 +299,13 @@ class TodaysDealsViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
 
-@api_view(['GET'])
+""" @api_view(['GET'])
 @permission_classes([AllowAny])
 def buy_with(request, pk):
     try:
         product = Product.objects.get(pk=pk)
-        # Logic to get related products (e.g., products frequently bought with this one)
-        related_products = Product.objects.filter(category=product.category).exclude(pk=pk)[:2]  # Example logic
+        
+        related_products = Product.objects.filter(category=product.category).exclude(pk=pk)[:2] 
         serializer = ProductSerializer(related_products, many=True, context={'request': request})
         return Response(serializer.data)
     except Product.DoesNotExist:
@@ -316,8 +316,49 @@ def buy_with(request, pk):
 def viewed_with(request, pk):
     try:
         product = Product.objects.get(pk=pk)
-        # Logic to get related products (e.g., customers who viewed this item also viewed these)
-        related_products = Product.objects.exclude(pk=pk)[:5]  # Example logic
+        
+        related_products = Product.objects.exclude(pk=pk)[:5]
+        serializer = ProductSerializer(related_products, many=True, context={'request': request})
+        return Response(serializer.data)
+    except Product.DoesNotExist:
+        return Response(status=404) """
+
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def buy_with(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+        
+        # Fetch the categories
+        all_categories = Category.objects.all()
+        current_category = product.category
+        other_categories = all_categories.exclude(pk=current_category.pk)
+
+        # Get one random product from each of the other categories
+        related_products = []
+        for category in other_categories:
+            random_product = Product.objects.filter(category=category).order_by('?').first()
+            if random_product:
+                related_products.append(random_product)
+        
+        # Serialize the results
+        serializer = ProductSerializer(related_products, many=True, context={'request': request})
+        return Response(serializer.data)
+    except Product.DoesNotExist:
+        return Response(status=404)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def viewed_with(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+        
+        # Fetch 5 random products from the same category
+        related_products = Product.objects.filter(category=product.category).exclude(pk=pk).order_by('?')[:5]
+        
+        # Serialize the results
         serializer = ProductSerializer(related_products, many=True, context={'request': request})
         return Response(serializer.data)
     except Product.DoesNotExist:
