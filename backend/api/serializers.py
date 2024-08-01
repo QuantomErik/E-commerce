@@ -24,7 +24,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class ConstellationDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConstellationDetail
-        fields = ['distance_to_earth', 'size', 'brightest_star', 'best_viewing_time', 'significant_stars_objects']
+        fields = ['distance_to_earth', 'size', 'brightest_star', 'best_viewing_time', 'number_of_stars']
 
 
 class ProductSerializer(serializers.ModelSerializer):

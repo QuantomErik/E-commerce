@@ -452,7 +452,7 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
               <p>Size: {product.constellation_detail.size}</p>
               <p>Brightest Star: {product.constellation_detail.brightest_star}</p>
               <p>Best Viewing Time: {product.constellation_detail.best_viewing_time}</p>
-              <p>Significant Stars and Objects: {product.constellation_detail.significant_stars_objects}</p>
+              <p>Number of Stars: {product.constellation_detail.number_of_stars}</p>
             </>
           )}
         </div>

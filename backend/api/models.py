@@ -75,7 +75,7 @@ class ConstellationDetail(models.Model):
     size = models.CharField(max_length=255)
     brightest_star = models.CharField(max_length=255)
     best_viewing_time = models.CharField(max_length=255)
-    significant_stars_objects = models.TextField()
+    number_of_stars = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f"Details for {self.product.name}"
