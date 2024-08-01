@@ -10,7 +10,13 @@ class ProductAdmin(admin.ModelAdmin):
 
 # api/admin.py
 from django.contrib import admin
-from .models import Product, Category, Order, OrderItem, Deal
+from .models import Product, Category, Order, OrderItem, Deal, ConstellationDetail
+
+
+class ConstellationDetailInline(admin.StackedInline):
+    model = ConstellationDetail
+    can_delete = False
+    verbose_name_plural = 'Constellation Details'
 
 """ @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -34,6 +40,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
     search_fields = ('name', 'description', 'category__name')
     list_filter = ('category', 'best_seller', 'todays_deal')
+    inlines = [ConstellationDetailInline]
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):

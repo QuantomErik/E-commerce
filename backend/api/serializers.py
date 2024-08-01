@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 """ from .models import Product, Category """
-from .models import Product, Category, Order, OrderItem, Address, Deal
+from .models import Product, Category, Order, OrderItem, Address, Deal, ConstellationDetail
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,10 +20,18 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'name']
 
+
+class ConstellationDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ConstellationDetail
+        fields = ['distance_to_earth', 'size', 'brightest_star', 'best_viewing_time', 'significant_stars_objects']
+
+
 class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
     image_url = serializers.SerializerMethodField()
     discount = serializers.SerializerMethodField()
+    constellation_detail = ConstellationDetailSerializer(read_only=True)
 
     """ class Meta:
         model = Product
@@ -36,7 +44,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'distance_to_sun', 'created_at', 'best_seller', 'todays_deal', 'discount',
             'age', 'distance_to_earth', 'size', 'mass',
             'surface_temperature', 'gravity', 'atmosphere',
-            'surface_features',
+            'surface_features', 'constellation_detail'
         ]
 
     def get_image_url(self, obj):
