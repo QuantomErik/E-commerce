@@ -1,4 +1,4 @@
-.product-detail-info-card {
+/* .product-detail-info-card {
     flex: 1;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -91,6 +91,124 @@
 
    
   }
+ */
+
+
+
+
+
+ .product-detail-info-card {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail-info-card .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-detail-info-card .price .original-price {
+  text-decoration: line-through;
+  color: #777;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.product-detail-info-card .price .discounted-price {
+  color: red;
+  font-size: 1.3rem;
+}
+
+.product-detail-info-card .delivery-address {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-detail-info-card .delivery-address svg {
+  margin-right: 8px;
+}
+
+.product-detail-info-card .stock-status {
+  color: green;
+  margin-bottom: 10px;
+}
+
+.product-detail-info-card .quantity-selector {
+  margin-bottom: 10px;
+}
+
+.product-detail-info-card .quantity-selector label {
+  margin-right: 10px;
+}
+
+.product-detail-info-card .add-to-basket-button,
+.product-detail-info-card .buy-now-button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-detail-info-card .add-to-basket-button {
+  background-color: #f0c14b;
+  color: #111;
+}
+
+.product-detail-info-card .buy-now-button {
+  background-color: #e47911;
+  color: white;
+}
+
+@media (max-width: 910px) {
+  .product-detail-info-card {
+    /* width: 100%; */
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    gap: 1rem;
+   /*  width: 400px; */
+   max-width: none;
+  }
+  
+
+  .product-detail-info-card .price,
+  .product-detail-info-card .delivery-address,
+  .product-detail-info-card .stock-status,
+  .product-detail-info-card .quantity-selector,
+  .product-detail-info-card .add-to-basket-button,
+  .product-detail-info-card .buy-now-button {
+    width: 100%;
+    
+    /* width: 7rem; */
+    /* text-align: center; */
+  }
+
+  .product-detail-info-card .quantity-selector {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
