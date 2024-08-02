@@ -148,10 +148,20 @@ const ProductDetailInfoCard = ({ product, onOpenCartDrawer, showToast }) => {
           <span>${price.toFixed(2)}</span>
         )}
       </div>
-      <div className="delivery-address">
+
+
+      {/* <div className="delivery-address">
         <FontAwesomeIcon icon={faMapMarkerAlt} />
-        <span>Deliver to: {address ? `${address.street_address}, ${address.city}` : 'No address found. Please log in to add delivery address.'}</span>
-      </div>
+        <span>Deliver to: {address ? `${address.street_address}, ${address.city}` : 'No address found. '}</span>
+      </div> */}
+
+{address && (
+        <div className="delivery-address">
+          <FontAwesomeIcon icon={faMapMarkerAlt} />
+          <span>Deliver to: {`${address.street_address}, ${address.city}`}</span>
+        </div>
+      )}
+
       <div className="stock-status">In Stock</div>
       <div className="quantity-selector">
         <label htmlFor="quantity">Quantity:</label>
