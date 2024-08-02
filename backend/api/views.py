@@ -24,6 +24,8 @@ from django.utils.timezone import now
 from django.db.models import F, ExpressionWrapper, DecimalField
 """ from rest_framework.decorators import api_view """
 from rest_framework.decorators import action, api_view, permission_classes
+""" from backend.api.models import Category """
+from django.shortcuts import get_object_or_404
 
 @ensure_csrf_cookie
 def set_csrf_token(request):
@@ -226,8 +228,17 @@ class AllProductsViewSet(viewsets.ViewSet):
 
         if search:
             queryset = queryset.filter(name__icontains=search)
+            
+        """ if selected_category:
+            queryset = queryset.filter(category_id=selected_category) """
+        
         if selected_category:
-            queryset = queryset.filter(category_id=selected_category)
+            # Translate the category name to the corresponding ID
+            category = get_object_or_404(Category, name=selected_category)
+            queryset = queryset.filter(category_id=category.id)
+           
+
+
         if min_price:
             queryset = queryset.filter(price__gte=min_price)
         if max_price:

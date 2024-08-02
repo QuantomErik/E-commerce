@@ -376,7 +376,10 @@ const Navbar = () => {
             <li>
               <Link to="/todays-deals" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Today's Deals</Link>
             </li>
-            <li className="relative">
+
+
+
+            {/* <li className="relative">
               <button id="dropdownHoverButton" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded  inline-flex items-center">
                 Products
                 <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -399,7 +402,38 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> */}
+
+<li className="relative">
+  <button id="dropdownHoverButton" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded  inline-flex items-center">
+    Products
+    <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+    </svg>
+  </button>
+  <div id="dropdownHover" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute">
+    <ul className="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+      <li>
+        <Link to="/products" className="block px-4 py-2">All Products</Link>
+      </li>
+      <li>
+        <Link to="/products?category=planets" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Planets</Link>
+      </li>
+      <li>
+        <Link to="/products?category=moons" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Moons</Link>
+      </li>
+      <li>
+        <Link to="/products?category=constellations" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Constellations</Link>
+      </li>
+    </ul>
+  </div>
+</li>
+
+
+
+
+
+
             <li>
               <Link to="/gift-cards" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Gift Cards</Link>
             </li>

@@ -5,7 +5,7 @@
     padding: 20px;
     
     
-    /* margin-top: 20px; */
+    
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -20,10 +20,12 @@
     text-decoration: line-through;
     color: #777;
     margin-right: 10px;
+    font-size: 1.2rem;
   }
   
   .product-detail-info-card .price .discounted-price {
     color: red;
+    font-size: 1.3rem;
   }
   
   .product-detail-info-card .delivery-address {
@@ -68,3 +70,48 @@
     background-color: #e47911;
     color: white;
   }
+
+
+
+
+  
+  @media (max-width: 1050px) {
+    .product-detail-info-card .price .original-price {
+      text-decoration: line-through;
+      color: #777;
+      margin-right: 10px;
+      font-size: 0.7rem;
+    }
+    
+    .product-detail-info-card .price .discounted-price {
+      color: red;
+      font-size: 0.8rem;
+    }
+
+
+   
+  }
+
+
+
+
+
+
+  /* @media (max-width: 910px) {
+    .product-detail-info-card .price .original-price {
+      text-decoration: line-through;
+      color: #777;
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+    
+    .product-detail-info-card .price .discounted-price {
+      color: red;
+      font-size: 1rem;
+    }
+
+
+  
+  } */
+
+  
