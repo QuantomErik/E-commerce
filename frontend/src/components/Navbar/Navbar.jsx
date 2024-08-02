@@ -349,6 +349,11 @@ const Navbar = () => {
     console.log('User in Navbar:', user);
   }, [user]);
 
+  const handleCategoryClick = (categoryId) => {
+    navigate(`/products?category=${categoryId}`);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <nav className="bg-white border-gray-200">
       <div className="nav flex flex-wrap items-center justify-between mx-auto p-4">
@@ -379,14 +384,16 @@ const Navbar = () => {
 
 
 
-            {/* <li className="relative">
+            <li className="relative">
               <button id="dropdownHoverButton" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded  inline-flex items-center">
                 Products
                 <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
                 </svg>
               </button>
-              <div id="dropdownHover" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute">
+
+
+               <div id="dropdownHover" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute">
                 <ul className="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                   <li>
                     <Link to="/products" className="block px-4 py-2">All Products</Link>
@@ -402,32 +409,10 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-            </li> */}
+            </li>
+ 
 
-<li className="relative">
-  <button id="dropdownHoverButton" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded  inline-flex items-center">
-    Products
-    <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-    </svg>
-  </button>
-  <div id="dropdownHover" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute">
-    <ul className="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-      <li>
-        <Link to="/products" className="block px-4 py-2">All Products</Link>
-      </li>
-      <li>
-        <Link to="/products?category=planets" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Planets</Link>
-      </li>
-      <li>
-        <Link to="/products?category=moons" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Moons</Link>
-      </li>
-      <li>
-        <Link to="/products?category=constellations" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Constellations</Link>
-      </li>
-    </ul>
-  </div>
-</li>
+
 
 
 

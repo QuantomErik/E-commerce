@@ -224,21 +224,29 @@ class AllProductsViewSet(viewsets.ViewSet):
         min_price = request.query_params.get('min_price', '')
         max_price = request.query_params.get('max_price', '')
 
+
+        logger.info(f"Requested category: {selected_category}")
+        available_categories = Category.objects.all()
+        logger.info(f"Available categories: {[category.name for category in available_categories]}")
+
+
         queryset = Product.objects.all()
 
         if search:
             queryset = queryset.filter(name__icontains=search)
             
-        """ if selected_category:
-            queryset = queryset.filter(category_id=selected_category) """
-        
         if selected_category:
-            # Translate the category name to the corresponding ID
-            category = get_object_or_404(Category, name=selected_category)
-            queryset = queryset.filter(category_id=category.id)
-           
-
-
+            queryset = queryset.filter(category_id=selected_category)
+        
+        """ if selected_category:
+            try:
+                selected_category = int(selected_category)
+                queryset = queryset.filter(category_id=selected_category)
+            except ValueError:
+                logger.error(f"Invalid category ID '{selected_category}'")
+                return Response({'detail': 'Invalid category ID'}, status=400) """
+        
+                  
         if min_price:
             queryset = queryset.filter(price__gte=min_price)
         if max_price:

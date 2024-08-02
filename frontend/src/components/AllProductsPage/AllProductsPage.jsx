@@ -836,7 +836,7 @@ export default AllProductsPage;
  */
 
 
-/* import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import api from '../../api';
 import ProductCard from '../ProductCard/ProductCard';
 import Slider from 'rc-slider';
@@ -1005,11 +1005,15 @@ const AllProductsPage = ({ onOpenCartDrawer }) => {
   );
 };
 
-export default AllProductsPage; */
+export default AllProductsPage;
 
 
-import React, { useEffect, useState, useCallback } from 'react';
-import { useLocation } from 'react-router-dom'; // Import useLocation hook
+
+
+
+
+/* import React, { useEffect, useState, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import api from '../../api';
 import ProductCard from '../ProductCard/ProductCard';
 import Slider from 'rc-slider';
@@ -1019,7 +1023,7 @@ import { FaFilter } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
 
 const AllProductsPage = ({ onOpenCartDrawer }) => {
-  const location = useLocation(); // Get the current location
+  const location = useLocation();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -1185,7 +1189,7 @@ const AllProductsPage = ({ onOpenCartDrawer }) => {
 };
 
 export default AllProductsPage;
-
+ */
 
 
 
