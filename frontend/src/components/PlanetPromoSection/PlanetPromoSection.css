@@ -93,6 +93,10 @@
       color: #555;
       
     }
+
+    .learn-more-link {
+      font-size: 0.8rem;
+    }
       
   }
 
@@ -111,6 +115,11 @@
       color: #555;
       
     }
+
+    .learn-more-link {
+      font-size: 0.6rem;
+    }
+      
 
       
   }
@@ -131,6 +140,11 @@
       color: #555;
       
     }
+
+    .learn-more-link {
+      font-size: 0.5rem;
+    }
+      
   }
 
 
@@ -149,6 +163,11 @@
       line-height: 1.5;
       color: #555;
     }
+
+    .learn-more-link {
+      font-size: 0.7rem;
+    }
+      
   }
 
   @media (max-width: 740px) {
@@ -165,6 +184,10 @@
       line-height: 1.5;
       color: #555;
       
+    }
+
+    .learn-more-link {
+      font-size: 0.65rem;
     }
   }
 
@@ -183,6 +206,12 @@
       color: #555;
       
     }
+
+    .learn-more-link {
+      font-size: 0.4rem;
+     
+      
+    }
   }
 
   @media (max-width: 500px) {
@@ -196,6 +225,10 @@
       margin: 2rem 0;
       margin-left: 0rem;
       margin-right: 0rem;
+    }
+
+    .learn-more-link {
+      font-size: 0.4rem;
     }
   }
 
@@ -214,6 +247,10 @@
       line-height: 1.5;
       color: #555;
       
+    }
+
+    .learn-more-link {
+      font-size: 0.25rem;
     }
   }
 
@@ -252,3 +289,20 @@
       
     }
   }
+
+  .learn-more-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .learn-more-link:hover {
+    background-color: #0056b3;
+  }
+
+  
