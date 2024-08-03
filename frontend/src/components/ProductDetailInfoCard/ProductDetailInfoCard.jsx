@@ -141,11 +141,11 @@ const ProductDetailInfoCard = ({ product, onOpenCartDrawer, showToast }) => {
       <div className="price">
         {discountedPrice ? (
           <>
-            <span className="original-price">${price.toFixed(2)}</span>
-            <span className="discounted-price">${discountedPrice.toFixed(2)}</span>
+            <span className="original-price">${price}</span>
+            <span className="discounted-price">${discountedPrice}</span>
           </>
         ) : (
-          <span>${price.toFixed(2)}</span>
+          <span>${price}</span>
         )}
       </div>
 
