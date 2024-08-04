@@ -1,12 +1,12 @@
-/* Navbar.css */
+
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    border-color: #e2e8f0; /* Tailwind gray-200 */
-    padding-left: 10px; /* Reduces padding on the left */
+    border-color: #e2e8f0; 
+    padding-left: 10px; 
 }
 
 .logo {
@@ -33,15 +33,15 @@
 }
 
 .nav-links a {
-    padding: 10px 15px; /* Gives some space around the links */
-    text-decoration: none; /* Optional: Removes underline */
+    padding: 10px 15px; 
+    text-decoration: none; 
     color: gray;
     font-weight: 500;
 }
 
 .test {
     justify-content: center;
-    /* background-color: rgb(124, 38, 38); */
+    
 }
 
 .nav-text {
@@ -56,10 +56,10 @@
 .navbar-username {
     font-size: 1rem;
     font-weight: bold;
-    color: #4a5568; /* Tailwind gray-700 */
+    color: #4a5568; 
 }
 
-/* Ensure dropdown stays open when hovering */
+
 #dropdownHoverButton:hover + #dropdownHover,
 #dropdownHover:hover {
     display: block;
@@ -70,9 +70,150 @@
     position: absolute;
     top: 100%;
     left: 0;
-    /* margin-top: 0.5rem; */
+    
     z-index: 1000;
-    min-width: 100%; /* Ensures dropdown covers the button width */
-    /* Extend dropdown to cover gap */
-    padding-top: 1rem; /* Adjust as necessary */
+    min-width: 100%; 
+    
+    padding-top: 1rem; 
 }
+
+
+ 
+
+
+
+
+ /* .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-color: #e2e8f0; 
+    padding-left: 10px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .logo img {
+    height: 2rem;
+  }
+  
+  .logo span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: white;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  .nav-links a {
+    padding: 10px 15px; 
+    text-decoration: none; 
+    color: gray;
+    font-weight: 500;
+  }
+  
+  .test {
+    justify-content: center;
+   
+  }
+  
+  .nav-text {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .nav {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .navbar-username {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4a5568; 
+  }
+  
+ 
+  #dropdownHoverButton:hover + #dropdownHover,
+  #dropdownHover:hover {
+    display: block;
+  
+    
+    
+    
+  }
+  
+  #dropdownHover {
+    display: none;
+    position: absolute;
+   
+    top: 100%;
+   
+    z-index: 1000;
+   
+    width: 1000px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: none;
+    
+    
+    
+  }
+  
+  #dropdownHover .dropdown-content {
+    display: flex;
+    
+    gap: 10px;
+    
+    
+  }
+  
+  .dropdown-category {
+    width: 100%; 
+    
+   
+  }
+  
+  .dropdown-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-category-products {
+    
+   
+    
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .dropdown-category-products li {
+    flex: 1;
+    margin-bottom: 5px;
+    
+  }
+  
+  .dropdown-category-products li a {
+    display: block;
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    
+  }
+  
+  .dropdown-category-products li a:hover {
+    background-color: #e2e8f0; 
+  } */
+  

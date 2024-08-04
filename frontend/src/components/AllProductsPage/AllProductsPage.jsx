@@ -987,7 +987,7 @@ const AllProductsPage = ({ onOpenCartDrawer }) => {
             </div>
           </div>
           <div className="sidebar-section">
-            <button className="apply-button" onClick={handleApplyChanges}>Apply Price Range</button>
+            <button className="apply-button" onClick={handleApplyChanges}>Apply Filter</button>
           </div>
         </div>
         <div className="all-products-grid">
