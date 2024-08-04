@@ -80,7 +80,55 @@
 
  
 
+@media (max-width: 3000px) {
+  
+  .navbar-icon {
+    margin-right: 50px;
+  }
+    
+  .test {
+    justify-content: center;
+    margin-left: 170px;
+    
+}
 
+}
+
+@media (max-width: 1700px) {
+  
+  .navbar-icon {
+    margin-right: 20px;
+  }
+    
+  .test {
+    justify-content: center;
+    margin-left: 165px;
+    
+}
+
+}
+
+
+@media (max-width: 1300px) {
+  
+  .navbar-icon {
+    margin-right: 20px;
+  }
+    
+  .test {
+    justify-content: left;
+    /* margin-left: 165px; */
+    padding-left: 0;
+    margin-left: 7px;
+    
+}
+/* .nav {
+  justify-content: left;
+  margin-left: 0;
+  padding-left: 0;
+} */
+
+}
 
 
  /* .navbar {

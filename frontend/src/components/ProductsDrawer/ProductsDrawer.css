@@ -1,4 +1,4 @@
-/* ProductsDrawer.css */
+
 .products-drawer {
     transition: transform 0.5s ease, opacity 0.5s ease;
   }
@@ -23,4 +23,11 @@
     opacity: 1;
     pointer-events: all;
   }
+
+  .products-drawer-category {
+    color: #628fb6;
+  }
   
+  .products-drawer-category:hover {
+    color: #c7850a;
+  }

@@ -131,6 +131,7 @@
 .sidebar ul li:hover,
 .sidebar ul li.active {
   background-color: #f0f0f0;
+  /* background-color: #c7850a; */
 }
 
 .search-input {

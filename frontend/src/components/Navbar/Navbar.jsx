@@ -607,69 +607,71 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="navbar-icon flex items-center space-x-5">
-          {isAuthenticated && user && (
-            <span className="navbar-username">{user.username}</span>
-          )}
-          <div className="relative">
-            <button 
-              ref={userIconRef}
-              onClick={handleUserIconClick} 
-              className="text-gray-900 hover:text-blue-700"
-            >
-              <FontAwesomeIcon icon={faUser} size="lg" />
-            </button>
-            {isDropdownOpen && isAuthenticated && (
-              <div
-                ref={dropdownRef}
-                className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg"
-                style={{ zIndex: 1000 }}
+        {!isOpen && (
+          <div className="navbar-icon flex items-center space-x-5">
+            {isAuthenticated && user && (
+              <span className="navbar-username">{user.username}</span>
+            )}
+            <div className="relative">
+              <button 
+                ref={userIconRef}
+                onClick={handleUserIconClick} 
+                className="text-gray-900 hover:text-blue-700"
               >
-                <Link
-                  to="/your-account"
-                  className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
-                  onClick={handleLinkClick}
+                <FontAwesomeIcon icon={faUser} size="lg" />
+              </button>
+              {isDropdownOpen && isAuthenticated && (
+                <div
+                  ref={dropdownRef}
+                  className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg"
+                  style={{ zIndex: 1000 }}
                 >
-                  Your Account
-                </Link>
-                <Link
-                  to="/your-orders"
-                  className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
-                  onClick={handleLinkClick}
-                >
-                  Your Orders
-                </Link>
-                <Link
-                  to="/buy-again"
-                  className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
-                  onClick={handleLinkClick}
-                >
-                  Buy Again
-                </Link>
-                <button
-                  onClick={() => {
-                    handleLinkClick();
-                    logout();
-                  }}
-                  className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
-                >
-                  Logout
-                </button>
-              </div>
-            )}
+                  <Link
+                    to="/your-account"
+                    className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
+                    onClick={handleLinkClick}
+                  >
+                    Your Account
+                  </Link>
+                  <Link
+                    to="/your-orders"
+                    className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
+                    onClick={handleLinkClick}
+                  >
+                    Your Orders
+                  </Link>
+                  <Link
+                    to="/buy-again"
+                    className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
+                    onClick={handleLinkClick}
+                  >
+                    Buy Again
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleLinkClick();
+                      logout();
+                    }}
+                    className="block w-full px-4 py-2 text-left text-gray-900 hover:bg-gray-100"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+            <button 
+              onClick={() => setIsCartDrawerOpen(true)} 
+              className="text-gray-900 hover:text-blue-700 relative"
+            >
+              <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+              {cart.length > 0 && (
+                <span className="absolute top-0 right-0 inline-block w-4 h-4 bg-red-600 text-white text-xs font-bold text-center rounded-full">
+                  {cart.length}
+                </span>
+              )}
+            </button>
           </div>
-          <button 
-            onClick={() => setIsCartDrawerOpen(true)} 
-            className="text-gray-900 hover:text-blue-700 relative"
-          >
-            <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-            {cart.length > 0 && (
-              <span className="absolute top-0 right-0 inline-block w-4 h-4 bg-red-600 text-white text-xs font-bold text-center rounded-full">
-                {cart.length}
-              </span>
-            )}
-          </button>
-        </div>
+        )}
       </div>
 
       <CartDrawer isOpen={isCartDrawerOpen} onClose={() => setIsCartDrawerOpen(false)} />
@@ -679,6 +681,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 

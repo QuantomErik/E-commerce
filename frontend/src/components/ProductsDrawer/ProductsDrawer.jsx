@@ -66,15 +66,20 @@ const ProductsDrawer = ({ isOpen, onClose }) => {
           <FaTimes />
         </button>
         <h2 className="mb-4 text-xl font-semibold">Products</h2>
+
+        <hr className="section-divider" />
+
         <ul>
-          <li className="mb-2">
-            <Link to="/products" onClick={onClose} className="text-blue-600 hover:underline">All Products</Link>
+          <li className="products-drawer-category mb-2">
+            <Link to="/products" onClick={onClose} className="hover:underline">All Products</Link>
           </li>
+
+          
           {categories.map(category => (
-            <li key={category.id} className="mb-2">
+            <li key={category.id} className="products-drawer-category mb-2">
               <button
                 onClick={() => handleCategoryClick(category)}
-                className="text-left w-full text-blue-600 hover:underline"
+                className="text-left w-full hover:underline"
               >
                 {category.name}
               </button>
@@ -82,7 +87,7 @@ const ProductsDrawer = ({ isOpen, onClose }) => {
                 <ul className="pl-4 mt-2">
                   {(products[category.id] || []).map(product => (
                     <li key={product.id} className="mb-1">
-                      <Link to={`/products/${product.id}`} onClick={onClose} className="text-gray-600 hover:underline">
+                      <Link to={`/products/${product.id}`} onClick={onClose} className="products-drawer-category hover:underline">
                         {product.name}
                       </Link>
                     </li>
