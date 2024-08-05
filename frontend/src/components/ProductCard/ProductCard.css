@@ -261,7 +261,7 @@
       position: absolute;
       top: 0px;
       right: 0px;
-      background-color: #d9534f; 
+      /* background-color: #d9534f;  */
       color: white;
       padding: 5px 10px;
       font-size: 0.6rem;
@@ -312,7 +312,7 @@
       position: absolute;
       top: 0px;
       right: 0px;
-      background-color: #d9534f; 
+      /* background-color: #d9534f;  */
       color: white;
       padding: 5px 10px;
       font-size: 0.5rem;
@@ -387,7 +387,7 @@
       position: absolute;
       top: 0px;
       right: 0px;
-      background-color: #d9534f; 
+      /* background-color: #d9534f;  */
       color: white;
       padding: 5px 10px;
       font-size: 0.3rem;
@@ -449,7 +449,7 @@
       position: absolute;
       top: 0px;
       right: 0px;
-      background-color: #d9534f; 
+      /* background-color: #d9534f;  */
       color: white;
       padding: 5px 10px;
       font-size: 0.2rem;
@@ -509,7 +509,7 @@
       position: absolute;
       top: 0px;
       right: 0px;
-      background-color: #d9534f; 
+      /* background-color: #d9534f;  */
       color: white;
       padding: 5px 10px;
       font-size: 0.1rem;
