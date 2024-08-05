@@ -558,6 +558,7 @@ const Navbar = () => {
 
   const handleLinkClick = () => {
     setIsDropdownOpen(false);
+    setIsOpen(false);
   };
 
   return (
@@ -579,17 +580,20 @@ const Navbar = () => {
         <div className={`flex-grow ${isOpen ? 'block' : 'hidden'} lg:block w-full lg:w-auto`} id="mobile-menu">
           <ul className="test flex flex-col items-center mt-4 lg:flex-row lg:space-x-8 lg:mt-0 lg:text-sm lg:font-medium">
             <li>
-              <Link to="/" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Home</Link>
+              <Link to="/" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white" onClick={handleLinkClick}>Home</Link>
             </li>
             <li>
-              <Link to="/best-sellers" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Best Sellers</Link>
+              <Link to="/best-sellers" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white" onClick={handleLinkClick}>Best Sellers</Link>
             </li>
             <li>
-              <Link to="/todays-deals" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Today's Deals</Link>
+              <Link to="/todays-deals" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white" onClick={handleLinkClick}>Today's Deals</Link>
             </li>
+
+
             <li className="relative">
               <button
-                onClick={() => setIsProductsDrawerOpen(true)} // Open products drawer
+                onClick={() => setIsProductsDrawerOpen(true)}
+                
                 className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded inline-flex items-center"
               >
                 Products
@@ -598,11 +602,13 @@ const Navbar = () => {
                 </svg>
               </button>
             </li>
+
+            
             <li>
-              <Link to="/gift-cards" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Gift Cards</Link>
+              <Link to="/gift-cards" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white" onClick={handleLinkClick}>Gift Cards</Link>
             </li>
             <li>
-              <Link to="/gift-ideas" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white">Gift Ideas</Link>
+              <Link to="/gift-ideas" className="nav-text block py-2 pr-4 pl-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700  lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white" onClick={handleLinkClick}>Gift Ideas</Link>
             </li>
           </ul>
         </div>
@@ -675,7 +681,8 @@ const Navbar = () => {
       </div>
 
       <CartDrawer isOpen={isCartDrawerOpen} onClose={() => setIsCartDrawerOpen(false)} />
-      <ProductsDrawer isOpen={isProductsDrawerOpen} onClose={() => setIsProductsDrawerOpen(false)} /> {/* Include ProductsDrawer */}
+      {/* <ProductsDrawer isOpen={isProductsDrawerOpen} onClose={() => setIsProductsDrawerOpen(false)} /> */}
+      <ProductsDrawer isOpen={isProductsDrawerOpen} onClose={() => { setIsProductsDrawerOpen(false); handleLinkClick(); }} /> {/* Pass handleLinkClick to ProductsDrawer */}
     </nav>
   );
 };
