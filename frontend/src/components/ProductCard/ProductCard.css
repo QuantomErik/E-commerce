@@ -123,6 +123,17 @@
   }
 
 
+  
+  @media (max-width: 1200px) {
+    .discount-badge {
+      background-color: #5bc0de;
+      color: white;
+     
+    }
+  }
+
+
+
   @media (max-width: 1000px) {
     .card {
       height: 230px;

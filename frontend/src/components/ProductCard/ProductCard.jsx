@@ -427,7 +427,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../Cart/CartContext';
 import PropTypes from 'prop-types';
 
-const ProductCard = ({ product, onOpenCartDrawer, additionalClass }) => {
+const ProductCard = ({ product, onOpenCartDrawer, additionalClass, buttonSize, badgeClass }) => {
   const { addToCart } = useContext(CartContext);
 
   const handleAddToCart = () => {
@@ -443,7 +443,8 @@ const ProductCard = ({ product, onOpenCartDrawer, additionalClass }) => {
   return (
     <div className={`card-container w-full bg-white border-gray-200 shadow mb-10 relative group ${additionalClass}`}>
       <div className="relative">
-        {product.discount && <div className="discount-badge">{product.discount}% off</div>}
+       {/*  {product.discount && <div className="discount-badge">{product.discount}% off</div>} */}
+       {product.discount && <div className={`discount-badge ${badgeClass}`}>{product.discount}% off</div>}
         <Link to={`/products/${product.id}`}>
           <img
             className="card w-full object-cover"
@@ -453,7 +454,8 @@ const ProductCard = ({ product, onOpenCartDrawer, additionalClass }) => {
         </Link>
         <button
           onClick={handleAddToCart}
-          className="add-to-cart-button text-white bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-center absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          /* className="add-to-cart-button text-white bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-center absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" */
+          className={`add-to-cart-button text-white bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-center absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${buttonSize}`}
         >
           <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
           Add to cart
@@ -490,10 +492,14 @@ ProductCard.propTypes = {
   }).isRequired,
   onOpenCartDrawer: PropTypes.func.isRequired,
   additionalClass: PropTypes.string,
+  buttonSize: PropTypes.string,
+  badgeClass: PropTypes.string,
 };
 
 ProductCard.defaultProps = {
   additionalClass: '',
+  buttonSize: '',
+  badgeClass: '',
 };
 
 export default ProductCard;

@@ -615,3 +615,126 @@
 
 
 
+
+
+/*Add to cart button and discount badge styling*/
+@media (max-width: 1200px) {
+
+
+.related-products-button.add-to-cart-button{
+  width: 100%;
+}
+
+.related-products-badge {
+  font-size: 0.7rem;
+  background-color: #5bc0de;
+  padding: 5px;
+}
+
+}
+
+@media (max-width: 1000px) {
+
+
+  .related-products-button.add-to-cart-button{
+    font-size: 0.6rem;
+    width: 100%;
+  }
+
+  .related-products-badge {
+    font-size: 0.7rem;
+    background-color: #5bc0de;
+    padding: 4px;
+  }
+  
+  }
+
+
+  @media (max-width: 950px) {
+
+
+    .related-products-button.add-to-cart-button{
+      
+      padding: 3px;
+      width: 100%;
+    }
+
+    .related-products-badge {
+      font-size: 0.5rem;
+      background-color: #5bc0de;
+      padding: 3px;
+    }
+    
+    }
+
+    @media (max-width: 910px) {
+
+
+      .related-products-button.add-to-cart-button{
+        
+        width: 100%;
+      }
+      
+      }
+
+
+      @media (max-width: 550px) {
+
+
+        .related-products-button.add-to-cart-button{
+          font-size: 0.4rem;
+          padding: 1px;
+          width: 100%;
+        }
+
+        .related-products-badge {
+          font-size: 0.4rem;
+          background-color: #5bc0de;
+          padding: 2px;
+        }
+        }
+
+
+
+        @media (max-width: 500px) {
+
+
+          .related-products-button.add-to-cart-button{
+            
+            padding: 1px;
+            width: 100%;
+          }
+  
+          
+          }
+
+
+          @media (max-width: 400px) {
+            .related-products-badge {
+              font-size: 0.25rem;
+              background-color: #5bc0de;
+              padding: 1.5px;
+            }
+
+            }
+
+
+
+          @media (max-width: 280px) {
+
+
+            .related-products-button.add-to-cart-button{
+              font-size: 0.2rem;
+              padding: 1px;
+              width: 100%;
+            }
+
+            .related-products-badge {
+              font-size: 0.15rem;
+              background-color: #5bc0de;
+              padding: 1px;
+            }
+
+            }
+
+

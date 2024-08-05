@@ -613,7 +613,10 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
         <h2>Buy it with</h2>
         <div className="related-products-grid">
           {buyWithProducts.map(buyProduct => (
-            <ProductCard key={buyProduct.id} product={buyProduct} onOpenCartDrawer={onOpenCartDrawer} additionalClass="related-products-card" />
+            <ProductCard key={buyProduct.id} product={buyProduct} onOpenCartDrawer={onOpenCartDrawer}
+             additionalClass="related-products-card"
+             buttonSize="related-products-button"
+             badgeClass="related-products-badge" />
           ))}
         </div>
       </div>
@@ -624,7 +627,10 @@ const ProductDetail = ({ onOpenCartDrawer, showToast }) => {
         <h2>Customers who viewed this item also viewed</h2>
         <div className="related-products-grid">
           {viewedWithProducts.map(viewedProduct => (
-            <ProductCard key={viewedProduct.id} product={viewedProduct} onOpenCartDrawer={onOpenCartDrawer} additionalClass="related-products-card" />
+            <ProductCard key={viewedProduct.id} product={viewedProduct} onOpenCartDrawer={onOpenCartDrawer}
+             additionalClass="related-products-card"
+             buttonSize="related-products-button"
+             badgeClass="related-products-badge" />
           ))}
         </div>
       </div>
