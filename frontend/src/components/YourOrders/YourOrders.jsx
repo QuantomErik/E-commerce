@@ -166,13 +166,28 @@ const YourOrders = ({ onOpenCartDrawer }) => {
                       <span className="text-gray-800">{item.product.name}</span>
                       <span className="block text-gray-600">{item.quantity} x ${item.price}</span>
                     </div>
-                    <button
+
+
+                    {/* <button
                       className="buy-again-btn ml-4 flex items-center text-blue-500 hover:text-blue-700"
                       onClick={() => addToCart(item.product, onOpenCartDrawer)} 
                     >
                       <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
                       Buy it again
-                    </button>
+                    </button> */}
+                    
+                    <button
+  className="buy-again-btn ml-4 flex items-center text-blue-500 hover:text-blue-700"
+  onClick={() => {
+    addToCart(item.product, 1);
+    onOpenCartDrawer();
+  }}
+>
+  <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
+  Buy it again
+</button>
+
+
                   </li>
                 ))}
               </ul>
