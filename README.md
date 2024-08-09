@@ -32,7 +32,7 @@ This project is a full-featured e-commerce website developed using React for the
 ## Technologies Used
 
 - **Frontend:** React, TailwindCSS, Axios
-- **Backend:** Django, Django REST Framework
+- **Backend:** Django, Django REST Framework, Python
 - **Database:** PostgreSQL, managed via AWS RDS
 - **Server:** Nginx, running on Ubuntu EC2 instance
 - **Storage:** AWS S3
