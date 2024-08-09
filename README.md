@@ -10,12 +10,11 @@ This project is a full-featured e-commerce website developed using React for the
 2. [Technologies Used](#Technologies-Used)
 3. [Installation](#installation)
 4. [Running the Project](#running-the-project)
-5. [Folder Structure](#folder-structure)
-6. [Key Components](#key-components)
-7. [API Integration](#api-integration)
-8. [Authentication](#authentication)
-9. [CSRF Protection](#csrf-protection)
-10. [Deployment](#deployment)
+5. [Key Components](#key-components)
+6. [API Integration](#api-integration)
+7. [Authentication](#authentication)
+8. [CSRF Protection](#csrf-protection)
+9. [Deployment](#deployment)
 
 
 ## Features
