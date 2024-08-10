@@ -92,6 +92,8 @@ const EditAddress = ({ updateAddress }) => {
               <option value="USA">USA</option>
               <option value="Canada">Canada</option>
               <option value="UK">UK</option>
+              <option value="SWEDEN">Sweden</option>
+              <option value="EARTH">Earth</option>
             </select>
           </div>
           <div className="form-group mb-4">
