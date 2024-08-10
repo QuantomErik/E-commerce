@@ -116,4 +116,5 @@ frontend_build/
 staticfiles/
 # /frontend/public/images
 # /backend/media/products
+backend/Scripts/
 
