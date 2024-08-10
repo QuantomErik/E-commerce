@@ -17,7 +17,7 @@ const GiftCards = () => {
         </div>
         <div className="mb-4">
           <h2 className="text-xl font-semibold">Your Gift Cards</h2>
-          <p>No gift cards found.</p>
+          <p>No Gift cards found.</p>
         </div>
       </div>
       <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Add Gift Card</button>
