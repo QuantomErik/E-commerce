@@ -38,7 +38,6 @@ const BestSellers = ({ onOpenCartDrawer }) => {
 
   return (
     <div className="container-best-sellers">
-      {/* <div className="container mx-auto my-10 p-5"> */}
     <div className="best-sellers-container">
       <h1 className="text-2xl font-bold mb-4">Best Sellers</h1>
       <div className="sort-options">

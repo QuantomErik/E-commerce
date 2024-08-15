@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Carousell.css'; // Ensure this file is created for custom styles if needed
+import './Carousell.css';
 
 function Carousell() {
   useEffect(() => {
@@ -27,7 +27,7 @@ function Carousell() {
     document.querySelector('[data-carousel-next]').addEventListener('click', nextItem);
     document.querySelector('[data-carousel-prev]').addEventListener('click', prevItem);
 
-    showItem(currentIndex); // Show the first item initially
+    showItem(currentIndex);
   }, []);
 
   return (

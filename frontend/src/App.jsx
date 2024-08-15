@@ -4,8 +4,6 @@ import Register from "./components/Register/Register";
 import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
 import Navbar from "./components/Navbar/Navbar";
-import ProductCard from "./components/ProductCard/ProductCard";
-/* import Products from "./components/Products/Products"; */
 import CheckoutPage from "./components/Checkout/CheckoutPage";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -30,7 +28,7 @@ import AllProductsPage from "./components/AllProductsPage/AllProductsPage";
 import GiftIdeas from "./components/GiftIdeas/GiftIdeas";
 import TodaysDeals from "./components/TodaysDeals/TodaysDeals";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import axios from "axios";
@@ -41,7 +39,7 @@ import 'react-tooltip/dist/react-tooltip.css';
 
 // Set CSRF token
 axios.get('https://erikyang.se/ecommerce/api/set-csrf/')
-  .then(response => {
+  .then(() => {
     console.log('CSRF token set');
   })
   .catch(error => {
@@ -89,7 +87,6 @@ function App() {
             <Navbar />
             <div className="content">
               <Routes>
-                {/* <Route path="/" element={<Home />} /> */}
                 <Route path="/" element={<Home onOpenCartDrawer={openCartDrawer} />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />
@@ -103,24 +100,17 @@ function App() {
                 <Route path="/products/:id" element={<ProductDetail onOpenCartDrawer={openCartDrawer} />} />
 
                 <Route path="/your-account" element={<ProtectedRoute><YourAccount /></ProtectedRoute>} />
-                {/* <Route path="/your-orders" element={<ProtectedRoute><YourOrders /></ProtectedRoute>} /> */}
-                {/* <Route path="/productcard" element={<ProtectedRoute><ProductCard onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} /> */}
                 <Route path="/your-orders" element={<ProtectedRoute><YourOrders onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} />
-                {/* <Route path="/buy-again" element={<ProtectedRoute><BuyAgain /></ProtectedRoute>} /> */}
                 <Route path="/buy-again" element={<ProtectedRoute><BuyAgain onOpenCartDrawer={openCartDrawer} /></ProtectedRoute>} />
 
                 <Route path="/your-addresses" element={<ProtectedRoute><YourAddresses /></ProtectedRoute>} />
-               {/*  <Route path="/new-address" element={<ProtectedRoute><NewAddress /></ProtectedRoute>} /> */}
                <Route path="/your-addresses/new-address" element={<ProtectedRoute><NewAddress addNewAddress={addNewAddress} /></ProtectedRoute>} />
-               {/* <Route path="/your-addresses/edit-address/:id" element={<ProtectedRoute><EditAddress /></ProtectedRoute>} /> */}
                <Route path="/your-addresses/edit-address/:id"element={<EditAddress updateAddress={updateAddress} />}/>
 
 
                 <Route path="/contact-us" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
-                {/* <Route path="/gift-cards" element={<ProtectedRoute><GiftCards /></ProtectedRoute>} /> */}
                 <Route path="/gift-cards" element={<GiftCards />} />
                 <Route path="/gift-ideas" element={<GiftIdeas onOpenCartDrawer={openCartDrawer} />} />
-                {/* <Route path="/gift-ideas" element={<GiftIdeas />} /> */}
                 <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmation /></ProtectedRoute>} />
 
 

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import api from '../../api';
 import './ProductsDrawer.css';
 import { FaTimes } from 'react-icons/fa';
@@ -100,6 +101,12 @@ const ProductsDrawer = ({ isOpen, onClose }) => {
       </div>
     </>
   );
+};
+
+// Define PropTypes
+ProductsDrawer.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ProductsDrawer;

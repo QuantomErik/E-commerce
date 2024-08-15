@@ -1,7 +1,7 @@
-// src/components/NewAddress/NewAddress.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
+import PropTypes from 'prop-types';
 import './NewAddress.css';
 import api from '../../api';
 
@@ -155,6 +155,11 @@ const NewAddress = ({ addNewAddress }) => {
       </div>
     </div>
   );
+};
+
+// Define PropTypes
+NewAddress.propTypes = {
+  addNewAddress: PropTypes.func.isRequired,
 };
 
 export default NewAddress;

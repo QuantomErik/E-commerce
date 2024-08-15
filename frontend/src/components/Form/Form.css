@@ -1,5 +1,3 @@
-/* Form.css */
-
 .form-container {
   display: flex;
   flex-direction: column;
@@ -13,22 +11,22 @@
 }
 
 .form-input {
-  width: 100%; /* Ensures the input fields take up the full width of the form container */
+  width: 100%;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 25px; /* Makes the input fields more rounded */
+  border-radius: 25px;
   box-sizing: border-box;
 }
 
 .form-button {
-  width: 100%; /* Ensures the button takes up the full width of the form container */
+  width: 100%;
   padding: 10px;
   margin: 20px 0;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 25px; /* Makes the button more rounded */
+  border-radius: 25px; 
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }

@@ -1,16 +1,14 @@
-
-
 .buy-again-container {
-  background-color: #f9f9f9; /* Light background for better contrast */
+  background-color: #f9f9f9;
 }
 
 .loader {
-  border: 4px solid #f3f3f3; /* Light grey */
-  border-top: 4px solid #3498db; /* Blue */
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
   border-radius: 50%;
-  width: 50px; /* Larger size */
-  height: 50px; /* Larger size */
-  animation: spin 1.5s linear infinite; /* Faster spin */
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s linear infinite;
 }
 
 @keyframes spin {
@@ -42,11 +40,7 @@
   }
 }
 
-/* @media (min-width: 1024px) {
-  .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-} */
+
 
 @media (min-width: 1280px) {
   .products-grid {
@@ -92,7 +86,6 @@ h1.relative {
 
 /* Additional styling for links */
 .your-orders-link {
-  /* color: #6c757d; */
   color: #628fb6;
   margin-left: 1rem;
 }
@@ -112,9 +105,6 @@ h1.relative {
 .card-container.buy-again-height .card {
   height: 280px; 
 }
-
-
-
 
 
 

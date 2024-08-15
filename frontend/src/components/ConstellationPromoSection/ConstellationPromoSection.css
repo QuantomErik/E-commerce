@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* padding: 2rem; */
     background-color: #f9f9f9;
     border-radius: 8px;
     margin: 2rem 0;
@@ -33,14 +32,12 @@
     flex: 4;
     display: flex;
     justify-content: center;
-    /* margin-right: 2rem; */
   }
   
   .constellation-promo-image img {
     min-width: 100%;
     height: auto;
     border-radius: 3px;
-    /* margin-right: 8rem; */
   }
 
 
@@ -187,7 +184,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      /* padding: 2rem; */
       background-color: #f9f9f9;
       border-radius: 8px;
       margin: 2rem 0;

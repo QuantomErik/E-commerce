@@ -1,30 +1,6 @@
-/* 
-import { Link } from 'react-router-dom';
-import Products from '../Products/Products';
-import Carousell from '../Carousell/Carousell';
-import Footer from '../Footer/Footer';
-import PlanetPromoSection from '../PlanetPromoSection/PlanetPromoSection';
-import MoonPromoSection from '../MoonPromoSection/MoonPromoSection';
-import '../../App.css'
-
-function Home({ onOpenCartDrawer }) {
-  return (
-    <div>
-      <PlanetPromoSection imageSrc="./src/components/PlanetPromoSection/PlanetPromo.jpg"/>
-      <Carousell />
-      <Products onOpenCartDrawer={onOpenCartDrawer} />
-    </div>
-  );
-}
-
-export default Home;
- */
-
-
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Products from '../Products/Products';
-import Carousell from '../Carousell/Carousell';
-import Footer from '../Footer/Footer';
 import PlanetPromoSection from '../PlanetPromoSection/PlanetPromoSection';
 import MoonPromoSection from '../MoonPromoSection/MoonPromoSection';
 import ConstellationPromoSection from '../ConstellationPromoSection/ConstellationPromoSection';
@@ -77,5 +53,9 @@ function Home({ onOpenCartDrawer }) {
     </div>
   );
 }
+
+Home.propTypes = {
+  onOpenCartDrawer: PropTypes.func.isRequired,
+};
 
 export default Home;

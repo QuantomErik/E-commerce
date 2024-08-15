@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import './YourAddresses.css';
-import api from '../../api'; // Ensure this points to your api module
+import api from '../../api'; 
 
 const YourAddresses = () => {
   const navigate = useNavigate();

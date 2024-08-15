@@ -1,4 +1,3 @@
-import React from 'react';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 
 const GiftCards = () => {
@@ -9,7 +8,7 @@ const GiftCards = () => {
       <h1 className="text-2xl font-bold mb-4">Gift Cards</h1>
       <p>Purchase and manage your gift cards here.</p>
       <div className="mt-4">
-        {/* Sample gift card section */}
+        
         <div className="mb-4">
           <h2 className="text-xl font-semibold">Available Gift Cards</h2>
           <p>$50 Gift Card</p>

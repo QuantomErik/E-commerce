@@ -6,9 +6,7 @@ body {
 .checkout-container {
   min-height: 100vh;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  /* background-color: #f7fafc; */
   margin-top: 5rem;
   margin-left: 20rem;
   margin-right: 20rem;
@@ -136,7 +134,6 @@ body {
 
 @media (max-width: 1500px) {
   .checkout-container {
-    /* flex-direction: column; */
     margin-left: 10rem;
     margin-right: 10rem;
   }
@@ -155,7 +152,6 @@ body {
 
 @media (max-width: 1200px) {
   .checkout-container {
-    /* flex-direction: column; */
     margin-left: 1rem;
     margin-right: 1rem;
   }
